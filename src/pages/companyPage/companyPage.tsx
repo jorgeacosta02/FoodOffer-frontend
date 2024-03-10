@@ -1,4 +1,4 @@
-import NavBarLayout from '../../layouts/navBarLayout/navBarLayout'
+import NavBarLayout from '../../layouts/navBarLayout/NavBarLayout'
 import CompanyComp from '../../components/companyComp/companyComp'
 import FooterComp from '../../components/footerComp/footerComp'
 
