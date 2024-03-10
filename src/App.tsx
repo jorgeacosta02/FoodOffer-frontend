@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Pages
+import ContactPage from './pages/contactPage/ContactPage';
+import UserRegisterPage from './pages/userRegisterPage/UserRegisterPage';
+import LoginPage from './pages/userLoginPage/UserLoginPage';
+import TasksPage from './pages/taskPages/TasksPage';
+import AddTaskPage from './pages/taskPages/AddTaskPage';
+import TaskByIdPage from './pages/taskPages/TaskByIdPage';
+import UserProfilePage from './pages/userProfilePage/UserProfilePage';
+import HomePage from './pages/homePage/HomePage';
+import CalendarPage from './pages/calendarPage/CalendarPage';
+import WorkerRegisterPage from './pages/workerRegisterPage/WorkerRegisterPage';
+import WorkerLoginPage from './pages/workerLoginPage/WorkerLoginPage';
+import WorkerProfilePage from './pages/workerProfilePage/WorkerProfilePage';
 
+// Components
+import UserRoutesComp from './components/protectedRoutes/userRoutesComp/UserRoutesComp';
+import WorkerRoutesComp from './components/protectedRoutes/workerRoutesComp/WorkerRoutesComp';
+import AdminRoutesComp from './components/protectedRoutes/AdminRoutesComp/AdminRoutesComp';
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Routes>
+
+        {/*Free Routes*/}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/appointment" element={<CalendarPage />} />
+        <Route path='/user-register' element={<UserRegisterPage/>}/>
+        <Route path='/user-login' element={<LoginPage/>}/>
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/worker-login" element={<WorkerLoginPage/>}/>
+        <Route path="/worker-register" element={<WorkerRegisterPage/>} />
+
+        {/* User Protected Routes*/}
+       <Route element={<UserRoutesComp/>}>
+        <Route path='/tasks' element={<TasksPage/>}/>
+        <Route path='/task/:id' element={<TaskByIdPage/>}/>
+        <Route path='/user-profile' element={<UserProfilePage/>}/>
+       </Route>
+
+       {/* Worker Protected  Routes */}
+       <Route element={<WorkerRoutesComp/>}>
+        <Route path='/worker-profile' element={<WorkerProfilePage/>}/>
+       </Route>
+
+       {/* Admin Protected Routes */}
+       <Route element={<AdminRoutesComp/>}>
+        <Route path='/add-task' element={<AddTaskPage/>}/>
+       </Route>
+      </Routes>
+    </div>
   )
 }
 
