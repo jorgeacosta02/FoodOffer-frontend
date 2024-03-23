@@ -1,0 +1,91 @@
+@use '../../styles/globals' as g;
+
+.container{
+    box-sizing: border-box;
+    margin-top: 5vh;
+    padding: g.$mobile-main-container-padding;
+    width: 100%;
+    @include g.display-large{
+        padding-top: 0;
+        margin-top: 0;
+        min-height: 500px;
+        width: 35vw;
+        border: 1px solid g.$white-color;
+        border-radius: 3vw;
+    }
+    h2{
+        text-align: center;
+    }
+    .inputBlock{
+        box-sizing: border-box;
+        @include g.create-flexbox(column, space-between);
+        align-items: flex-start;
+        width: 100%;
+        input{
+            font-size: g.$mobile-p-font-size;
+            box-sizing: border-box;
+            width: 100%;
+            @include g.display-large{
+                font-size: g.$desk-p-font-size;
+            };
+        }
+    }
+    p{
+        margin: 0;
+        color: g.$red-color;
+    }
+    .textareaBlock{
+        margin-top: 15px;
+        width: 100%;
+        @include g.create-flexbox(column, space-between);
+        align-items: flex-start;
+        label{
+            width: 20%;
+            @include g.display-large{
+            };
+        }
+        textarea{
+            font-size: g.$mobile-p-font-size;
+            box-sizing: border-box;
+            width: 100%;
+            height: 130px;
+            @include g.display-large{
+                font-size: g.$desk-p-font-size;
+                height: 15vh;
+            };
+        }
+    }
+    p{
+        margin: 0;
+        color: g.$red-color;
+    }
+    .submitBox{
+        width: 100%;
+        height: 18vh;
+        @include g.create-flexbox(row, space-evenly);
+        align-items: center;
+        justify-content: center;
+        @include g.display-large{
+            width: 100%;
+        };
+        .submit{
+            cursor: pointer;
+            border:none;
+            color: g.$dark-black-color;
+            background-color: g.$main-color;
+            border-radius: 4px;
+            width: 70%;
+            height: 36px;
+            font-weight: 300;
+            font-size: calc(g.$mobile-h2-font-size * .85);
+            @include g.display-large{
+                font-size: calc(g.$desk-h3-font-size * 1); 
+            };
+        }.submit:hover{
+            background-color: g.$main-dark-color;
+        }.submit:disabled{
+            background-color: g.$main-light-color;
+            color: g.$grey-color;
+        }
+    }
+}

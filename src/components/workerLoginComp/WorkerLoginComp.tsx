@@ -1,17 +1,18 @@
-import styles from './_UserLoginComp.module.scss'
+import styles from './_WorkerLoginComp.module.scss'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { userLoginSchema } from '../../validations/zodUserSchemas';
-import { IUserLoginData } from '../../Interfaces/userInterfaces';
+import { workerLoginSchema } from '../../validations/zodWorkerSchemas';
+// import { Link } from 'react-router-dom';
+import { IWorkerLoginData } from '../../Interfaces/workerInterfaces';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserAuth } from '../../redux/slices/userAuthSlice';
-import { loginUser } from '../../redux/actions/actions';
-import { useNavigate, Link } from 'react-router-dom';
+import { selectWorkerAuth } from '../../redux/slices/workerAuthSlice';
+import { loginWorker } from '../../redux/actions/actions';
+import { useNavigate } from 'react-router-dom';
 
 
-const UserLoginComp = () => {
+const WorkerLoginComp = () => {
 
-  const userAuth = useSelector(selectUserAuth);
+  const workerAuth = useSelector(selectWorkerAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,24 +21,28 @@ const UserLoginComp = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IUserLoginData>({
-    resolver: zodResolver(userLoginSchema)
+  } = useForm<IWorkerLoginData>({
+    resolver: zodResolver(workerLoginSchema)
   })
 
-  const onSubmit = async (data:IUserLoginData) => {
+  const onSubmit = async (data:IWorkerLoginData) => {
     console.log('data en onSubmit ', data)
-    dispatch(loginUser(data));
+    await dispatch(loginWorker(data));
     reset();
-    navigate('/');
   };
   
-  console.log('userAuth en LoginComp:  ',userAuth);
+  console.log('workerAuth en WorkerLoginComp:  ',workerAuth);
   
   console.log('document.cookie', document);
 
-  const userAuthCompleteReducer = useSelector((state: any) => state.userAuth.data);
-  console.log('userAuthCompleteReducer state.usrerAuth.data in LoginAction :',userAuthCompleteReducer);
+  const workerAuthCompleteReducer = useSelector((state: any) => state.workerAuth.data);
+  console.log('workerAuthCompleteReducer state.workerAuth.data in WorkerLoginAction :',workerAuthCompleteReducer);
 
+  console.log('workerAuth en on Submit: ', workerAuth)
+  if(workerAuth?.data?.role === 'prof'){
+    console.log('por ir a /worker-profile')
+    navigate('/worker-profile')
+  }
  
   return (
     <div className={styles.container}>
@@ -73,18 +78,9 @@ const UserLoginComp = () => {
             Ingresar
           </button>
         </form>
-        <p className={styles.linkContainer}>
-          Aún no tenés una cuenta?
-          <Link 
-            to='/user-register'
-            className={styles.register}
-          >
-            Registrarse
-          </Link>
-        </p>
       </div>
     </div>
   )
 }
 
-export default UserLoginComp
+export default WorkerLoginComp

@@ -1,29 +1,19 @@
 @use "../../styles/globals" as g;
 
 .container{
+    height: g.$mobile-NavBar-height;
     @include g.create-flexbox(column, center);
-    .menu{
-        box-sizing: border-box;
-        font-size: 35px;
-        width: 20px;
-        height: 20px;
-        fill: g.$white-color;
-        z-index: 1000;
-        margin-right: 2vw;
-        cursor: pointer;
-        @include g.display-large{
-            display: none;
-        }
-    }
-    .menuWhite{
-        fill: g.$dark-black-color;
-    }
-    .menu:hover{
-        background-color: rgba(157, 157, 157, .1);
-        @include g.display-large{
-            background-color: transparent;
-            fill: g.$main-color;
-            transform:scale(1.1);
-        }
+}
+.menu{
+    box-sizing: border-box;
+    font-size: 35px;
+    width: 25px;
+    height: calc(g.$mobile-NavBar-height * .6);
+    fill: g.$dark-black-color;
+    z-index: 1000;
+    cursor: pointer;
+    margin-right: 5vw;
+    @include g.display-large{
+        display: none;
     }
 }
