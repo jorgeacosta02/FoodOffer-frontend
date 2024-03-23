@@ -47,12 +47,6 @@ const NavBarNavListComp = () => {
             className={styles.navLink} 
            >Contacto</NavLink>
         </li>
-        {/* <div onClick={handleClick} >
-          <NavLink
-            to="/worker-login" 
-            className={styles.intranet} 
-           >Intranet</NavLink>
-        </div> */}
         {accessLogin?.user?.id || userAuthId?.data?.user?.id
         ? <div className={styles.profileContainer}>
             <li>
