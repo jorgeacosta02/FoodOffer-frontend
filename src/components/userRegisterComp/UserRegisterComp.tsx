@@ -396,8 +396,7 @@ const UserRegisterComp = () => {
       </div>
       { messageState && 
       <MessageComp
-        data={ 'Mensaje enviado exitosamente' :
-                'Message sent successfully'
+        data={ 'Mensaje enviado exitosamente'
               }
       />}
     </div>

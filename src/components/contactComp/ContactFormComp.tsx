@@ -9,7 +9,7 @@ import {
 } from './contactValidation';
 
 import axios from 'axios';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import styles from './_ContactFormComp.module.scss';
 
 
@@ -86,18 +86,18 @@ const ContactFormComp: React.FC = () => {
         return messageExistsValidation(formData, setErrors);
       }
         await axios.post('exploservice/contact', formData)
-        toast.success('Mensaje enviado exitosamente!!')
+        // toast.success('Mensaje enviado exitosamente!!')
         setTimeout(() => {
           window.location.href = '/exploservice/company';
         }, 2000);
     } catch (error: any) {
 
-    if (error?.response?.data?.message) {
-        const errorMessage = error.response.data.message;
-        toast.error(errorMessage);
-      } else {
-      toast.error('Error al enviar el mensaje.');
-      }
+    // if (error?.response?.data?.message) {
+    //     const errorMessage = error.response.data.message;
+    //     // toast.error(errorMessage);
+    //   } else {
+    //   // toast.error('Error al enviar el mensaje.');
+    //   }
     }
     setFormData({
       name: '',

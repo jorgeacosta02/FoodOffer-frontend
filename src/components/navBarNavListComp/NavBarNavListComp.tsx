@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styles from './_navBarNavListComp.module.scss';
+import styles from './_NavBarNavListComp.module.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { selectMenuState } from '../../redux/slices/menuSlice';
 import { falseMenu } from '../../redux/slices/menuSlice';
