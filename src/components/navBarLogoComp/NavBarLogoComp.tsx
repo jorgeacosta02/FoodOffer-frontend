@@ -9,6 +9,9 @@ const LogoComp = () => {
         alt="Exploservice Logo"
         className={styles.triarLogo}  
       /> */}
+      <h3
+        className={styles.logo}
+      >Ofertas de comida</h3>
     </div>
   )
 }

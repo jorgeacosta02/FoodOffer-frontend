@@ -43,22 +43,16 @@ const NavBarNavListComp = () => {
         </li>
         <li onClick={handleClick} >
           <NavLink
-            to="/appointment" 
-            className={styles.navLink} 
-           >Turnos online</NavLink>
-        </li>
-        <li onClick={handleClick} >
-          <NavLink
             to="/contact" 
             className={styles.navLink} 
            >Contacto</NavLink>
         </li>
-        <div onClick={handleClick} >
+        {/* <div onClick={handleClick} >
           <NavLink
             to="/worker-login" 
             className={styles.intranet} 
            >Intranet</NavLink>
-        </div>
+        </div> */}
         {accessLogin?.user?.id || userAuthId?.data?.user?.id
         ? <div className={styles.profileContainer}>
             <li>

@@ -1,45 +1,47 @@
 @use '../../styles/globals' as g;
 
 .container{
-  margin: 0;
+  margin-top: g.$desk-NavBar-height;
   padding: 0;
   width: 100%;
+  height: 100vw;
   position: relative;
-  .slider {
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: 50vw;
-    min-height: 50vh;
-    width: 100%;
-    @include g.create-flexbox(row, center);
-    .slide {
-      position: absolute; // Establece el posicionamiento absoluto para cada imagen dentro del slider
-      z-index: 1;
-      top: 0; // Coloca las imágenes en la parte superior del contenedor
-      opacity: 0; // Oculta inicialmente todas las imágenes
-      transition: opacity 1.5s ease-in-out; // Agrega una transición suave a la opacidad
-      width: 100%;
-      align-items: center;
-      .img{
-        position: absolute;
-        top: 0;
-        height: 50vw;
-        min-height: 50vh;
-        width: 100%;
-        object-fit: cover; /* La imagen se ajusta manteniendo su relación de aspecto, mostrando todo el contenido */
-        @include g.display-large{
+
+  // .slider {
+  //   top: g.$desk-NavBar-height;
+  //   left: 0;
+  //   overflow: hidden;
+  //   height: 50vw;
+  //   min-height: 50vh;
+  //   width: 100%;
+  //   @include g.create-flexbox(row, center);
+  //   .slide {
+  //     position: absolute; // Establece el posicionamiento absoluto para cada imagen dentro del slider
+  //     z-index: 1;
+  //     top: 0; // Coloca las imágenes en la parte superior del contenedor
+  //     opacity: 0; // Oculta inicialmente todas las imágenes
+  //     transition: opacity 1.5s ease-in-out; // Agrega una transición suave a la opacidad
+  //     width: 100%;
+  //     align-items: center;
+  //     .img{
+  //       position: absolute;
+  //       top: 0;
+  //       height: 50vw;
+  //       min-height: 50vh;
+  //       width: 100%;
+  //       object-fit: cover; /* La imagen se ajusta manteniendo su relación de aspecto, mostrando todo el contenido */
+  //       @include g.display-large{
           
-        }
-      }
-      &.active {
-        opacity: 1; // Muestra la imagen activa
-      }
-    }
-  }
-  .div{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
+  //       }
+  //     }
+  //     &.active {
+  //       opacity: 1; // Muestra la imagen activa
+  //     }
+  //   }
+  // }
+  // .div{
+  //   width: 100%;
+  //   padding: 0;
+  //   margin: 0;
+  // }
 }
