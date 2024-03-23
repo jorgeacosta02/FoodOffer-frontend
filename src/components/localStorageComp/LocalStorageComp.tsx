@@ -1,5 +1,5 @@
 import { IUserDataFromDB } from "../../Interfaces/userInterfaces"
-import { IWorkerDataFromDB } from "../../Interfaces/workerInterfaces"
+import { IWorkerDataFromDB } from "../../Interfaces/adminInterfaces"
 
 export const localStorageSetUserData = (name:string, data: IUserDataFromDB | IWorkerDataFromDB) => {
 

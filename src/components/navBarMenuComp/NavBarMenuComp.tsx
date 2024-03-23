@@ -1,7 +1,5 @@
 import styles from './_navBarMenuComp.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectMenuState } from '../../features/menu/menuSlice';
-// import { toggleMenu } from '../../features/menu/menuSlice';
 import { toggleMenu, selectMenuState} from '../../redux/slices/menuSlice';
 
 const NavBarMenuComp = () => {
