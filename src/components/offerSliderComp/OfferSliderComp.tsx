@@ -23,16 +23,16 @@ const OfferSliderComp = (data: any) => {
         <>
           <div className={styles.pa_container}>
             <div className={styles.pa_title_container}>
-            <h3 className={styles.pa_title}>
-              Ofertas premium
-            </h3>
+            <h4 className={styles.pa_title}>
+              Ofertas premium del día
+            </h4>
             <FontAwesomeIcon className={styles.crown_icon} icon={faCrown} />
             </div>
             <div className={styles.pa_item_container}>
         <Slider {...settings}>
             {datos.map((item: any) => (
           <div>
-            <PremiumOfferCardComp data={item} key={item.id} />
+            <PremiumOfferCardComp data={item} type={1} key={item.id} />
           </div>
             ))}
         </Slider>

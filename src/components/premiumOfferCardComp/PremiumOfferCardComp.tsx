@@ -5,6 +5,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 const PremiumOfferCardComp = (data: any) => {
 
+
   const img_style = {
     height: '300px', // Altura fija deseada
     width: '100%', // Ancho completo
