@@ -1,0 +1,80 @@
+@use '../../styles/globals' as g;
+
+.card_item_box {
+    width: 250px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #565656;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card_item_details {
+width: 80%;
+text-align: left;
+}
+
+.card_item_top {
+    display: flex;
+    align-items: center;
+}
+
+.card_item_bottom {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    margin-bottom: 10px;
+}
+
+.card_item_title {
+    width: 100%;
+    color: #565656;
+    margin: 10px;
+}
+
+.card_item_price {
+    width: 100%;
+    color:#F9BD0B;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: right;
+    margin: 0;
+}
+
+.card_item_image {
+    max-width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+span {
+    color: #565656;
+    font-size: small;
+}
+
+.crown_icon {
+    color: #F9BD0B;
+}
+
+.card_item_header {
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.card_item_button {
+    background-color: #F9BD0B;
+    color: #565656;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}

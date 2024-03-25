@@ -1,4 +1,4 @@
-import styles from './_navBarMenuComp.module.scss';
+import styles from './_NavBarMenuComp.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu, selectMenuState} from '../../redux/slices/menuSlice';
 
