@@ -1,13 +1,13 @@
+import OfferSliderComp from '../offerSliderComp/OfferSliderComp';
 import styles from './_HomeComp.module.scss';
+import data from '../../../src/data.json'
 
 
 const HomeComp = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.div}>
-        <h1>HOME COMPONENT MODIFIED</h1>
-      </div>
+      <OfferSliderComp data={data}></OfferSliderComp>
     </div>
   );
 }

@@ -49,7 +49,7 @@ const ContactFormComp: React.FC = () => {
     errors.message === '' 
   ){
     submitOk = true;
-  };
+  }
   
   console.log('submitOK: ', submitOk);
 
