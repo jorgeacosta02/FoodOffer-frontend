@@ -5,7 +5,7 @@
     height: 140px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 1px 1px 3px #565656;
+    box-shadow: 1px 1px 3px g.$grey-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,13 +33,13 @@ text-align: left;
 
 .list_item_title {
     width: 95%;
-    color: #565656;
+    color: g.$grey-color;
     margin: 0 0 0 5px;
 }
 
 .list_item_price {
     width: 100%;
-    color:#F9BD0B;
+    color: g.$main-light-color;
     font-weight: 600;
     font-size: 1rem;
     margin: 0;
@@ -54,7 +54,7 @@ text-align: left;
 }
 
 .card_logo {
-    background-color: #FFA247;
+    background-color: g.$main-color;
     color: #fff;
     text-align: center;
     border-radius: 50%;
@@ -69,12 +69,12 @@ text-align: left;
 }
 
 span {
-    color: #565656;
+    color: g.$grey-color;
     font-size: small;
 }
 
 .crown_icon {
-    color: #F9BD0B;
+    color: g.$main-light-color; 
     width: 5%;
 }
 

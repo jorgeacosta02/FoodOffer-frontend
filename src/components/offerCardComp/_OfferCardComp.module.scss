@@ -5,7 +5,7 @@
     height: 200px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 1px 1px 3px #565656;
+    box-shadow: 1px 1px 3px g.$grey-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,20 +36,20 @@ text-align: left;
 
 .card_item_title_container {
     width: 90%;
-    color: #565656;
+    color: g.$grey-color;
     margin: 5px;
     text-align: left;
 }
 
 .card_item_title {
     width: 90%;
-    color: #565656;
+    color: g.$grey-color;
     margin: 0;
 }
 
 .card_item_price {
     width: 50%;
-    color:#F9BD0B;
+    color: g.$main-light-color;
     font-weight: 600;
     font-size: 0.8rem;
     text-align: right;
@@ -65,12 +65,12 @@ text-align: left;
 }
 
 span {
-    color: #565656;
+    color: g.$grey-color;
     font-size: small;
 }
 
 .crown_icon {
-    color: #F9BD0B;
+    color: g.$main-light-color;
 }
 
 .card_item_header {
@@ -106,8 +106,8 @@ span {
 }
 
 .card_tag{
-    background-color: #36ffbc96;
-    color: #15c58b;
+    background-color: g.$green-color-transp;
+    color: g.$green-color;
     font-weight: bold;
     height: fit-content;
     padding: 2px;

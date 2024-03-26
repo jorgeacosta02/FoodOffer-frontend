@@ -1,6 +1,8 @@
+
+@use '../../styles/globals' as g;
+
 .pa_container {
     width: 100vw;
-    /* border: 2px solid #F9BD0B; */
     border-radius: 5px;
     height: fit-content;
     display: flex;
@@ -18,26 +20,26 @@
 
 .pa_title {
   margin: 0;
-    /* background-color: #F9BD0B; */
-    width: 90%;
-    text-align: left;
-    color: #00525B;
+  width: 90%;
+  text-align: left;
+  color: #00525B;
 }
   
 .crown_icon {
-  color: #F9BD0B;
+  color: g.$main-light-color;
 }
-  .qc_link {
-    position: absolute;
-    right: 2%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 
-  .pa_title_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    height: 30px;
-  }
+.qc_link {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pa_title_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 30px;
+}
