@@ -1,19 +1,22 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { getDataFromLocalStorage } from "../../localStorageComp/LocalStorageComp";
+import { 
+  // Navigate, 
+  Outlet 
+} from "react-router-dom";
+// import { getDataFromLocalStorage } from "../../localStorageComp/LocalStorageComp";
 
 
 const UserRoutesComp = () => {
 
-  const accessLogin = getDataFromLocalStorage('accessLogin');
+  // const accessLogin = getDataFromLocalStorage('accessLogin');
 
-  console.log(accessLogin)
+  // console.log(accessLogin)
 
-  if ( accessLogin.user.active && accessLogin?.user?.role === 'user' ) {
-    console.log('dentro del if')
+  // if ( accessLogin.user.active && accessLogin?.user?.role === 'user' ) {
+  //   console.log('dentro del if')
     return <Outlet/>;
-  }
-  console.log('fuera del if')
-  return <Navigate to='/user-login' />
+  // }
+  // console.log('fuera del if')
+  // return <Navigate to='/user-login' />
 };
 
 export default UserRoutesComp
