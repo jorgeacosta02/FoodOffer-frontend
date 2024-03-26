@@ -1,0 +1,12 @@
+[
+    { "id": "1", "link": "link1", "icon": "burguer.png", "name": "Vehiculos" },
+    { "id": "2", "link": "link2", "icon": "pizza.png", "name": "Inmuebles" },
+    { "id": "3", "link": "link3", "icon": "pasta.png", "name": "Dormitorio" },
+    { "id": "4", "link": "link4", "icon": "salad.png", "name": "Dormitorio" },
+    { "id": "5", "link": "link5", "icon": "burguer.png", "name": "Dormitorio" },
+    { "id": "6", "link": "link6", "icon": "pizza.png", "name": "Dormitorio" },
+    { "id": "7", "link": "link6", "icon": "pasta.png", "name": "Dormitorio" },
+    { "id": "8", "link": "link6", "icon": "salad.png", "name": "Dormitorio" },
+    { "id": "9", "link": "link6", "icon": "burguer.png", "name": "Dormitorio" },
+    { "id": "10", "link": "link6", "icon": "pizza.png", "name": "Dormitorio" }
+  ]
