@@ -39,7 +39,7 @@ const UserProfileComp = () => {
                         Crear publicación
                     </Link>
                     <Link to="#">
-                        Modificar datos
+                        Modificar mis datos
                     </Link>
                 </div>
                 <div className={styles.buttons}>
