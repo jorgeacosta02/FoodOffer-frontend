@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { toggleMessage } from '../../redux/slices/messageSlice';
 
 
-const UserLoginComp = () => {
+const AdminLoginComp = () => {
 
     const userAuth = useSelector(selectUserAuth);
     const dispatch = useDispatch();
@@ -169,4 +169,4 @@ const UserLoginComp = () => {
     )
 }
 
-export default UserLoginComp
+export default AdminLoginComp

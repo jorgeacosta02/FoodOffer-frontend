@@ -1,23 +1,23 @@
 // userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginUser } from '../actions/loginUserActions';
-import { IUserData, ApiResponse } from '../../Interfaces/userInterfaces';
+import { loginAdmin } from '../actions/loginAdminActions';
+import { IAdminData, ApiResponse } from '../../Interfaces/adminInterfaces';
 
 
-interface UserState {
-    data: IUserData | null;
+interface AdminState {
+    data: IAdminData | null;
     loading: boolean;
     error: string | null;
 }
 
-const initialState: UserState = {
+const initialState: AdminState = {
     data: null,
     loading: false,
     error: null,
 };
 
-const userSlice = createSlice({
-    name: 'userAuth',
+const adminSlice = createSlice({
+    name: 'adminAuth',
     initialState,
     reducers: {
       cleanUser : (state) => {
@@ -26,14 +26,14 @@ const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(loginUser.pending, (state) => {
+        .addCase(loginAdmin.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
-        .addCase(loginUser.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
+        .addCase(loginAdmin.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
           state.loading = false;
-          console.log('action.payload.user :', action.payload.user);
-          state.data = action.payload.user;
+          console.log('action.payload.user :', action.payload.admin);
+          state.data = action.payload.admin;
           console.log('state.data en la slice: ', state.data)
           if (action.payload.message === 'El usuario no existe') {
             // El servidor devolvió un mensaje indicando que el usuario no existe
@@ -41,7 +41,7 @@ const userSlice = createSlice({
           }
         })
         .addCase(
-          loginUser.rejected,
+          loginAdmin.rejected,
           (state, action: any) => {
             state.loading = false;
             state.error = action.error.message || 'Error desconocido en la solicitud de inicio de sesión';
@@ -50,8 +50,8 @@ const userSlice = createSlice({
     },
 });
 
-export const { cleanUser } = userSlice.actions;
+export const { cleanUser } = adminSlice.actions;
 
-export default userSlice.reducer;
+export default adminSlice.reducer;
 
-export const selectUserAuth = (state:any) => state.userAuth;
+export const selectAdminAuth = (state:any) => state.adminAuth;

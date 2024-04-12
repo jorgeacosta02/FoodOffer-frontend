@@ -1,0 +1,23 @@
+@use '../../styles/globals' as g;
+
+.container {
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.filter_container {
+    background-color: g.$main-color ;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.view_icon {
+    color: #FFEACE;
+    position: relative;
+}

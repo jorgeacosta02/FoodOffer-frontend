@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit"
 import menuReducer from '../slices/menuSlice'
-// import moonReducer from '../slices/moonSlice'
-// import langReducer from '../slices/langSlice'
-// import messageReducer from '../slices/messageSlice'
+import adminReducer from '../slices/adminAuthSlice'
+import messageReducer from '../slices/messageSlice'
+import userReducer from '../slices/userAuthSlice'
 
 export const store = configureStore ({
   reducer: {
     menu: menuReducer,
-    // moon: moonReducer,
-    // lang: langReducer,
-    // message: messageReducer,
+    admin: adminReducer,
+    user: userReducer,
+    message: messageReducer,
   }
 })

@@ -1,7 +1,6 @@
 import { IUserDataFromDB } from "../../Interfaces/userInterfaces"
-import { IWorkerDataFromDB } from "../../Interfaces/workerInterfaces"
 
-export const localStorageSetUserData = (name:string, data: IUserDataFromDB | IWorkerDataFromDB) => {
+export const localStorageSetUserData = (name:string, data: IUserDataFromDB) => {
 
     console.log('data en localStorageSetUserData', data)
 

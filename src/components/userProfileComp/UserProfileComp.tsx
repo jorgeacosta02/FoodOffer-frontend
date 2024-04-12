@@ -2,6 +2,7 @@ import styles from './_UserProfileComp.module.scss'
 import { getDataFromLocalStorage, cleanDataInLocalStorage } from '../localStorageComp/LocalStorageComp'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { cleanUser } from '../../redux/slices/userAuthSlice'
 
 const UserProfileComp = () => {
@@ -10,7 +11,7 @@ const UserProfileComp = () => {
     const navigate = useNavigate();
     const user = getDataFromLocalStorage('accessLogin').user;
 
-    const clickHandler = () => {
+    const signOutHandler = () => {
         cleanDataInLocalStorage('accessLogin');
         dispatch(cleanUser());
         navigate('/');
@@ -25,15 +26,25 @@ const UserProfileComp = () => {
             <div className={styles.dataContainer}>
                 <h1 className={styles.title}>Mi perfil</h1>
                 <div className={styles.data}>
-                    <p>{`Nombre: ${user.firstName.toUpperCase()}`}</p>
-                    <p>{`Apellido: ${user.lastName.toUpperCase()}`}</p>
-                    <p>{`Dni: ${user.dni ? user.dni : 'sin número'}`}</p>
+                    <p>{`Nombre del negocio: ${user.firstName.toUpperCase()}`}</p>
+                    <p>{`Logo: ${user.firstName.toUpperCase()}`}</p>
+                    <p>{`Descripción del negocio: ${user.lastName.toUpperCase()}`}</p>
+                    <p>{`Domicilio: ${user.dni ? user.dni : 'sin número'}`}</p>
                     <p>{`Teléfono: ${user.phone}`}</p>
                     <p>{`Email: ${user.email}`}</p>
+                    <p>{`Nombre del titular: ${user.email}`}</p>
+                </div>
+                <div className={styles.linksContainer}>
+                    <Link to="#">
+                        Crear publicación
+                    </Link>
+                    <Link to="#">
+                        Modificar mis datos
+                    </Link>
                 </div>
                 <div className={styles.buttons}>
                     <button
-                        onClick={clickHandler}
+                        onClick={signOutHandler}
                         className={styles.button}
                     >
                         Cerrar sesión

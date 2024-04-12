@@ -1,63 +1,54 @@
 
-// Interface for save worker in db
-export interface IWorkerData {
+// Interface for save admin in db
+export interface IAdminData {
     firstName: string;
     lastName: string;
     dni: string;
-    healthPlan?: string;
-    phone: string;
-    email: string;
     password: string;
     active: boolean;
     role: string;
 }
 
-// Interface prof worker db
-export interface IWorkerDataFromDB {
+// Interface prof admin db
+export interface IAdminDataFromDB {
     id: string,
     firstName: string;
     lastName: string;
     dni: string;
-    healthPlan?: string;
-    phone: string;
-    email: string;
     password: string;
     active: boolean;
     role: string;
 }
 
-// Interface for register worker
-export interface IWorkerRegisterData {
+// Interface for register admin
+export interface IAdminRegisterData {
     firstName: string;
     lastName: string;
     dni: string;
-    healthPlan?: string;
-    phone: string;
-    email: string;
     password: string;
+    active: boolean;
+    role: string;
 }
 
 // LOGIN
-export interface IWorkerLoginData {
+export interface IAdminLoginData {
     dni: string;
     password: string;
   }
 
 // ApiResponse
 export interface ApiResponse {
-    worker: IWorkerData;
+    admin: IAdminData;
     message: string;
 }
 
 // LocalStorage 'prof'
-export interface ILocalStorageWorkerData {
+export interface ILocalStorageAdminData {
     id: string,
     firstName: string;
     lastName: string;
     dni: string;
-    healthPlan?: string;
-    phone: string;
-    email: string;
+    password: string;
     active: boolean;
     role: string;
 }
