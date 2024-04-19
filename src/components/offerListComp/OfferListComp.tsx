@@ -5,6 +5,9 @@ import { faList, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import OfferListItemComp from '../offerListItemComp/OfferListItemComp';
 
 import OfferCardComp from '../offerCardComp/OfferCardComp';
+import { Link } from 'react-router-dom';
+
+
 
 
 const OfferListComp = (data: any) => {
@@ -12,7 +15,7 @@ const OfferListComp = (data: any) => {
 
   // Función para cambiar el valor de viewList
   const toggleViewList = () => {
-    setViewList(prevState => !prevState); // Cambia el valor de viewList a su valor opuesto
+    setViewList(prevState => !prevState); 
   };
   
   const [selectedOption, setSelectedOption] = useState('');
@@ -20,18 +23,22 @@ const OfferListComp = (data: any) => {
   const handleSelectChange = (event: any) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
+
   };
+  
 
   const options = [
     { label: 'Menor precio', value: '1' },
-    { label: 'Mayo precio', value: '2' },
+    { label: 'Mayor precio', value: '2' },
+    { label: 'Mejor puntuación', value: '3' },
+    { label: 'Más variado', value: '4' }
   ];
 
   return (
        <div className={styles.container}>
         <div className={styles.filter_container}>
-        <select value={selectedOption} onChange={handleSelectChange}>
-      <option value="" disabled>
+        <select value={selectedOption} className={styles.filter_option} onChange={handleSelectChange} >
+      <option value="" disabled hidden>
         Ordenar por
       </option>
       {options.map((option) => (
@@ -44,11 +51,15 @@ const OfferListComp = (data: any) => {
         </div>
                     
           {data.data.map((item: any) =>
+
                 !viewList ? (
-                  <OfferListItemComp data={item} key={item.id} />
+                  <Link key={item.id} to={`/offerDetail/${item.id}`}>
+                  <OfferListItemComp data={item}  />
+                  </Link>
                 ) : (
                   <OfferCardComp data={item} type={2} key={item.id} />
                 )
+
               )}
         </div>
   );

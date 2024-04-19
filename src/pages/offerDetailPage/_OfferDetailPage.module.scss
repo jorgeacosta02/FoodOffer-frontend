@@ -1,0 +1,118 @@
+@use '../../styles/globals' as g;
+
+.detail_box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.card_item_details {
+width: 80%;
+text-align: left;
+}
+
+.card_item_top {
+    display: flex;
+    align-items: center;
+}
+
+.card_item_bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: left;
+    height: 90px;
+    margin-left: 20px;
+}
+
+.card_item_title_container {
+    width: 90%;
+    color: g.$grey-color;
+    margin: 5px;
+    text-align: left;
+}
+
+.card_item_title {
+    width: 90%;
+    color: g.$grey-color;
+    margin: 0;
+}
+
+.card_item_price {
+    width: 50%;
+    color: g.$main-light-color;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: right;
+    margin: 0;
+}
+
+.card_item_image {
+    max-width: 100%;
+    height: 300px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 10px;
+}
+
+span {
+    color: g.$grey-color;
+    font-size: small;
+}
+
+.crown_icon {
+    color: g.$main-light-color;
+}
+
+.card_item_header {
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.card_logo {
+    background-color: #CA242B;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 0.6rem;
+}
+
+.card_item_desc {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 30px;
+    margin: 0px;
+    padding: 5px;
+    align-items: center;
+}
+
+.card_tag{
+    background-color: g.$green-color-transp;
+    color: g.$green-color;
+    font-weight: bold;
+    height: fit-content;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 0.5rem;
+}
+.tag_icon {
+    margin-right: 5px;
+}
+
+.res_name {
+    font-size: 0.7rem;
+}
