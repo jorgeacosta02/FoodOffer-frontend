@@ -10,7 +10,7 @@
     left: 0;
     padding: 0 2vw;
     margin: 0;
-    background-color: g.$main-color;
+    background-color: grey;
     @include g.create-flexbox(row, space-between);
     z-index: 1000;
     @include g.display-large{
