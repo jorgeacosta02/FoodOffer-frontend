@@ -6,8 +6,7 @@
     height: 160px;
     padding: 2vw 3vw;
     text-align: center;
-    background-color: g.$dark-black-color;
-    border-top: 50px solid g.$main-dark-color;
+    background-color: g.$main-color;
     z-index: 90;
     @include g.display-large{
          justify-content: space-between;
@@ -15,6 +14,7 @@
 
     p{
         color: g.$grey-color;
+        font-size: 0.8rem;
     }
 
 }

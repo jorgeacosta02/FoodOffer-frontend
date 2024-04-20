@@ -1,0 +1,28 @@
+@use '../../styles/globals' as g;
+
+.check-tag{
+    background-color: g.$green-color-transp;
+    color: g.$green-color;
+    font-weight: bold;
+    height: fit-content;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    margin-right: 5px;
+}
+
+.unCheck-tag{
+    background-color: g.$red-color-transp;
+    color: g.$red-color;
+    font-weight: bold;
+    height: fit-content;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    margin-right: 5px;
+}
+
+
+.tag_icon {
+    margin-right: 5px;
+}

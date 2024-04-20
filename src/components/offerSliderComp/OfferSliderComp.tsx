@@ -31,8 +31,8 @@ const OfferSliderComp = (data: any) => {
             <div className={styles.pa_item_container}>
         <Slider {...settings}>
             {datos.map((item: any) => (
-          <div>
-            <PremiumOfferCardComp data={item} type={1} key={item.id} />
+          <div key={item.id}>
+            <PremiumOfferCardComp data={item} type={1}  />
           </div>
             ))}
         </Slider>

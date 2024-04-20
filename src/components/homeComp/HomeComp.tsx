@@ -4,9 +4,19 @@ import data from '../../../src/data.json'
 import categories from '../../../src/categories.json'
 import OfferListComp from '../offerListComp/OfferListComp';
 import CatSliderComp from '../catSliderComp/CatSliderComp';
-
+import { useEffect } from 'react';
+import  { getReq } from '../../helpers/genericService'
 
 const HomeComp = () => {
+
+useEffect(()=> {
+  getAdvertising();
+})
+  const getAdvertising = async () => {
+     await getReq('user/getAdvertising?userId=0')
+     .then((res)=> console.log(res))
+     .catch(err => console.log(err.response.data));
+  }
 
   return (
     <>    

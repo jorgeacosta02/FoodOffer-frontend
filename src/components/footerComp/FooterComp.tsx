@@ -1,14 +1,12 @@
-import styles from './_FooterComp.module.scss';
+import styles from "./_FooterComp.module.scss";
 
 const FooterComp = () => {
   return (
     <div className={styles.container}>
-      <p className={styles.text}>
-        {/* Exploservice &reg; | Todos los derechos reservados | */}
-        Diseño Web Jorge Acosta
-      </p>
+      <p className={styles.text}>FoodOffer &reg; 2024</p>
+      <p className={styles.text}>| Todos los derechos reservados |</p>
     </div>
-  )
-}
+  );
+};
 
-export default FooterComp
+export default FooterComp;
