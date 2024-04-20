@@ -34,6 +34,8 @@ const OfferListComp = (data: any) => {
     { label: 'Más variado', value: '4' }
   ];
 
+  const linkClass = viewList ? 'link-card' : 'link-list';
+
   return (
        <div className={styles.container}>
         <div className={styles.filter_container}>
@@ -51,15 +53,15 @@ const OfferListComp = (data: any) => {
         </div>
                     
           {data.data.map((item: any) =>
+                  <Link key={item.id} className={styles[linkClass]} to={`/offerDetail/${item.id}`}>
+                {!viewList ? (
 
-                !viewList ? (
-                  <Link key={item.id} to={`/offerDetail/${item.id}`}>
                   <OfferListItemComp data={item}  />
-                  </Link>
-                ) : (
-                  <OfferCardComp data={item} type={2} key={item.id} />
-                )
 
+                ) : (
+                  <OfferCardComp data={item} type={2} />
+                )}
+                </Link>
               )}
         </div>
   );

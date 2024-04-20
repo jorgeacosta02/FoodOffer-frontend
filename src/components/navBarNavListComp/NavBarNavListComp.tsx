@@ -27,7 +27,6 @@ const NavBarNavListComp = () => {
   const dispatch = useDispatch<any>();
 
   const handleClick = () => {
-    console.log('click en NavLixt');
     dispatch( falseMenu() );
   };
 

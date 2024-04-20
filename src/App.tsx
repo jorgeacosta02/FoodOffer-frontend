@@ -12,12 +12,20 @@ import HomePage from './pages/homePage/HomePage';
 import UserRoutesComp from './components/protectedRoutes/userRoutesComp/UserRoutesComp';
 import OfferDetailPage from './pages/offerDetailPage/OfferDetailPage';
 import NavBarLayout from './layouts/navBarLayout/NavBarLayout';
+import FooterComp from './components/footerComp/FooterComp';
 
 
 const App = () => {
+
+  const containerStyle = {
+    marginTop: '75px', 
+    marginBottom: '30px',      
+  };
+
   return (
     <div>
       <NavBarLayout />
+      <div style={containerStyle}>
       <Routes>
 
         {/*Free Routes*/}
@@ -32,7 +40,10 @@ const App = () => {
        </Route>
 
        {/* Worker Protected  Routes */}
+
       </Routes>
+      </div>
+      <FooterComp></FooterComp>
     </div>
   )
 }
