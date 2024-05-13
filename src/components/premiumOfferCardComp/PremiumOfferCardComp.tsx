@@ -19,22 +19,31 @@ const PremiumOfferCardComp = (data: any) => {
       {/* <div className={styles.card_item_header}>
       <span><FontAwesomeIcon icon={faCrown} className="crown-icon" /> Destacado</span>
       </div> */}
-      <div style={img_style} className={styles.card_item_image}/>
+      <div
+        style={img_style}
+        className={styles.card_item_image}/>
       <div className={styles.card_item_bottom}>
         <div className={styles.card_logo}>
           L
         </div>
         <div className={styles.card_item_title_container}>
-          <h4 className={styles.card_item_title}>{data.data.title}</h4>
+          <h4 className={styles.card_item_title}>
+            {data.data.title}
+          </h4>
           <span>Nombre del restaurante</span>
         </div>
       </div>
       <div className={styles.card_item_desc}>
         <span className={styles.card_tag}>
-          <FontAwesomeIcon className={styles.tag_icon} icon={faCircleCheck} />
+          <FontAwesomeIcon
+            className={styles.tag_icon}
+            icon={faCircleCheck}
+          />
           Sin TACC
         </span>
-        <h3 className={styles.card_item_price}>${data.data.price}</h3>
+        <h3 className={styles.card_item_price}>
+          ${data.data.price}
+        </h3>
       </div>
     </div>
   );
