@@ -18,8 +18,8 @@ import FooterComp from './components/footerComp/FooterComp';
 const App = () => {
 
   const containerStyle = {
-    marginTop: '75px', 
-    marginBottom: '30px',      
+    // marginTop: '75px', 
+    // marginBottom: '30px',      
   };
 
   return (
@@ -27,7 +27,6 @@ const App = () => {
       <NavBarLayout />
         <div style={containerStyle}>
           <Routes>
-
             {/*Free Routes*/}
             <Route path="/" element={<HomePage />} />
             <Route path='/user-register' element={<UserRegisterPage/>}/>
@@ -35,12 +34,9 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/offerDetail/:offerId" element={<OfferDetailPage />} />
             {/* User Protected Routes*/}
-          <Route element={<UserRoutesComp/>}>
-            <Route path='/user-profile' element={<UserProfilePage/>}/>
-          </Route>
-
-          {/* Worker Protected  Routes */}
-
+            <Route element={<UserRoutesComp/>}>
+              <Route path='/user-profile' element={<UserProfilePage/>}/>
+            </Route>
           </Routes>
         </div>
       <FooterComp></FooterComp>

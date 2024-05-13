@@ -36,17 +36,19 @@
     display: block;
   }
 
-  section{
-    margin-top: 20vh;
-    margin-bottom: 3vh;
-  }
+  // section{
+  //   margin-top: 20vh;
+  //   margin-bottom: 3vh;
+  // }
   
   /**
-   * Correct the font size and margin on `h1` elements within `section` and
+   * Correct the font size and margin on `h` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
    */
   
   h1 {
+    margin: 0;
+    padding: 0;
     font-size: g.$mobile-h1-font-size;
     font-weight: g.$mobile-h1-font-weight;
     @include g.display-large{
@@ -55,6 +57,8 @@
     }
   }
   h2 {
+    margin: 0;
+    padding: 0;
     font-size: g.$mobile-h2-font-size;
     font-weight: g.$mobile-h2-font-weight;
     @include g.display-large{
@@ -63,6 +67,8 @@
     }
   }
   h3 {
+    margin: 0;
+    padding: 0;
     font-size: g.$mobile-h3-font-size;
     font-weight: g.$mobile-h3-font-weight;
     @include g.display-large{
@@ -70,11 +76,43 @@
       font-weight: g.$desk-h3-font-weight;
     }
   }
+  h4 {
+    margin: 0;
+    padding: 0;
+    font-size: g.$mobile-h4-font-size;
+    font-weight: g.$mobile-h4-font-weight;
+    @include g.display-large{
+      font-size: g.$desk-h4-font-size;
+      font-weight: g.$desk-h4-font-weight;
+    }
+  }
+  h5 {
+    margin: 0;
+    padding: 0;
+    font-size: g.$mobile-h5-font-size;
+    font-weight: g.$mobile-h5-font-weight;
+    @include g.display-large{
+      font-size: g.$desk-h5-font-size;
+      font-weight: g.$desk-h5-font-weight;
+    }
+  }
+  h6 {
+    margin: 0;
+    padding: 0;
+    font-size: g.$mobile-h6-font-size;
+    font-weight: g.$mobile-h6-font-weight;
+    @include g.display-large{
+      font-size: g.$desk-h6-font-size;
+      font-weight: g.$desk-h6-font-weight;
+    }
+  }
 
   p{
+    margin: 0;
+    padding: 0;
     font-size: g.$mobile-p-font-size;
     font-weight: g.$mobile-p-font-weight;
-    color: rgb(60, 60, 60);
+    // color: rgb(43, 43, 43);
     @include g.display-large{
       font-size: g.$desk-p-font-size;
       font-weight: g.$desk-p-font-weight;
