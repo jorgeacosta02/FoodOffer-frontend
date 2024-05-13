@@ -16,6 +16,7 @@
     height: calc(100vh - (g.$mobile-NavBar-height + 20px));
     // @include g.create-flexbox(column, flex-start);
     // position: relative;
+    border-radius: 10px;
     background-color: yellow;
   }
 }

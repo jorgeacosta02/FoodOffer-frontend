@@ -7,7 +7,7 @@ const PremiumOfferCardComp = (data: any) => {
 
 
   const img_style = {
-    height: '300px', // Altura fija deseada
+    height: '40vh', // Altura fija deseada
     width: '100%', // Ancho completo
     backgroundImage: `url(${data.data.image})`, // URL de la imagen de fondo
     backgroundSize: 'cover', // Cubrir el contenedor

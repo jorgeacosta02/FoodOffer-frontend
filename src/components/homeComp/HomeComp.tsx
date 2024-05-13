@@ -27,7 +27,6 @@ useEffect(()=> {
       <CatSliderComp categories={categories}></CatSliderComp>
       <OfferListComp data={data}></OfferListComp>
     </div>
-
   );
 }
 

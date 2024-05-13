@@ -24,9 +24,9 @@ const OfferSliderComp = (data: any) => {
       return (
           <div className={styles.pa_container}>
             <div className={styles.pa_title_container}>
-              <h4 className={styles.pa_title}>
+              <h5 className={styles.pa_title}>
                 Ofertas premium del día
-              </h4>
+              </h5>
               <FontAwesomeIcon className={styles.crown_icon} icon={faCrown} />
             </div>
             <div className={styles.pa_item_container}>
