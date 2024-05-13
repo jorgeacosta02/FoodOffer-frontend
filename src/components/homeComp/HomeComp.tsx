@@ -19,14 +19,14 @@ useEffect(()=> {
   }
 
   return (
-    <>    
-    <div className={styles.container}>
-      <OfferSliderComp data={data}></OfferSliderComp>
-    </div>
-    <br/>
-    <CatSliderComp categories={categories}></CatSliderComp>
+    <div className={styles.main_container}>    
+      <div className={styles.container}>
+        <OfferSliderComp data={data}></OfferSliderComp>
+      </div>
+      <br/>
+      <CatSliderComp categories={categories}></CatSliderComp>
       <OfferListComp data={data}></OfferListComp>
-    </>
+    </div>
 
   );
 }

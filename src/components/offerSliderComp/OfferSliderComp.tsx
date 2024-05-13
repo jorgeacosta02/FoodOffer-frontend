@@ -20,7 +20,6 @@ const OfferSliderComp = (data: any) => {
       const datos = data.data
     
       return (
-        <>
           <div className={styles.pa_container}>
             <div className={styles.pa_title_container}>
               <h4 className={styles.pa_title}>
@@ -38,7 +37,6 @@ const OfferSliderComp = (data: any) => {
               </Slider>
             </div>
           </div>
-        </>
       );
 }
 
