@@ -25,24 +25,24 @@ const App = () => {
   return (
     <div>
       <NavBarLayout />
-      <div style={containerStyle}>
-      <Routes>
+        <div style={containerStyle}>
+          <Routes>
 
-        {/*Free Routes*/}
-        <Route path="/" element={<HomePage />} />
-        <Route path='/user-register' element={<UserRegisterPage/>}/>
-        <Route path='/user-login' element={<LoginPage/>}/>
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/offerDetail/:offerId" element={<OfferDetailPage />} />
-        {/* User Protected Routes*/}
-       <Route element={<UserRoutesComp/>}>
-        <Route path='/user-profile' element={<UserProfilePage/>}/>
-       </Route>
+            {/*Free Routes*/}
+            <Route path="/" element={<HomePage />} />
+            <Route path='/user-register' element={<UserRegisterPage/>}/>
+            <Route path='/user-login' element={<LoginPage/>}/>
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/offerDetail/:offerId" element={<OfferDetailPage />} />
+            {/* User Protected Routes*/}
+          <Route element={<UserRoutesComp/>}>
+            <Route path='/user-profile' element={<UserProfilePage/>}/>
+          </Route>
 
-       {/* Worker Protected  Routes */}
+          {/* Worker Protected  Routes */}
 
-      </Routes>
-      </div>
+          </Routes>
+        </div>
       <FooterComp></FooterComp>
     </div>
   )
