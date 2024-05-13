@@ -47,7 +47,6 @@ function CatSliderComp(categories: any) {
               {categories.categories.map((item: any) => (
                 <div key={item.id}>
                   <CatSliderItemComp
-                    
                     category={item}
                   ></CatSliderItemComp>
                 </div>

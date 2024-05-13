@@ -10,11 +10,11 @@ const OfferSliderComp = (data: any) => {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 1500,
+        speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000
+        autoplaySpeed: 1000
       };
 
       const datos = data.data
