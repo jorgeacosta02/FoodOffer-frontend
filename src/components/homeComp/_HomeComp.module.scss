@@ -4,20 +4,22 @@
   position: relative;
   box-sizing: border-box;
   top: g.$mobile-NavBar-height;
-  background-color: green;
+  // background-color: green;
   width: 100vw;
   height: calc(100vh - g.$mobile-NavBar-height);
-  padding: 10px;
+  padding: 10px 30px;
   margin-bottom: 60px;
   .container{
+    box-sizing: border-box;
     // margin-top: g.$mobile-NavBar-height;
     padding: 0;
     width: 100%;
     height: calc(100vh - (g.$mobile-NavBar-height + 20px));
+    // height: fit-content;
     // @include g.create-flexbox(column, flex-start);
     // position: relative;
     border-radius: 10px;
-    background-color: yellow;
+    // background-color: yellow;
   }
 }
 

@@ -1,4 +1,4 @@
-import OfferSliderComp from '../offerSliderComp/OfferSliderComp';
+import PremiumOfferSliderComp from '../premiumComps/premiumOfferSliderComp/PremiumOfferSliderComp';
 import styles from './_HomeComp.module.scss';
 import data from '../../../src/data.json'
 import categories from '../../../src/categories.json'
@@ -21,9 +21,9 @@ useEffect(()=> {
   return (
     <div className={styles.main_container}>    
       <div className={styles.container}>
-        <OfferSliderComp data={data}></OfferSliderComp>
+        <PremiumOfferSliderComp data={data}></PremiumOfferSliderComp>
       </div>
-      <br/>
+      {/* <br/> */}
       <CatSliderComp categories={categories}></CatSliderComp>
       <OfferListComp data={data}></OfferListComp>
     </div>
