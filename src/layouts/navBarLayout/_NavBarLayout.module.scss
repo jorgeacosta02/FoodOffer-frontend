@@ -10,12 +10,10 @@
     left: 0;
     padding: 0 2vw;
     margin: 0;
-    background-color: grey;
+    background-color: g.$main-color;
     @include g.create-flexbox(row, space-between);
     z-index: 1000;
     @include g.display-large{
-        background-color: g.$main-color;
         height: g.$desk-NavBar-height;
-        // background-color: blue;
     }
 }
