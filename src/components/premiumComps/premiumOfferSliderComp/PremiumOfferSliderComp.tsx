@@ -1,12 +1,12 @@
 import Slider from 'react-slick';
-import styles from './_OfferSliderComp.module.scss'
+import styles from './_PremiumOfferSliderComp.module.scss'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import PremiumOfferCardComp from '../premiumOfferCardComp/PremiumOfferCardComp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
 
-const OfferSliderComp = (data: any) => {
+const PremiumOfferSliderComp = (data: any) => {
     const settings = {
         dots: false,
         infinite: true,
@@ -42,4 +42,4 @@ const OfferSliderComp = (data: any) => {
       );
 }
 
-export default OfferSliderComp;
+export default PremiumOfferSliderComp;
