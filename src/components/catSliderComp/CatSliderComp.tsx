@@ -9,6 +9,7 @@ import styles from "./_CatSliderComp.module.scss";
 import CatSliderItemComp from "./CatSliderItemComp";
 
 function CatSliderComp(categories: any) {
+  
   const sliderRef = useRef<Slider>(null);
 
   const goToPrevSlide = () => {
@@ -33,7 +34,7 @@ function CatSliderComp(categories: any) {
   };
 
   return (
-    <>
+    <div>
       <div className={styles.qc_container}>
         <h5 className={styles.title}>Consultá todas las ofertas de hoy</h5>
         <div className={styles.slider_container}>
@@ -60,7 +61,7 @@ function CatSliderComp(categories: any) {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

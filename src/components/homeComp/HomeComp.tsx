@@ -2,7 +2,7 @@ import PremiumOfferSliderComp from '../premiumComps/premiumOfferSliderComp/Premi
 import styles from './_HomeComp.module.scss';
 import data from '../../../src/data.json'
 import categories from '../../../src/categories.json'
-import OfferListComp from '../offerListComp/OfferListComp';
+import OfferListComp from '../offerComps/offerListComp/OfferListComp';
 import CatSliderComp from '../catSliderComp/CatSliderComp';
 import { useEffect } from 'react';
 import  { getReq } from '../../helpers/genericService'
