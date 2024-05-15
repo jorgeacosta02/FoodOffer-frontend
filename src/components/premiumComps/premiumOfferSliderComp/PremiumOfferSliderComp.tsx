@@ -6,6 +6,31 @@ import PremiumOfferCardComp from '../premiumOfferCardComp/PremiumOfferCardComp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
 
+
+
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'black', right: '10px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'black', left: '10px', zIndex: 1 }}
+      onClick={onClick}
+    />
+  );
+};
+
+
 const PremiumOfferSliderComp = (data: any) => {
     const settings = {
         dots: false,
@@ -15,7 +40,8 @@ const PremiumOfferSliderComp = (data: any) => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 30000,
-        arrows: false,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
       };
 
       const datos = data.data
