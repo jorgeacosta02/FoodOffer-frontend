@@ -13,7 +13,12 @@ const NextArrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'black', right: '10px', zIndex: 1 }}
+      style={{ ...style, 
+        display: 'block',
+        background: 'transparent',
+        right: '15px', 
+        zIndex: 1 
+      }}
       onClick={onClick}
     />
   );
@@ -23,8 +28,13 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
+      style={{ ...style, 
+        display: 'block',
+        background: 'transparent',
+        left: '15px', 
+        zIndex: 1 
+      }}
       className={className}
-      style={{ ...style, display: 'block', background: 'black', left: '10px', zIndex: 1 }}
       onClick={onClick}
     />
   );
@@ -35,11 +45,11 @@ const PremiumOfferSliderComp = (data: any) => {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 300,
+        speed: 400,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 30000,
+        autoplaySpeed: 2000,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
       };
