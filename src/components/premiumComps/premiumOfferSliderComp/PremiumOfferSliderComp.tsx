@@ -67,9 +67,9 @@ const PremiumOfferSliderComp = (data: any) => {
             <div className={styles.pa_item_container}>
               <Slider {...settings}>
                   {datos.map((item: any) => (
-                <div key={item.id}>
-                  <PremiumOfferCardComp data={item} type={1}  />
-                </div>
+                    <div key={item.id}>
+                      <PremiumOfferCardComp data={item} type={1}  />
+                    </div>
                   ))}
               </Slider>
             </div>
