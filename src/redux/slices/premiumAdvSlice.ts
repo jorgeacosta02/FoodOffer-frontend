@@ -1,11 +1,11 @@
 // userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { loginUser } from '../actions/loginUserActions';
-import { IUserData, ApiResponse } from '../../Interfaces/userInterfaces';
+import { ApiResponse } from '../../Interfaces/userInterfaces';
 
 
 interface PremiumAdvState {
-    data: IUserData | null;
+    data: any;
     loading: boolean;
     error: string | null;
 }
