@@ -2,13 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-export const getAllPremiumAdv: any = createAsyncThunk('/', async () => {
+export const getAllPremiumAdv = createAsyncThunk(
+  'premiumAdv/getAllPremiumAdvs', 
+  async (_, thunkAPI) => {
   try {
-    const response = await axios.get<any>('/');
+    const response = await axios.get<any>('/url del back');
     console.log('response.data en getAllPremiumAdv: ', response.data);
     const data = response.data;
     return data;
-  } catch (error) {
-    throw new Error('Error en la solicitud de inicio de sesión');
+  } catch (error:any) {
+    thunkAPI.rejectWithValue(error.message);
   }
 });
