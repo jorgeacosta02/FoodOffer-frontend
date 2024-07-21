@@ -1,7 +1,6 @@
 // userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginUser } from '../actions/loginUserActions';
-import { ApiResponse } from '../../Interfaces/userInterfaces';
+import { getAllPremiumAdv } from '../actions/premiumAdvActions';
 
 
 interface PremiumAdvState {
@@ -20,28 +19,27 @@ const premiumAdvSlice = createSlice({
     name: 'premiumAdv',
     initialState,
     reducers: {
-      cleanUser : (state) => {
+      cleanPremiumAdvs : (state) => {
         state.data = null
       }
     },
     extraReducers: (builder) => {
         builder
-        .addCase(loginUser.pending, (state) => {
+        .addCase(getAllPremiumAdv.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
-        .addCase(loginUser.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
+        .addCase(getAllPremiumAdv.fulfilled, (state, action: PayloadAction<any>) => {
           state.loading = false;
-          console.log('action.payload.user :', action.payload.user);
-          state.data = action.payload.user;
+          console.log('action.payload:', action.payload);
+          state.data = action.payload;
           console.log('state.data en la slice: ', state.data)
-          if (action.payload.message === 'El usuario no existe') {
-            // El servidor devolvió un mensaje indicando que el usuario no existe
-            // Puedes manejar esto de acuerdo a tus necesidades
-          }
+          // if (action.payload.message === 'El usuario no existe') {
+          //   // El servidor devolvió un mensaje indicando que el usuario no existe
+          //   // Puedes manejar esto de acuerdo a tus necesidades
+          // }
         })
-        .addCase(
-          loginUser.rejected,
+        .addCase(getAllPremiumAdv.rejected,
           (state, action: any) => {
             state.loading = false;
             state.error = action.error.message || 'Error desconocido en la solicitud de inicio de sesión';
@@ -50,7 +48,7 @@ const premiumAdvSlice = createSlice({
     },
 });
 
-export const { cleanUser } = premiumAdvSlice.actions;
+export const { cleanPremiumAdvs } = premiumAdvSlice.actions;
 
 export default premiumAdvSlice.reducer;
 
