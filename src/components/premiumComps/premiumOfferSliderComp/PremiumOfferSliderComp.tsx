@@ -54,7 +54,9 @@ const PremiumOfferSliderComp = (data: any) => {
         prevArrow: <PrevArrow />
       };
 
-      const datos = data.data
+      let datos = data
+
+      console.log('datos en PremiumOfferSliderComp: ', datos);
     
       return (
           <div className={styles.pa_container}>
@@ -66,9 +68,12 @@ const PremiumOfferSliderComp = (data: any) => {
             </div>
             <div className={styles.pa_item_container}>
               <Slider {...settings}>
-                  {datos.map((item: any) => (
+                  {datos.data.map((item: any) => (
                     <div key={item.id}>
-                      <PremiumOfferCardComp data={item} type={1}  />
+                      <PremiumOfferCardComp 
+                        data={item} 
+                        type={1}  
+                      />
                     </div>
                   ))}
               </Slider>
