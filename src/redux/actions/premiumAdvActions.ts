@@ -6,7 +6,7 @@ export const getAllPremiumAdv = createAsyncThunk(
   'premiumAdv/getAllPremiumAdvs', 
   async (_, thunkAPI) => {
   try {
-    const response = await axios.get<any>('/url del back');
+    const response = await axios.get<any>('/premiumAdv');
     console.log('response.data en getAllPremiumAdv: ', response.data);
     const data = response.data;
     return data;

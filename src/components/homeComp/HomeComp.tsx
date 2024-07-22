@@ -5,15 +5,20 @@ import categories from '../../../src/categories.json'
 import OfferListComp from '../offerComps/offerListComp/OfferListComp';
 import CatSliderComp from '../catSliderComp/CatSliderComp';
 import { useEffect } from 'react';
-import  { getReq } from '../../helpers/genericService'
+// import premiumAdvSlice from '../../redux/slices/premiumAdvSlice';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import premiumAdvSlice from '../../redux/slices/premiumAdvSlice';
 
 const HomeComp = () => {
 
-useEffect(()=> {
-  getAdvertising();
-})
-  const getAdvertising = async () => {
-     await getReq('user/getAdvertising?userId=0')
+  const premiumAdvSlice = useSelector(premiumAdvSlice)
+
+  useEffect(()=> {
+    getAdvertising();
+  })
+  const getAdvertising = () => {
+     await axios('/premiumAdv')
      .then((res)=> console.log(res))
      .catch(err => console.log(err.response.data));
   }
