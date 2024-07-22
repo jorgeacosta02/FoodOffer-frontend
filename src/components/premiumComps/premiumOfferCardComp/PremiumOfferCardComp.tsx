@@ -5,6 +5,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 const PremiumOfferCardComp = (data: any) => {
 
+    console.log('data en card: ', data)
 
   const img_style = {
     height: '40vh', // Altura fija deseada
@@ -28,9 +29,11 @@ const PremiumOfferCardComp = (data: any) => {
         </div>
         <div className={styles.card_item_title_container}>
           <h4 className={styles.card_item_title}>
-            {data.data.title}
+            {data.data.lastName}
           </h4>
-          <span>Nombre del restaurante</span>
+          <span>
+            {data.data.id}
+          </span>
         </div>
       </div>
       <div className={styles.card_item_desc}>
@@ -42,7 +45,7 @@ const PremiumOfferCardComp = (data: any) => {
           Sin TACC
         </span>
         <h3 className={styles.card_item_price}>
-          ${data.data.price}
+          ${data.data.firstName}
         </h3>
       </div>
     </div>
