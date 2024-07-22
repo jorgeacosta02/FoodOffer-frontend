@@ -29,10 +29,10 @@ const PremiumOfferCardComp = (data: any) => {
         </div>
         <div className={styles.card_item_title_container}>
           <h4 className={styles.card_item_title}>
-            {data.data.lastName}
+            {data.data.title}
           </h4>
           <span>
-            {data.data.id}
+            {data.data.description}
           </span>
         </div>
       </div>
@@ -45,7 +45,7 @@ const PremiumOfferCardComp = (data: any) => {
           Sin TACC
         </span>
         <h3 className={styles.card_item_price}>
-          ${data.data.firstName}
+          ${data.data.price}
         </h3>
       </div>
     </div>
