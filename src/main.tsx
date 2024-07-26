@@ -4,11 +4,10 @@ import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import axios from 'axios'
-
 import './_main.module.scss'
 import { store } from './redux/store/store.ts'
 
-axios.defaults.baseURL = 'http://localhost:4000'
+axios.defaults.baseURL = 'http://localhost:7141'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -30,7 +30,7 @@
     "updateDate": "2024-07-11T19:31:40.5490561-03:00",
     "deleteDate": null
 }
-Gonzalo Galarza — 18/07/2024 19:16
+
 { 
     "attributes": [],
     "category": 0
