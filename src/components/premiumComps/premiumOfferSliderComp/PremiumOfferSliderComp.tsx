@@ -68,7 +68,7 @@ const PremiumOfferSliderComp = (data: any) => {
             </div>
             <div className={styles.pa_item_container}>
               <Slider {...settings}>
-                  {datos.data.map((item: any) => (
+                  {datos.data.filter((adv:any) => adv.priorityLevel >= 1).map((item: any) => (
                     <div key={item.id}>
                       <PremiumOfferCardComp 
                         data={item} 
