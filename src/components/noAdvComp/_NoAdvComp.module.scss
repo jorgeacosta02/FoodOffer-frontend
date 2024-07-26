@@ -1,0 +1,14 @@
+@use '../../styles/globals' as g;
+
+.mainContainer{
+    width: 100%;
+    height: 40%;
+    // background-color: grey;
+    border-radius: 5px;
+    // box-shadow: 1px 1px 3px g.$grey-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}

@@ -1,0 +1,37 @@
+{
+    "id": 1,
+    "title": "Prueba titulo",
+    "description": "Prueba descripcion",
+    "price": 10000,
+    "state": {
+        "code": 1,
+        "description": null
+    },
+    "category": {
+        "code": 1,
+        "description": null
+    },
+    "commerce": {
+        "id": 1,
+        "owner_Id": 0,
+        "name": 0,
+        "address": null,
+        "attributes": null,
+        "type": 0,
+        "mail": null,
+        "phone": null,
+        "cell_Phone": null,
+        "web_Url": null,
+        "logo": null
+    },
+    "attributes": [],
+    "images": [],
+    "creationDate": "2024-07-11T19:31:40.5490004-03:00",
+    "updateDate": "2024-07-11T19:31:40.5490561-03:00",
+    "deleteDate": null
+}
+
+{ 
+    "attributes": [],
+    "category": 0
+} 

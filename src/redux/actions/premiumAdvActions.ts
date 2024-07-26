@@ -1,14 +1,53 @@
+// import { createAsyncThunk } from '@reduxjs/toolkit';
+// import axios from 'axios';
+
+// console.log('en premiumAdvActions')
+
+// export const getAllPremiumAdv: any = createAsyncThunk(
+//   'GetAdvertisings', 
+//   async (_, thunkAPI) => {
+//   try {
+//     console.log('en en try')
+//     const response = await axios.post<any>('/GetAdvertisings');
+//     console.log('response.data en getAllPremiumAdv: ', response.data);
+//     const data = response.data;
+//     return data;
+//   } catch (error: any) {
+//     console.log('en catch')
+//     return thunkAPI.rejectWithValue(error.message);
+//   }
+// });
+
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// Configurar la URL base
+// axios.defaults.baseURL = 'http://localhost:7141';
 
-export const getAllPremiumAdv: any = createAsyncThunk('/', async () => {
-  try {
-    const response = await axios.get<any>('/');
-    console.log('response.data en getAllPremiumAdv: ', response.data);
-    const data = response.data;
-    return data;
-  } catch (error) {
-    throw new Error('Error en la solicitud de inicio de sesión');
+console.log('en premiumAdvActions')
+
+export const getAllPremiumAdv: any = createAsyncThunk(
+  'GetAdvertisings', 
+  async (_, thunkAPI) => {
+    try {
+      console.log('en en try');
+
+      // Definir el cuerpo de la solicitud
+      const requestBody = {
+        "attributes": [],
+        "category": 0
+      };
+
+      // Realizar la solicitud POST con el cuerpo JSON
+      const response = await axios.post<any>('/GetAdvertisings', requestBody);
+
+      console.log('response.data en getAllPremiumAdv: ', response.data);
+      const data = response.data;
+      return data;
+    } catch (error: any) {
+      console.log('en catch');
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);

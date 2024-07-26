@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import PremiumOfferCardComp from '../premiumOfferCardComp/PremiumOfferCardComp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
+import NoAdvComp from '../../noAdvComp/NoAdvComp';
 
 
 
@@ -54,8 +55,10 @@ const PremiumOfferSliderComp = (data: any) => {
         prevArrow: <PrevArrow />
       };
 
-      const datos = data.data
-    
+      let datos = data.data.filter((adv:any) => adv.priorityLevel >= 1);
+
+      console.log('datos en PremiumOfferSliderComp: ', datos);
+
       return (
           <div className={styles.pa_container}>
             <div className={styles.pa_title_container}>
@@ -65,13 +68,27 @@ const PremiumOfferSliderComp = (data: any) => {
               <FontAwesomeIcon className={styles.crown_icon} icon={faCrown} />
             </div>
             <div className={styles.pa_item_container}>
-              <Slider {...settings}>
-                  {datos.map((item: any) => (
-                    <div key={item.id}>
-                      <PremiumOfferCardComp data={item} type={1}  />
-                    </div>
-                  ))}
-              </Slider>
+              {
+                datos.length === 0?
+                <NoAdvComp/>:
+                datos.length === 1?
+                  <div>
+                    <PremiumOfferCardComp 
+                      data={datos[0]} 
+                      type={1}  
+                    />
+                  </div>:
+                  <Slider {...settings}>
+                      {datos.map((item: any) => (
+                        <div key={item.id}>
+                          <PremiumOfferCardComp 
+                            data={item} 
+                            type={1}  
+                          />
+                        </div>
+                      ))}
+                  </Slider>
+              }
             </div>
           </div>
       );

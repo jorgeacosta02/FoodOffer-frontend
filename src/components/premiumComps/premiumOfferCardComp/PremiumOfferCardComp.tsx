@@ -5,11 +5,12 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 const PremiumOfferCardComp = (data: any) => {
 
+    console.log('data en card: ', data)
 
   const img_style = {
     height: '40vh', // Altura fija deseada
     width: '100%', // Ancho completo
-    backgroundImage: `url(${data.data.image})`, // URL de la imagen de fondo
+    backgroundImage: `url(${data.data.images[0].path})`, // URL de la imagen de fondo
     backgroundSize: 'cover', // Cubrir el contenedor
     backgroundPosition: 'center', // Centrar la imagen de fondo
   };
@@ -30,7 +31,9 @@ const PremiumOfferCardComp = (data: any) => {
           <h4 className={styles.card_item_title}>
             {data.data.title}
           </h4>
-          <span>Nombre del restaurante</span>
+          <span>
+            {data.data.description}
+          </span>
         </div>
       </div>
       <div className={styles.card_item_desc}>
