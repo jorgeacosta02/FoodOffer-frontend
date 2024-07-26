@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import PremiumOfferCardComp from '../premiumOfferCardComp/PremiumOfferCardComp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
+import NoAdvComp from '../../noAdvComp/NoAdvComp';
 
 
 
@@ -68,6 +69,8 @@ const PremiumOfferSliderComp = (data: any) => {
             </div>
             <div className={styles.pa_item_container}>
               {
+                datos.length === 0?
+                <NoAdvComp/>:
                 datos.length === 1?
                   <div>
                     <PremiumOfferCardComp 
