@@ -55,7 +55,7 @@ const PremiumOfferSliderComp = (data: any) => {
         prevArrow: <PrevArrow />
       };
 
-      let datos = data.data.filter((adv:any) => adv.priorityLevel >= 1);
+      let datos = data.data.filter((adv:any) => adv.priorityLevel > 1);
 
       console.log('datos en PremiumOfferSliderComp: ', datos);
 
