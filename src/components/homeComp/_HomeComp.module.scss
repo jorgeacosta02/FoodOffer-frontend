@@ -6,7 +6,7 @@
   top: g.$mobile-NavBar-height;
   // background-color: green;
   width: 100%;
-  height: calc(100vh - g.$mobile-NavBar-height);
+  min-height: calc(100vh - g.$mobile-NavBar-height);
   padding: 10px;
   margin-bottom: 60px;
   .container{
