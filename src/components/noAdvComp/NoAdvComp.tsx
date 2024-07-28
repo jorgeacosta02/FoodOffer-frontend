@@ -6,7 +6,7 @@ const NoAdvComp = () => {
         className={styles.mainContainer}
     >
       <h3 className={styles.mainTitle}>
-        Disfrutá de las mejores comidas a los mejores precios!!!
+        Aprovechá las mejores ofertas de hoy!!!
       </h3>
       <p className={styles.text}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus pariatur ab nam cupiditate sit animi nostrum, commodi corrupti, earum deleniti quidem culpa sequi voluptates placeat quae, odit magni dolor itaque.
