@@ -16,7 +16,7 @@ const NextArrow = (props) => {
       className={className}
       style={{ ...style, 
         display: 'block',
-        background: 'transparent',
+        background: 'black',
         right: '15px', 
         zIndex: 1 
       }}
