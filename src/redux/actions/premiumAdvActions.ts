@@ -1,29 +1,6 @@
-// import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-
-// console.log('en premiumAdvActions')
-
-// export const getAllPremiumAdv: any = createAsyncThunk(
-//   'GetAdvertisings', 
-//   async (_, thunkAPI) => {
-//   try {
-//     console.log('en en try')
-//     const response = await axios.post<any>('/GetAdvertisings');
-//     console.log('response.data en getAllPremiumAdv: ', response.data);
-//     const data = response.data;
-//     return data;
-//   } catch (error: any) {
-//     console.log('en catch')
-//     return thunkAPI.rejectWithValue(error.message);
-//   }
-// });
-
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Configurar la URL base
-// axios.defaults.baseURL = 'http://localhost:7141';
 
 console.log('en premiumAdvActions')
 
