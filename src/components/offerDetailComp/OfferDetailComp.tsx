@@ -71,15 +71,12 @@ const OfferDetailComp = () => {
         <h5 className={styles.card_item_title}>{resData.title}</h5>
         <p>{resData.description}</p>
       </div>
-
       <div className={styles.card_item_desc}>
-      {offer_characteristic.map((tag_data) => (
-        <div key={tag_data.code}>
-        <TagComp data={tag_data}></TagComp>
-      </div>
-      ))}
-
-
+        {offer_characteristic.map((tag_data) => (
+          <div key={tag_data.code}>
+          <TagComp data={tag_data}></TagComp>
+        </div>
+        ))}
       </div>
       <div className={styles.card_item_bottom}>
         <div className={styles.card_logo}>L</div>
@@ -88,14 +85,11 @@ const OfferDetailComp = () => {
           <p className={styles.store_address}>Dirección restaurante</p>
         </div>
       </div>
-
       <h6 className={styles.card_item_price}>Aprovecha esta oferta por ${resData.price}</h6>
       <Link to='/'>
-      <button className={styles.back_button}><FontAwesomeIcon className={styles.tag_icon} icon={ faArrowCircleLeft } />Volver</button>
+        <button className={styles.back_button}><FontAwesomeIcon className={styles.tag_icon} icon={ faArrowCircleLeft } />Volver</button>
       </Link>
     </div>
-
-
   ) : (
     <>
       <h2>Loading...</h2>

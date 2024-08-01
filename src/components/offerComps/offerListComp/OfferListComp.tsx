@@ -6,12 +6,8 @@ import OfferListItemComp from '../offerListItemComp/OfferListItemComp';
 import OfferCardComp from '../offerCardComp/OfferCardComp';
 import { Link } from 'react-router-dom';
 
-
-
-
-const OfferListComp = (data: any) => {
-
-  console.log('data: ', data)
+const OfferListComp = (props: any) => {
+  console.log('data: ', props.data)
   const [viewList, setViewList] = useState(false);
 
   // Función para cambiar el valor de viewList
@@ -24,9 +20,7 @@ const OfferListComp = (data: any) => {
   const handleSelectChange = (event: any) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
-
   };
-  
 
   const options = [
     { label: 'Menor precio', value: '1' },
@@ -37,8 +31,8 @@ const OfferListComp = (data: any) => {
 
   const linkClass = viewList ? 'link-card' : 'link-list';
 
-  // let datos = data.data.filter((adv:any) => adv.priorityLevel >= 1);
-  // console.log('datos: ', datos)
+  // Hacer una copia de los datos y ordenarlos por precio de menor a mayor
+  const sortedData = [...props.data].sort((a: any, b: any) => a.price - b.price);
 
   return (
     <div className={styles.container}>
@@ -55,14 +49,14 @@ const OfferListComp = (data: any) => {
         </select>
         <FontAwesomeIcon icon={viewList ? faList : faThLarge} className={styles.view_icon} onClick={toggleViewList} />
       </div>
-      {data.data.map((item: any) =>
+      {sortedData.map((item: any) =>
         <Link 
           key={item.id} 
           className={styles[linkClass]} 
           to={`/offerDetail/${item.id}`}
         >
           {!viewList ? (
-            <OfferListItemComp data={item}  />
+            <OfferListItemComp data={item} />
           ) : (
             <OfferCardComp data={item} type={2} />
           )}
@@ -73,3 +67,4 @@ const OfferListComp = (data: any) => {
 }
 
 export default OfferListComp;
+
