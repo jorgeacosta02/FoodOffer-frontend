@@ -3,14 +3,11 @@ import styles from './_OfferListComp.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import OfferListItemComp from '../offerListItemComp/OfferListItemComp';
-
 import OfferCardComp from '../offerCardComp/OfferCardComp';
 import { Link } from 'react-router-dom';
 
-
-
-
-const OfferListComp = (data: any) => {
+const OfferListComp = (props: any) => {
+  console.log('data: ', props.data)
   const [viewList, setViewList] = useState(false);
 
   // Función para cambiar el valor de viewList
@@ -18,23 +15,25 @@ const OfferListComp = (data: any) => {
     setViewList(prevState => !prevState); 
   };
   
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState('1');
 
   const handleSelectChange = (event: any) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
-
   };
-  
 
   const options = [
     { label: 'Menor precio', value: '1' },
     { label: 'Mayor precio', value: '2' },
-    { label: 'Mejor puntuación', value: '3' },
-    { label: 'Más variado', value: '4' }
   ];
 
   const linkClass = viewList ? 'link-card' : 'link-list';
+  
+  console.log('selectedOption: ', selectedOption);
+  // Hacer una copia de los datos y ordenarlos por precio de menor a mayor
+  let sortedData = selectedOption === '1' ? 
+  [...props.data].sort((a: any, b: any) => a.price - b.price) :
+  [...props.data].sort((a: any, b: any) => b.price - a.price);
 
   return (
     <div className={styles.container}>
@@ -51,10 +50,14 @@ const OfferListComp = (data: any) => {
         </select>
         <FontAwesomeIcon icon={viewList ? faList : faThLarge} className={styles.view_icon} onClick={toggleViewList} />
       </div>
-      {data.data.map((item: any) =>
-        <Link key={item.id} className={styles[linkClass]} to={`/offerDetail/${item.id}`}>
+      {sortedData.map((item: any) =>
+        <Link 
+          key={item.id} 
+          className={styles[linkClass]} 
+          to={`/offerDetail/${item.id}`}
+        >
           {!viewList ? (
-            <OfferListItemComp data={item}  />
+            <OfferListItemComp data={item} />
           ) : (
             <OfferCardComp data={item} type={2} />
           )}
@@ -65,3 +68,4 @@ const OfferListComp = (data: any) => {
 }
 
 export default OfferListComp;
+

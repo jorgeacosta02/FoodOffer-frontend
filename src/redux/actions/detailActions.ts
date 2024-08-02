@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-console.log('en premiumAdvActions')
+console.log('en detailActions')
 
-export const getAllPremiumAdv: any = createAsyncThunk(
-  'GetAdvertisings', 
+export const getDetail: any = createAsyncThunk(
+  'GetDetail', 
   async (_, thunkAPI) => {
     try {
       console.log('en en try');
@@ -17,7 +17,7 @@ export const getAllPremiumAdv: any = createAsyncThunk(
       };
 
       // Realizar la solicitud POST con el cuerpo JSON
-      const response = await axios.post<any>('/GetAdvertisings', requestBody);
+      const response = await axios.post<any>('/GetDetail', requestBody);
 
       console.log('response.data en getAllPremiumAdv: ', response.data);
       const data = response.data;

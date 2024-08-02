@@ -1,0 +1,53 @@
+@use '../../../styles/globals' as g;
+
+.pa_container {
+  width: 100%;
+  // border-radius: 5px;
+  // height: fit-content;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: #fff;
+  // background-color: red;
+
+  .pa_title_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 30px;
+    
+    .pa_title {
+      margin: 0;
+      width: 90%;
+      text-align: left;
+      color: #00525B;
+    }
+
+    .crown_icon {
+      color: g.$main-light-color;
+    }
+  }
+
+  .pa_item_container {
+    width: 100%;
+    // height: fit-content;
+    height: 20%;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: black;
+
+  }
+}
+
+
+
+
+// .qc_link {
+//   position: absolute;
+//   right: 2%;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
