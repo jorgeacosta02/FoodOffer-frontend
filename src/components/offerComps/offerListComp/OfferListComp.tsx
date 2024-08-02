@@ -15,7 +15,7 @@ const OfferListComp = (props: any) => {
     setViewList(prevState => !prevState); 
   };
   
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState('1');
 
   const handleSelectChange = (event: any) => {
     const selectedValue = event.target.value;
@@ -25,14 +25,15 @@ const OfferListComp = (props: any) => {
   const options = [
     { label: 'Menor precio', value: '1' },
     { label: 'Mayor precio', value: '2' },
-    { label: 'Mejor puntuación', value: '3' },
-    { label: 'Más variado', value: '4' }
   ];
 
   const linkClass = viewList ? 'link-card' : 'link-list';
-
+  
+  console.log('selectedOption: ', selectedOption);
   // Hacer una copia de los datos y ordenarlos por precio de menor a mayor
-  const sortedData = [...props.data].sort((a: any, b: any) => a.price - b.price);
+  let sortedData = selectedOption === '2' ? 
+  [...props.data].sort((a: any, b: any) => b.price - a.price) :
+  [...props.data].sort((a: any, b: any) => a.price - b.price);
 
   return (
     <div className={styles.container}>
