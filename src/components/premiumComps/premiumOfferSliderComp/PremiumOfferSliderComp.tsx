@@ -38,7 +38,7 @@ const PrevArrow = (props) => {
     <div
     style={{ ...style,
       boxSizing:'border-box',
-      padding: '3px',
+      padding: '2.5px',
       width: '25px',
       height: '25px',
       display: 'block',
