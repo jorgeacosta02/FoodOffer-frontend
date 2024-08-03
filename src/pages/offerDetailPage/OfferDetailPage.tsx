@@ -7,7 +7,7 @@ const OfferDetailPage = () => {
     <div>
       <NavBarLayout/>
       <OfferDetailComp/>
-      <FooterComp/>
+      {/* <FooterComp/> */}
     </div>
   )
 }

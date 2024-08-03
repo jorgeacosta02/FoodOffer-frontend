@@ -49,18 +49,6 @@ const OfferDetailComp = () => {
     }
   }, [error, navigate]);
 
-  let img_style = {};
-
-
-  img_style = 
-  {
-    height: "300px",
-    width: "100%",
-    backgroundImage: `url(${data?.images[0].path})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
 
   return (
     isLoading ? (
@@ -68,12 +56,16 @@ const OfferDetailComp = () => {
     ) : (
       data !== null && (
         <div className={styles.main_container}>
-          <div style={img_style}/>
+          <img 
+            src={data.images[0].path}
+            alt="imagen de la oferta"
+            className={styles.card_image}
+          />
           <div className={styles.offer_info}>
             <h5 className={styles.card_item_title}>{data.title}</h5>
             <p>{data.description}</p> 
           </div>
-          <div className={styles.card_item_attrib}>
+          <div className={styles.card_attr_container}>
             {data.attributes.map((tag_data:any) => (
               <div key={tag_data.id}>
                 <TagComp data={tag_data}></TagComp>
@@ -87,7 +79,9 @@ const OfferDetailComp = () => {
               <p className={styles.store_address}>Dirección restaurante</p>
             </div>
           </div>
-          <h6 className={styles.card_item_price}>Aprovecha esta oferta por ${data.price}</h6>
+          <h6 className={styles.card_item_price}>
+            Aprovecha esta oferta por ${data.price}
+          </h6>
           <Link to='/'>
             <button className={styles.back_button}><FontAwesomeIcon className={styles.tag_icon} icon={faArrowCircleLeft} />Volver</button>
           </Link>
