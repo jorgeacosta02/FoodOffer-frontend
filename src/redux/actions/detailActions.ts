@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getDetail = createAsyncThunk(
+export const getDetail: any = createAsyncThunk(
   'GetDetail', 
   async (offerId: string, thunkAPI) => {
     try {
