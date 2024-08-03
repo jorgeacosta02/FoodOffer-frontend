@@ -1,6 +1,6 @@
 @use '../../styles/globals' as g;
 
-.detail_box {
+.main_container {
   position: relative;
   top: g.$mobile-NavBar-height;
   width: 100%;
@@ -13,34 +13,29 @@
   // background-color: #fff;
   // background-color: red;
 
-  .pa_title_container {
+  .offer_info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     width: 90%;
-    height: 30px;
-    
-    .pa_title {
-      margin: 0;
-      width: 90%;
-      text-align: left;
-      color: #00525B;
-    }
-
-    .crown_icon {
-      color: g.$main-light-color;
-    }
   }
-
-  .pa_item_container {
-    width: 100%;
-    // height: fit-content;
-    height: 20%;
+  .card_item_attrib{
+    @include g.create-flexbox(row, space-between);
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  .card_store_data{
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    // background-color: black;
-
+    align-items: start;
+    width: 90%;
   }
+  .card_item_price{
+    padding: 10px 0;
+  }
+
 }
 
 
