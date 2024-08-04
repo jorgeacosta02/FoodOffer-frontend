@@ -1,5 +1,4 @@
 import NavBarLayout from '../../layouts/navBarLayout/NavBarLayout'
-import FooterComp from '../../components/footerComp/FooterComp'
 import OfferDetailComp from '../../components/offerDetailComp/OfferDetailComp'
 
 const OfferDetailPage = () => {
@@ -7,7 +6,6 @@ const OfferDetailPage = () => {
     <div>
       <NavBarLayout/>
       <OfferDetailComp/>
-      {/* <FooterComp/> */}
     </div>
   )
 }

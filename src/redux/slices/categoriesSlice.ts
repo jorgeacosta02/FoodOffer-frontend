@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getAllCategories } from '../actions/categoryActions';
+import { getCategories } from '../actions/categoryActions';
 
 
 interface CategoryState {
@@ -24,17 +24,17 @@ const categorySlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(getAllCategories.pending, (state) => {
+        .addCase(getCategories.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
-        .addCase(getAllCategories.fulfilled, (state, action: PayloadAction<any>) => {
+        .addCase(getCategories.fulfilled, (state, action: PayloadAction<any>) => {
           state.loading = false;
           console.log('action.payload:', action.payload);
           state.data = action.payload;
           console.log('state.data en la slice: ', state.data)
         })
-        .addCase(getAllCategories.rejected,
+        .addCase(getCategories.rejected,
           (state, action: any) => {
             state.loading = false;
             state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
