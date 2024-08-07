@@ -1,7 +1,7 @@
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
 import styles from './_OfferListItemComp.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import TagComp from '../../tagComp/TagComp';
 
 const OfferListItemComp = (data: any) => {
 
@@ -23,7 +23,14 @@ const OfferListItemComp = (data: any) => {
         </div>
         <div className={styles.list_item_middle}>
           <div className={styles.card_logo}>L</div>
-          <span>Nombre del restaurante</span>
+          <span>{data.data.commerce.name}</span>
+        </div>
+        <div className={styles.card_attr_container}>
+          {data.data.attributes.map((tag_data:any) => (
+            <div key={tag_data.id}>
+              <TagComp data={tag_data}></TagComp>
+            </div>
+          ))}
         </div>
         <div className={styles.list_item_bottom}>
           <h6 className={styles.list_item_price}>${data.data.price}</h6>
