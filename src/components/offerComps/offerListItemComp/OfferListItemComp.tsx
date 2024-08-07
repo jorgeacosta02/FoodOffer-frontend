@@ -15,7 +15,12 @@ const OfferListItemComp = (data: any) => {
 
   return (
     <div className={styles.list_item_box}>
-      <div style={img_style} className={styles.list_item_image}/>
+      <img 
+        src={data.data.images[0].path}
+        alt="Imagen de la oferta"
+        className={styles.list_item_image}
+      />
+      {/* <div style={img_style} className={styles.list_item_image}/> */}
       <div className={styles.list_item_details}>
         <div className={styles.list_item_top}>
           <h5 className={styles.list_item_title}>{data.data.title}</h5> 

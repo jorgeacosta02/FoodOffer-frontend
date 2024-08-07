@@ -1,6 +1,7 @@
 @use '../../../styles/globals' as g;
 
 .list_item_box {
+    box-sizing: border-box;
     width: 100%;
     height: 140px;
     background-color: #fff;
@@ -12,6 +13,7 @@
     cursor: pointer;
     box-sizing: border-box;
     margin: 10px 0px;
+    padding: 10px;
 }
 
 .list_item_details {

@@ -1,6 +1,4 @@
 import styles from './_PremiumOfferCardComp.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import TagComp from '../../tagComp/TagComp';
 
 const PremiumOfferCardComp = (data: any) => {
@@ -43,7 +41,7 @@ const PremiumOfferCardComp = (data: any) => {
               <TagComp data={tag_data}></TagComp>
             </div>
           ))}
-          </div>
+        </div>
         <h3 className={styles.card_item_price}>
           ${data.data.price}
         </h3>
