@@ -82,8 +82,17 @@ const OfferDetailComp = () => {
           <h6 className={styles.card_item_price}>
             Aprovecha esta oferta por ${data.price}
           </h6>
-          <Link to='/'>
-            <button className={styles.back_button}><FontAwesomeIcon className={styles.tag_icon} icon={faArrowCircleLeft} />Volver</button>
+          <Link to='/'
+            className={styles.card_link_button}
+          >
+            <button
+              className={styles.back_button}>
+                <FontAwesomeIcon 
+                  className={styles.tag_icon} 
+                  icon={faArrowCircleLeft}
+                />
+                  Volver
+            </button>
           </Link>
         </div>
       )

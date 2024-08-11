@@ -14,7 +14,7 @@
     box-sizing: border-box;
     margin: 5px 0px;
     padding: 5px;
-    background-color: red;
+    // background-color: red;
     .list_item_left{
         width: 55%;
         display: flex;
@@ -26,7 +26,7 @@
             max-height: 100%;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         .list_item_price {
             width: 100%;
@@ -42,7 +42,7 @@
         height: 100%;
         width: 80%;
         text-align: left;
-        background-color: grey;
+        // background-color: grey;
         
         .list_item_top {
             display: flex;
@@ -83,7 +83,7 @@
         }
         .card_attr_container{
             width: 90px;
-            background-color: blue;
+            // background-color: blue;
         }
         .list_item_bottom {
             display: flex;

@@ -1,17 +1,16 @@
 @use '../../styles/globals' as g;
 
 .main_container {
+  box-sizing: border-box;
   position: relative;
   top: g.$mobile-NavBar-height;
-  width: 100%;
-  // border-radius: 5px;
-  // height: fit-content;
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: #fff;
-  // background-color: red;
+  padding: 10px 10px 100px;
+  // background-color: rgba(255, 0, 0, 0.279);
   .card_image{
     height: 50vh;
   }
@@ -20,10 +19,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    width: 90%;
+    width: 100%;
+    // background-color: green;
   }
   .card_attr_container{
-    width: 90%;
+    width: 100%;
     @include g.create-flexbox(row, flex-start);
     flex-wrap: wrap;
     padding: 10px 0;
@@ -34,12 +34,20 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    width: 90%;
+    width: 100%;
   }
   .card_item_price{
     padding: 10px 0;
+    // background-color: blue;
   }
-
+  .card_link_button{
+    width: 800%;
+    max-width: 100px;
+    .back_button{
+      width: 100%;
+      height: 25px;
+    }
+  }
 }
 
 
