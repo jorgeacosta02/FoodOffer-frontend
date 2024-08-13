@@ -22,10 +22,16 @@
         align-items: center;
         gap: 5px;
         .list_item_image {
-            max-width: 100%;
+            width: 100%;
+            max-width: 100px;
+            min-width: 70px;
             max-height: 100%;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
+            @include g.display-large{
+                width: 20%;
+                min-width: 100px;
+            }
             // border: 1px solid black;
         }
         .list_item_price {
