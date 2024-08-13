@@ -29,15 +29,21 @@ const HomeComp = () => {
 
   return (
     <div className={styles.main_container}>    
-      <div className={styles.container}>
+      <div 
+        className={styles.container}
+      >
         {
           premiumAdvReducer.data? <PremiumOfferSliderComp data={premiumAdvReducer.data}></PremiumOfferSliderComp>:""
         }
       </div>
-      <br/>
-      <CatSliderComp categories={categories}></CatSliderComp>
+      {/* <br/> */}
+      <CatSliderComp 
+        categories={categories}
+      >
+      </CatSliderComp>
       {
-        premiumAdvReducer.data? <OfferListComp data={premiumAdvReducer.data}></OfferListComp> :""
+        premiumAdvReducer.data? 
+        <OfferListComp data={premiumAdvReducer.data}></OfferListComp> :""
       }
     </div>
   );

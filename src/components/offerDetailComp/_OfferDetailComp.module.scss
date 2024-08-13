@@ -1,43 +1,52 @@
-@use '../../../styles/globals' as g;
+@use '../../styles/globals' as g;
 
-.pa_container {
-  width: 100%;
-  // border-radius: 5px;
-  // height: fit-content;
-  height: 90%;
+.main_container {
+  box-sizing: border-box;
+  position: relative;
+  top: g.$mobile-NavBar-height;
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: #fff;
-  // background-color: red;
-
-  .pa_title_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    height: 30px;
-    
-    .pa_title {
-      margin: 0;
-      width: 90%;
-      text-align: left;
-      color: #00525B;
-    }
-
-    .crown_icon {
-      color: g.$main-light-color;
-    }
+  padding: 10px 10px 100px;
+  // background-color: rgba(255, 0, 0, 0.279);
+  .card_image{
+    height: 50vh;
   }
-
-  .pa_item_container {
-    width: 100%;
-    // height: fit-content;
-    height: 20%;
+  .offer_info {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    // background-color: black;
-
+    align-items: start;
+    width: 100%;
+    // background-color: green;
+  }
+  .card_attr_container{
+    width: 100%;
+    @include g.create-flexbox(row, flex-start);
+    flex-wrap: wrap;
+    padding: 10px 0;
+    // background-color: red;
+  }
+  .card_store_data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+  }
+  .card_item_price{
+    padding: 10px 0;
+    // background-color: blue;
+  }
+  .card_link_button{
+    width: 800%;
+    max-width: 100px;
+    .back_button{
+      width: 100%;
+      height: 25px;
+    }
   }
 }
 

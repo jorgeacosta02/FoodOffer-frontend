@@ -31,9 +31,9 @@ const OfferListComp = (props: any) => {
   
   console.log('selectedOption: ', selectedOption);
   // Hacer una copia de los datos y ordenarlos por precio de menor a mayor
-  let sortedData = selectedOption === '1' ? 
-  [...props.data].sort((a: any, b: any) => a.price - b.price) :
-  [...props.data].sort((a: any, b: any) => b.price - a.price);
+  let sortedData = selectedOption === '2' ? 
+  [...props.data].sort((a: any, b: any) => b.price - a.price) :
+  [...props.data].sort((a: any, b: any) => a.price - b.price);
 
   return (
     <div className={styles.container}>

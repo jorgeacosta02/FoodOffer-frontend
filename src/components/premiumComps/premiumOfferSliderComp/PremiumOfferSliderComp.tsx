@@ -14,11 +14,18 @@ const NextArrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, 
+      style={{ ...style,
+        boxSizing:'border-box',
+        padding: '3px',
+        width: '25px',
+        height: '25px',
         display: 'block',
         background: 'black',
         right: '15px', 
-        zIndex: 1 
+        zIndex: 1,
+        borderRadius: '50%',
+        alignContent: 'center',
+        justifyContent: 'center',
       }}
       onClick={onClick}
     />
@@ -29,12 +36,19 @@ const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
-      style={{ ...style, 
-        display: 'block',
-        background: 'transparent',
-        left: '15px', 
-        zIndex: 1 
-      }}
+    style={{ ...style,
+      boxSizing:'border-box',
+      padding: '2.5px',
+      width: '25px',
+      height: '25px',
+      display: 'block',
+      background: 'black',
+      left: '15px', 
+      zIndex: 1,
+      borderRadius: '50%',
+      alignContent: 'center',
+      justifyContent: 'center',
+    }}
       className={className}
       onClick={onClick}
     />
