@@ -1,7 +1,8 @@
 import styles from './_CatSliderComp.module.scss'
 
-
+console.log('CatSliderItemcomp')
 function CatSliderItemComp(category: any) {
+
     console.log('category: ', category)
     return (
       <div className={styles.item_box}>

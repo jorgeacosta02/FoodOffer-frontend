@@ -23,23 +23,23 @@ const categorySlice = createSlice({
       }
     },
     extraReducers: (builder) => {
-        builder
-        .addCase(getCategories.pending, (state) => {
-          state.loading = true;
-          state.error = null;
-        })
-        .addCase(getCategories.fulfilled, (state, action: PayloadAction<any>) => {
+      builder
+      .addCase(getCategories.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getCategories.fulfilled, (state, action: PayloadAction<any>) => {
+        state.loading = false;
+        console.log('action.payload:', action.payload);
+        state.data = action.payload;
+        console.log('state.data en la slice: ', state.data)
+      })
+      .addCase(getCategories.rejected,
+        (state, action: any) => {
           state.loading = false;
-          console.log('action.payload:', action.payload);
-          state.data = action.payload;
-          console.log('state.data en la slice: ', state.data)
-        })
-        .addCase(getCategories.rejected,
-          (state, action: any) => {
-            state.loading = false;
-            state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
-          }
-        );
+          state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
+        }
+      );
     },
 });
 

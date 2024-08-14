@@ -8,8 +8,13 @@ import { useRef } from "react";
 import styles from "./_CatSliderComp.module.scss";
 import CatSliderItemComp from "./CatSliderItemComp";
 
+
+
+
 function CatSliderComp(categories: any) {
   
+  console.log('CatSliderComp')
+
   const sliderRef = useRef<Slider>(null);
 
   const goToPrevSlide = () => {

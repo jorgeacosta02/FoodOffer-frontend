@@ -23,23 +23,23 @@ const premiumAdvSlice = createSlice({
       }
     },
     extraReducers: (builder) => {
-        builder
-        .addCase(getAllPremiumAdv.pending, (state) => {
-          state.loading = true;
-          state.error = null;
-        })
-        .addCase(getAllPremiumAdv.fulfilled, (state, action: PayloadAction<any>) => {
+      builder
+      .addCase(getAllPremiumAdv.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAllPremiumAdv.fulfilled, (state, action: PayloadAction<any>) => {
+        state.loading = false;
+        console.log('action.payload:', action.payload);
+        state.data = action.payload;
+        console.log('state.data en la slice: ', state.data)
+      })
+      .addCase(getAllPremiumAdv.rejected,
+        (state, action: any) => {
           state.loading = false;
-          console.log('action.payload:', action.payload);
-          state.data = action.payload;
-          console.log('state.data en la slice: ', state.data)
-        })
-        .addCase(getAllPremiumAdv.rejected,
-          (state, action: any) => {
-            state.loading = false;
-            state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
-          }
-        );
+          state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
+        }
+      );
     },
 });
 

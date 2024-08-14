@@ -21,23 +21,13 @@ const HomeComp = () => {
   console.log('categoriesReducer: ', categoriesReducer);
 
   useEffect(() => {
+    getCategoriesFunc();
     getAllPremiumAdvFunc();
-    // getCategoriesFunc();
     return () => {
       dispatch(cleanPremiumAdvs());
-      // dispatch(cleanCategories());
-    };
-  }, [dispatch]);
-
-  useEffect(() => {
-    // getAllPremiumAdvFunc();
-    getCategoriesFunc();
-    return () => {
-      // dispatch(cleanPremiumAdvs());
       dispatch(cleanCategories());
     };
   }, [dispatch]);
-
 
   const getAllPremiumAdvFunc = async () => {
     await dispatch(getAllPremiumAdv());
@@ -46,8 +36,6 @@ const HomeComp = () => {
   const getCategoriesFunc = async () => {
     await dispatch(getCategories());
   }
-
-  console.log('categoriesReducer:', categoriesReducer)
 
   return (
     <div className={styles.main_container}>    

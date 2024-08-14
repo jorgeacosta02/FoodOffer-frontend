@@ -9,7 +9,7 @@ import NoAdvComp from '../../noAdvComp/NoAdvComp';
 
 
 
-const NextArrow = (props) => {
+const NextArrow = (props: any) => {
   const { className, style, onClick } = props;
   return (
     <div
