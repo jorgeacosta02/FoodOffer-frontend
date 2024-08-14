@@ -47,4 +47,4 @@ export const { cleanCategories } = categorySlice.actions;
 
 export default categorySlice.reducer;
 
-export const selectCategories = (state: any) => state.category;
+export const selectCategories = (state: any) => state.categories;

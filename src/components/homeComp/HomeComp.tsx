@@ -49,12 +49,15 @@ const HomeComp = () => {
         }
       </div>
 
+     
       {
         categoriesReducer?.data?
         <CatSliderComp 
-          categories={categoriesReducer.data}
-        />:""
+        categories={categoriesReducer}/>
+        :""
       }
+       
+     
 
       {
         premiumAdvReducer.data? 

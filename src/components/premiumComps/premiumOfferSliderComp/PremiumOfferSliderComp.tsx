@@ -32,7 +32,7 @@ const NextArrow = (props: any) => {
   );
 };
 
-const PrevArrow = (props) => {
+const PrevArrow = (props: any) => {
   const { className, style, onClick } = props;
   return (
     <div

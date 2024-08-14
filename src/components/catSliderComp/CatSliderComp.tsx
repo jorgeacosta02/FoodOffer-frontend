@@ -13,7 +13,7 @@ import CatSliderItemComp from "./CatSliderItemComp";
 
 function CatSliderComp(categories: any) {
   
-  console.log('CatSliderComp')
+  console.log('categories: ', categories)
 
   const sliderRef = useRef<Slider>(null);
 
@@ -50,7 +50,7 @@ function CatSliderComp(categories: any) {
           />
           <div className={styles.slider_items_container}>
             <Slider ref={sliderRef} {...settings}>
-              {categories.data.map((item: any) => (
+              {categories.categories.data.map((item: any) => (
                 <div key={item.id}>
                   <CatSliderItemComp
                     category={item}
