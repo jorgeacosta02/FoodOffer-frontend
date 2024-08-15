@@ -51,7 +51,7 @@ function CatSliderComp(categories: any) {
           <div className={styles.slider_items_container}>
             <Slider ref={sliderRef} {...settings}>
               {categories.categories.data.map((item: any) => (
-                <div key={item.id}>
+                <div key={item.code}>
                   <CatSliderItemComp
                     category={item}
                   ></CatSliderItemComp>

@@ -3,7 +3,7 @@ import menuReducer from '../slices/menuSlice'
 import adminReducer from '../slices/adminAuthSlice'
 import messageReducer from '../slices/messageSlice'
 import userReducer from '../slices/userAuthSlice'
-import premiumAdvReducer from '../slices/premiumAdvSlice'
+import advertisingReducer from '../slices/advertisingSlice'
 import categoriesReducer from '../slices/categoriesSlice'
 import detailReducer from '../slices/detailSlice'
 
@@ -14,7 +14,7 @@ export const store = configureStore ({
     admin: adminReducer,
     user: userReducer,
     message: messageReducer,
-    premiumAdv: premiumAdvReducer,
+    advertising: advertisingReducer,
     categories: categoriesReducer,
     detail: detailReducer,
   }

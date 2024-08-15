@@ -1,40 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getAllPremiumAdv } from '../actions/premiumAdvActions';
+import { getAllAdvertising } from '../actions/advertisingActions';
 
 
-interface PremiumAdvState {
+interface AdvertisingState {
     data: any;
     loading: boolean;
     error: string | null;
 }
 
-const initialState: PremiumAdvState = {
+const initialState: AdvertisingState = {
     data: null,
     loading: false,
     error: null,
 };
 
-const premiumAdvSlice = createSlice({
-    name: 'premiumAdv',
+const advertisingSlice = createSlice({
+    name: 'advertising',
     initialState,
     reducers: {
-      cleanPremiumAdvs : (state) => {
+      cleanAdvertisings : (state) => {
         state.data = null
       }
     },
     extraReducers: (builder) => {
       builder
-      .addCase(getAllPremiumAdv.pending, (state) => {
+      .addCase(getAllAdvertising.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getAllPremiumAdv.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(getAllAdvertising.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
         console.log('action.payload:', action.payload);
         state.data = action.payload;
         console.log('state.data en la slice: ', state.data)
       })
-      .addCase(getAllPremiumAdv.rejected,
+      .addCase(getAllAdvertising.rejected,
         (state, action: any) => {
           state.loading = false;
           state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
@@ -43,8 +43,8 @@ const premiumAdvSlice = createSlice({
     },
 });
 
-export const { cleanPremiumAdvs } = premiumAdvSlice.actions;
+export const { cleanAdvertisings } = advertisingSlice.actions;
 
-export default premiumAdvSlice.reducer;
+export default advertisingSlice.reducer;
 
-export const selectPremiumAdv = (state: any) => state.premiumAdv;
+export const selectAdvertisings = (state: any) => state.advertising;
