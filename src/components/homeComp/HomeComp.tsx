@@ -5,8 +5,8 @@ import OfferListComp from '../offerComps/offerListComp/OfferListComp';
 import CatSliderComp from '../catSliderComp/CatSliderComp';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { selectPremiumAdv, cleanPremiumAdvs } from '../../redux/slices/premiumAdvSlice';
-import { getAllPremiumAdv } from '../../redux/actions/premiumAdvActions';
+import { selectAdvertisings, cleanAdvertisings } from '../../redux/slices/advertisingSlice';
+import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
 
@@ -14,40 +14,28 @@ import { getCategories } from '../../redux/actions/categoryActions';
 const HomeComp = () => {
 
   const dispatch = useDispatch();
-  const premiumAdvReducer = useSelector(selectPremiumAdv);
+  const advertisingReducer = useSelector(selectAdvertisings);
   const categoriesReducer = useSelector(selectCategories);
 
-  console.log('premiumAdvReducer.data: ', premiumAdvReducer.data);
+  // console.log('advertisingReducer.data: ', advertisingReducer.data);
   console.log('categoriesReducer: ', categoriesReducer);
 
   useEffect(() => {
-    getAllPremiumAdvFunc();
-    // getCategoriesFunc();
-    return () => {
-      dispatch(cleanPremiumAdvs());
-      // dispatch(cleanCategories());
-    };
-  }, [dispatch]);
-
-  useEffect(() => {
-    // getAllPremiumAdvFunc();
     getCategoriesFunc();
+    getAllAdvertisingFunc();
     return () => {
-      // dispatch(cleanPremiumAdvs());
+      dispatch(cleanAdvertisings());
       dispatch(cleanCategories());
     };
   }, [dispatch]);
 
-
-  const getAllPremiumAdvFunc = async () => {
-    await dispatch(getAllPremiumAdv());
+  const getAllAdvertisingFunc = async () => {
+    await dispatch(getAllAdvertising());
   }
 
   const getCategoriesFunc = async () => {
     await dispatch(getCategories());
   }
-
-  console.log('categoriesReducer:', categoriesReducer)
 
   return (
     <div className={styles.main_container}>    
@@ -55,22 +43,20 @@ const HomeComp = () => {
         className={styles.container}
       >
         {
-          premiumAdvReducer.data? 
-          <PremiumOfferSliderComp data={premiumAdvReducer.data}/>
+          advertisingReducer?.data? 
+          <PremiumOfferSliderComp data={advertisingReducer.data}/>
           :""
         }
       </div>
-
       {
         categoriesReducer?.data?
         <CatSliderComp 
-          categories={categoriesReducer.data}
-        />:""
+        categories={categoriesReducer}/>
+        :""
       }
-
       {
-        premiumAdvReducer.data? 
-        <OfferListComp data={premiumAdvReducer.data}/>
+        advertisingReducer?.data? 
+        <OfferListComp data={advertisingReducer.data}/>
         :""
       }
     </div>

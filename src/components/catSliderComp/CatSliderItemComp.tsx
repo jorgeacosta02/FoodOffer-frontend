@@ -1,8 +1,9 @@
 import styles from './_CatSliderComp.module.scss'
 
+console.log('CatSliderItemcomp')
+function CatSliderItemComp(props: any) {
 
-function CatSliderItemComp(category: any) {
-    console.log('category: ', category)
+    // console.log('category: ', category)
     return (
       <div className={styles.item_box}>
           {/* <img
@@ -10,7 +11,7 @@ function CatSliderItemComp(category: any) {
             className={styles.item_icon}
           /> */}
           <p>
-            {category.data.description}
+            {props.category.description}
           </p>
       </div>
     );
