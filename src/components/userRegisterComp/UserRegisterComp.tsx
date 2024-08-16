@@ -19,7 +19,6 @@ const UserRegisterComp = () => {
     firstName: '',
     lastName: '',
     dni: '',
-    // birthDate:'',
     phone: '',
     email: '',
     password: '',
@@ -32,7 +31,6 @@ const UserRegisterComp = () => {
     firstName: '',
     lastName: '',
     dni: '',
-    // birthDate:'',
     phone: '',
     email: '',
     password: '',
@@ -47,7 +45,6 @@ const UserRegisterComp = () => {
     formData.firstName  !== '' &&
     formData.lastName  !== '' &&
     formData.dni  !== '' &&
-    // formData.birthDate !== '' &&
     formData.phone  !== '' &&
     formData.email  !== '' &&
     formData.password  !== ''
@@ -153,12 +150,6 @@ const UserRegisterComp = () => {
          dni: emptyMessage,
        }));
      };
-    //  if(!formData.birthDate){
-    //    setErrors((prevData) => ({
-    //      ...prevData,
-    //      birthDate: emptyMessage,
-    //    }));
-    //  };
      if(!formData.phone){
        setErrors((prevData) => ({
          ...prevData,
@@ -209,7 +200,6 @@ const UserRegisterComp = () => {
         firstName: '',
         lastName: '',
         dni: '',
-        // birthDate:'',
         phone: '',
         email: '',
         password: '',
@@ -232,7 +222,7 @@ const UserRegisterComp = () => {
           onSubmit={handleSubmit}
         >
           <h1 className={styles.title}>
-            Registrar personal
+            Registro de usuario
           </h1>
           <div className={styles.inputBlock}>
               <label 
