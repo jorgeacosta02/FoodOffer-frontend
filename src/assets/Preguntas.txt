@@ -1,0 +1,7 @@
+Qué datos debe enviar el formulario de registro de usuario?
+A qué url se envían los formularios?
+    Registro de usuario:
+    Alta de aviso:
+    Modificación de aviso:
+    Publicación de aviso:
+
