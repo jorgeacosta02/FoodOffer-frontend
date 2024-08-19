@@ -191,7 +191,7 @@ const UserRegisterComp = () => {
    const submitForm = async () => {
      try{
        const response = await axios.post(
-         'http://localhost:5000/register',
+         'register',
           formData
        );
        console.log('response', response.status);
