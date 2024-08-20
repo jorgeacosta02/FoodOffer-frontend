@@ -8,7 +8,7 @@ export interface IUserData {
     id_Type: number;
     id_Number: string;
     phone: string;
-    cellPhone: string;
+    cell_Phone: string;
     role: string;
     active: boolean;
 }
@@ -23,7 +23,7 @@ export interface IUserDataFromDB {
     id_Type: number;
     id_Number: string;
     phone: string;
-    cellPhone: string;
+    cell_Phone: string;
     role: string;
     active: boolean;
 }
@@ -37,7 +37,7 @@ export interface IUserRegisterData {
     id_Type: number;
     id_Number: string;
     phone: string;
-    cellPhone: string;
+    cell_Phone: string;
     // role: string;
     // active: boolean;
 }
@@ -63,7 +63,7 @@ export interface ILocalStorageUserData {
     id_Type: number;
     id_Number: string;
     phone: string;
-    cellPhone: string;
+    cell_Phone: string;
     role: string;
     active: boolean;
 }

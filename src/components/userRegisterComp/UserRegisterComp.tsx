@@ -23,7 +23,7 @@ const UserRegisterComp = () => {
     id_Type: 0,
     id_Number: '',
     phone: '',
-    cellPhone: '',
+    cell_Phone: '',
     // role:'',
     // active: false,
   });
@@ -37,7 +37,7 @@ const UserRegisterComp = () => {
     id_Type: 0,
     id_Number: '',
     phone: '',
-    cellPhone: '',
+    cell_Phone: '',
     // role:'',
     // active: false,
    });
@@ -53,7 +53,7 @@ const UserRegisterComp = () => {
     formData.id_Type  !== 0 &&
     formData.id_Number !== '' &&
     formData.phone  !== '' &&
-    formData.cellPhone  !== ''
+    formData.cell_Phone  !== ''
     // formData.role !== '' 
     // formData.active !== false
   ){
@@ -164,7 +164,7 @@ const UserRegisterComp = () => {
         id_Type: 0,
         id_Number: '',
         phone: '',
-        cellPhone: '',
+        cell_Phone: '',
         // role:'',
         // active: false, 
        })
@@ -340,17 +340,17 @@ const UserRegisterComp = () => {
             </label>
             <input
               type='text'
-              id='cellPhone'
-              name='cellPhone' 
-              value={formData.cellPhone}
+              id='cell_Phone'
+              name='cell_Phone' 
+              value={formData.cell_Phone}
               onChange={handleInputChange} 
               placeholder='Ingrese número de teléfono celular...'
             />
             {
-              errors.cellPhone 
+              errors.cell_Phone 
               && 
               <p className={styles.errorMessage}>
-                {errors.cellPhone}
+                {errors.cell_Phone}
               </p>
             }
           </div>
