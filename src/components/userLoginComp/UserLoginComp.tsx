@@ -1,12 +1,12 @@
 import styles from './_UserLoginComp.module.scss'
 import { IUserLoginData } from '../../Interfaces/userInterfaces';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'
+// import axios from 'axios'
 import { selectUserAuth } from '../../redux/slices/userAuthSlice';
-// import { loginUser } from '../../redux/actions/loginUserActions';
+import { loginUser } from '../../redux/actions/loginUserActions';
 // import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { toggleMessage } from '../../redux/slices/messageSlice';
+// import { toggleMessage } from '../../redux/slices/messageSlice';
 
 
 const UserLoginComp = () => {
@@ -71,26 +71,28 @@ const UserLoginComp = () => {
         console.log('submit')
         if(!submitOk) return emptyValidationHandler();
         submitForm();
-      }
+    }
       
-    const messageHandleClick = () => {
-        dispatch( toggleMessage() );
-    };
+    // const messageHandleClick = () => {
+    //     dispatch( toggleMessage() );
+    // };
 
     const submitForm = async () => {
         try{
-            const response = await axios.post(
-            'user/login',
-                formData
-            );
-            console.log('response', response.status);
-            // queryResponse = await response.status;
-            setFormData({
-            email: '',
-            password: '',
-            })
+            // const response = await axios.post(
+            // 'user/login',
+            //     formData
+            // );
+            // console.log('response', response);
+            // // queryResponse = await response.status;
+            // setFormData({
+            // email: '',
+            // password: '',
+            // })
 
-            messageHandleClick()
+            dispatch(loginUser(formData))
+
+            // messageHandleClick()
 
         }catch(error:any){
             console.log(error.message)
