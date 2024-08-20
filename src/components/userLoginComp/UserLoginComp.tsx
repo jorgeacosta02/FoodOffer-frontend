@@ -17,13 +17,13 @@ const UserLoginComp = () => {
 
     // Estado de datos del formulario
     const [formData, setFormData] = useState<IUserLoginData>({
-        dni: '',
+        email: '',
         password: '',
     });
     
     // Estado de errores del formulario
     const [errors, setErrors] = useState<IUserLoginData>({
-        dni: '',
+        email: '',
         password: '',
     });
 
@@ -31,8 +31,8 @@ const UserLoginComp = () => {
     let submitOk = false;
   
     if(
-        formData.dni  !== '' &&
-        formData.password  !== ''
+        formData.email !== '' &&
+        formData.password !== ''
     ){
         submitOk = true;
     };
@@ -52,7 +52,7 @@ const UserLoginComp = () => {
     const emptyMessage = 'Este campo debe ser completado.';
  
     const emptyValidationHandler =()=>{
-        if(!formData.dni){
+        if(!formData.email){
         setErrors((prevData) => ({
             ...prevData,
             dni: emptyMessage,
@@ -80,13 +80,13 @@ const UserLoginComp = () => {
     const submitForm = async () => {
         try{
             const response = await axios.post(
-            'http://localhost:5000/login',
+            'user/login',
                 formData
             );
             console.log('response', response.status);
             // queryResponse = await response.status;
             setFormData({
-            dni: '',
+            email: '',
             password: '',
             })
 
@@ -115,26 +115,26 @@ const UserLoginComp = () => {
                         Ingresar
                     </h2>
                     <div className={styles.inputBlock}>
-                    <label 
-                        htmlFor='dni'
-                    >
-                        DNI
-                    </label>
-                    <input
-                        type='text'
-                        id='dni'
-                        name='dni' 
-                        value={formData.dni}
-                        onChange={handleInputChange} 
-                        placeholder='Ingrese dni...'
-                    />
-                    {
-                        errors.dni 
-                        && 
-                        <p className={styles.errorMessage}>
-                        {errors.dni}
-                        </p>
-                    }
+                        <label 
+                            htmlFor='email'
+                        >
+                            Email
+                        </label>
+                        <input
+                            type='text'
+                            id='email'
+                            name='email' 
+                            value={formData.email}
+                            onChange={handleInputChange} 
+                            placeholder='Ingrese email...'
+                        />
+                        {
+                            errors.email 
+                            && 
+                            <p className={styles.errorMessage}>
+                            {errors.email}
+                            </p>
+                        }
                     </div>
                     <div className={styles.inputBlock}>
                     <label 
