@@ -11,10 +11,10 @@ const NavBarNavListComp = () => {
 
   const accessLogin = getDataFromLocalStorage('accessLogin');
   console.log('user in navBarNavList:', accessLogin);
-  const userId = accessLogin?.user?.id;
+  const userId = accessLogin?.id_User;
   console.log('userId en NavBarNavListComp: ', userId);
   const userAuth = useSelector(selectUserAuth); 
-  const userAuthId = userAuth?.data?.user?.id;
+  const userAuthId = userAuth?.data?.id;
   console.log(userAuth)
   
   // si utilizo useSelector con menuReducer no necesito importarlo

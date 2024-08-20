@@ -1,12 +1,12 @@
 import styles from './_UserLoginComp.module.scss'
 import { IUserLoginData } from '../../Interfaces/userInterfaces';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'
+// import axios from 'axios'
 import { selectUserAuth } from '../../redux/slices/userAuthSlice';
-// import { loginUser } from '../../redux/actions/loginUserActions';
+import { loginUser } from '../../redux/actions/loginUserActions';
 // import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { toggleMessage } from '../../redux/slices/messageSlice';
+// import { toggleMessage } from '../../redux/slices/messageSlice';
 
 
 const UserLoginComp = () => {
@@ -17,13 +17,13 @@ const UserLoginComp = () => {
 
     // Estado de datos del formulario
     const [formData, setFormData] = useState<IUserLoginData>({
-        dni: '',
+        email: '',
         password: '',
     });
     
     // Estado de errores del formulario
     const [errors, setErrors] = useState<IUserLoginData>({
-        dni: '',
+        email: '',
         password: '',
     });
 
@@ -31,8 +31,8 @@ const UserLoginComp = () => {
     let submitOk = false;
   
     if(
-        formData.dni  !== '' &&
-        formData.password  !== ''
+        formData.email !== '' &&
+        formData.password !== ''
     ){
         submitOk = true;
     };
@@ -52,7 +52,7 @@ const UserLoginComp = () => {
     const emptyMessage = 'Este campo debe ser completado.';
  
     const emptyValidationHandler =()=>{
-        if(!formData.dni){
+        if(!formData.email){
         setErrors((prevData) => ({
             ...prevData,
             dni: emptyMessage,
@@ -71,26 +71,28 @@ const UserLoginComp = () => {
         console.log('submit')
         if(!submitOk) return emptyValidationHandler();
         submitForm();
-      }
+    }
       
-    const messageHandleClick = () => {
-        dispatch( toggleMessage() );
-    };
+    // const messageHandleClick = () => {
+    //     dispatch( toggleMessage() );
+    // };
 
     const submitForm = async () => {
         try{
-            const response = await axios.post(
-            'http://localhost:5000/login',
-                formData
-            );
-            console.log('response', response.status);
-            // queryResponse = await response.status;
-            setFormData({
-            dni: '',
-            password: '',
-            })
+            // const response = await axios.post(
+            // 'user/login',
+            //     formData
+            // );
+            // console.log('response', response);
+            // // queryResponse = await response.status;
+            // setFormData({
+            // email: '',
+            // password: '',
+            // })
 
-            messageHandleClick()
+            dispatch(loginUser(formData))
+
+            // messageHandleClick()
 
         }catch(error:any){
             console.log(error.message)
@@ -115,26 +117,26 @@ const UserLoginComp = () => {
                         Ingresar
                     </h2>
                     <div className={styles.inputBlock}>
-                    <label 
-                        htmlFor='dni'
-                    >
-                        DNI
-                    </label>
-                    <input
-                        type='text'
-                        id='dni'
-                        name='dni' 
-                        value={formData.dni}
-                        onChange={handleInputChange} 
-                        placeholder='Ingrese dni...'
-                    />
-                    {
-                        errors.dni 
-                        && 
-                        <p className={styles.errorMessage}>
-                        {errors.dni}
-                        </p>
-                    }
+                        <label 
+                            htmlFor='email'
+                        >
+                            Email
+                        </label>
+                        <input
+                            type='text'
+                            id='email'
+                            name='email' 
+                            value={formData.email}
+                            onChange={handleInputChange} 
+                            placeholder='Ingrese email...'
+                        />
+                        {
+                            errors.email 
+                            && 
+                            <p className={styles.errorMessage}>
+                            {errors.email}
+                            </p>
+                        }
                     </div>
                     <div className={styles.inputBlock}>
                     <label 

@@ -50,7 +50,16 @@ export interface IUserLoginData {
 
 // ApiResponse
 export interface ApiResponse {
-    user: IUserData;
+    name: string;
+    email: string;
+    password: string;
+    type: string;
+    id_Type: number;
+    id_Number: string;
+    phone: string;
+    cell_Phone: string;
+    role: string;
+    active: boolean;
     message: string;
 }
 
