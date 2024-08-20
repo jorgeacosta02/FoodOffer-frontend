@@ -1,40 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getCategories } from '../actions/categoryActions';
+import { getAllAdvertising } from '../actions/advertisingActions';
 
 
-interface CategoryState {
+interface AdvertisingState {
     data: any;
     loading: boolean;
     error: string | null;
 }
 
-const initialState: CategoryState = {
+const initialState: AdvertisingState = {
     data: null,
     loading: false,
     error: null,
 };
 
-const categorySlice = createSlice({
-    name: 'category',
+const advertisingSlice = createSlice({
+    name: 'advertising',
     initialState,
     reducers: {
-      cleanCategories : (state) => {
+      cleanAdvertisings : (state) => {
         state.data = null
       }
     },
     extraReducers: (builder) => {
       builder
-      .addCase(getCategories.pending, (state) => {
+      .addCase(getAllAdvertising.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getCategories.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(getAllAdvertising.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
         console.log('action.payload:', action.payload);
         state.data = action.payload;
         console.log('state.data en la slice: ', state.data)
       })
-      .addCase(getCategories.rejected,
+      .addCase(getAllAdvertising.rejected,
         (state, action: any) => {
           state.loading = false;
           state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
@@ -43,8 +43,8 @@ const categorySlice = createSlice({
     },
 });
 
-export const { cleanCategories } = categorySlice.actions;
+export const { cleanAdvertisings } = advertisingSlice.actions;
 
-export default categorySlice.reducer;
+export default advertisingSlice.reducer;
 
-export const selectCategories = (state: any) => state.categories;
+export const selectAdvertisings = (state: any) => state.advertising;

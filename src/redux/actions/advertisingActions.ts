@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-console.log('en premiumAdvActions')
+console.log('en advertisingActions')
 
-export const getAllPremiumAdv: any = createAsyncThunk(
+export const getAllAdvertising: any = createAsyncThunk(
   'GetAdvertisings', 
   async (_, thunkAPI) => {
     try {
@@ -19,7 +19,7 @@ export const getAllPremiumAdv: any = createAsyncThunk(
       // Realizar la solicitud POST con el cuerpo JSON
       const response = await axios.post<any>('/GetAdvertisings', requestBody);
 
-      console.log('response.data en getAllPremiumAdv: ', response.data);
+      console.log('response.data en getAllAdvertising: ', response.data);
       const data = response.data;
       return data;
     } catch (error: any) {

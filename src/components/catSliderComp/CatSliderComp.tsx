@@ -8,8 +8,13 @@ import { useRef } from "react";
 import styles from "./_CatSliderComp.module.scss";
 import CatSliderItemComp from "./CatSliderItemComp";
 
+
+
+
 function CatSliderComp(categories: any) {
   
+  console.log('categories: ', categories)
+
   const sliderRef = useRef<Slider>(null);
 
   const goToPrevSlide = () => {
@@ -45,8 +50,8 @@ function CatSliderComp(categories: any) {
           />
           <div className={styles.slider_items_container}>
             <Slider ref={sliderRef} {...settings}>
-              {categories.categories.map((item: any) => (
-                <div key={item.id}>
+              {categories.categories.data.map((item: any) => (
+                <div key={item.code}>
                   <CatSliderItemComp
                     category={item}
                   ></CatSliderItemComp>
