@@ -32,8 +32,8 @@ const userSlice = createSlice({
         })
         .addCase(loginUser.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
           state.loading = false;
-          console.log('action.payload.user :', action.payload.user);
-          state.data = action.payload.user;
+          console.log('action.payload :', action.payload);
+          state.data = action.payload;
           console.log('state.data en la slice: ', state.data)
           if (action.payload.message === 'El usuario no existe') {
             // El servidor devolvió un mensaje indicando que el usuario no existe

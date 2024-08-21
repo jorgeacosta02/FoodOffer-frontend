@@ -1,29 +1,24 @@
 import { IUserDataFromDB } from "../../Interfaces/userInterfaces"
 
-export const localStorageSetUserData = (name:string, data: IUserDataFromDB) => {
+export const localStorageSetUserData = (name: string, data: IUserDataFromDB) => {
 
     console.log('data en localStorageSetUserData', data)
 
-
     const title = {
         id: data.id,
-        firstName : data.firstName,
-        lastName : data.lastName,
-        dni: data.dni,
+        name : data.name,
         email: data.email,
         active : data.active,
         role : data.role,
     }
-
-   
 
     console.log('data en localStorageSetUserData', data)
    
     localStorage.setItem(name, JSON.stringify(title))
 }
 
-
 export const getDataFromLocalStorage = (name:string) => {
+    console.log('name en localstorage: ', name)
     const jsonUserFromLocalStorage: any = localStorage.getItem(name);
     console.log('jsonUserFromLocalStorage: ', jsonUserFromLocalStorage);
     const userFLS = JSON.parse(jsonUserFromLocalStorage);

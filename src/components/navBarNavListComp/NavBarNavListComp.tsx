@@ -11,10 +11,10 @@ const NavBarNavListComp = () => {
 
   const accessLogin = getDataFromLocalStorage('accessLogin');
   console.log('user in navBarNavList:', accessLogin);
-  const userId = accessLogin?.user?.id;
+  const userId = accessLogin?.id_User;
   console.log('userId en NavBarNavListComp: ', userId);
   const userAuth = useSelector(selectUserAuth); 
-  const userAuthId = userAuth?.data?.user?.id;
+  // const userAuthId = userAuth?.data?.id;
   console.log(userAuth)
   
   // si utilizo useSelector con menuReducer no necesito importarlo
@@ -38,17 +38,23 @@ const NavBarNavListComp = () => {
           <NavLink
             to="/" 
             className={styles.navLink} 
-           >Inicio</NavLink>
+          >
+            Inicio
+          </NavLink>
         </li>
         <li onClick={handleClick} >
           <NavLink
             to="/contact" 
             className={styles.navLink} 
-           >Contacto</NavLink>
+          >
+            Contacto
+          </NavLink>
         </li>
-        {accessLogin?.user?.id || userAuthId?.data?.user?.id
-        ? <div className={styles.profileContainer}>
-            <li>
+        {accessLogin?.id_User ? 
+          <div className={styles.profileContainer}>
+            <li 
+              onClick={handleClick}
+            >
               <NavLink
                 to='/user-profile'
                 className={styles.profile}

@@ -16,24 +16,28 @@ const UserRegisterComp = () => {
    
   // Estado de datos del formulario
   const [formData, setFormData] = useState<IUserRegisterData>({
-    firstName: '',
-    lastName: '',
-    dni: '',
-    phone: '',
+    name: '',
     email: '',
     password: '',
+    type: '',
+    id_Type: 0,
+    id_Number: '',
+    phone: '',
+    cell_Phone: '',
     // role:'',
     // active: false,
   });
  
    // Estado de errores del formulario
    const [errors, setErrors] = useState<IUserRegisterData>({
-    firstName: '',
-    lastName: '',
-    dni: '',
-    phone: '',
+    name: '',
     email: '',
     password: '',
+    type: '',
+    id_Type: 0,
+    id_Number: '',
+    phone: '',
+    cell_Phone: '',
     // role:'',
     // active: false,
    });
@@ -42,12 +46,14 @@ const UserRegisterComp = () => {
    let submitOk = false;
   
   if(
-    formData.firstName  !== '' &&
-    formData.lastName  !== '' &&
-    formData.dni  !== '' &&
-    formData.phone  !== '' &&
+    formData.name  !== '' &&
     formData.email  !== '' &&
-    formData.password  !== ''
+    formData.password  !== '' &&
+    formData.type  !== '' &&
+    formData.id_Type  !== 0 &&
+    formData.id_Number !== '' &&
+    formData.phone  !== '' &&
+    formData.cell_Phone  !== ''
     // formData.role !== '' 
     // formData.active !== false
   ){
@@ -68,65 +74,31 @@ const UserRegisterComp = () => {
       ...prevData,
       [name]: '',
     }));
-     // Valida solo letras
-    //  if (name === 'name'){
-    //    if(!nameRegExp.test(value)){
-    //      setErrors((prevData) => ({
-    //        ...prevData,
-    //        [name]: langState === 'es' ? 'El nombre debe contener solo letras.' : 'The name must contain only letters.',
-    //      }));
-    //    }else{
-    //      setFormData((prevData) => ({
-    //        ...prevData,
-    //        [name]: value,
-    //      }));
-    //      setErrors((prevData) => ({
-    //        ...prevData,
-    //        [name]: '',
-    //      }));
-    //    }
-    //  }
- 
-     // Valida campo email
-    //  if (name === 'email'){
-    //    if(!emailRegExp.test(value)){
-    //      setErrors((prevData) => ({
-    //        ...prevData,
-    //        [name]: langState === 'es' ? 'Debe ingresar un mail válido.': 'You must enter  a valid email.',
-    //      }));
-    //      setFormData((prevData) => ({
-    //        ...prevData,
-    //        [name]: value,
-    //      }));
-    //    }else{
-    //      setFormData((prevData) => ({
-    //        ...prevData,
-    //        [name]: value,
-    //      }));
-    //      setErrors((prevData) => ({
-    //        ...prevData,
-    //        [name]: '',
-    //      }));
-    //    }
-    //  }
-    //  if (name === 'subject' || name === 'message'){
-    //     setFormData((prevData) => ({
-    //      ...prevData,
-    //      [name]: value,
-    //    }));
-    //    setErrors((prevData) => ({
-    //      ...prevData,
-    //      [name]: '',
-    //    }));
-    //  }
-    //  console.log('name y value in handleInputChange: ',name, value);
-    //  console.log('formData y errors in handleInputChange: ',formData, errors);
+  
+
+//     POST --> http://localhost:7141/user/register
+
+// {
+//     "Id_User": 0,
+//     "Name": "Usuario test",
+//     "Email": "test@gtest.com",
+//     "Password": "1234",
+//     "Type": "C",
+//     "Id_Type": 1,
+//     "Id_Number": "11333555"
+// }
+
+// Type "C" es por customer. Por ahora solo tenemos customers. 
+// Id_type es codigo de tipo de documento. Lo puse como 1 por ahora.
+// Id_number seria el numero de documento, dni, cuit, el que corresponda al tipo
+
+
    }
  
    const emptyMessage = 'Este campo debe ser completado.';
  
    const emptyValidationHandler =()=>{
-     if(!formData.firstName){
+     if(!formData.name){
        setErrors((prevData) => ({
          ...prevData,
          firstName: emptyMessage,
@@ -138,30 +110,18 @@ const UserRegisterComp = () => {
          email: emptyMessage,
        }));
      };
-     if(!formData.lastName){
-       setErrors((prevData) => ({
-         ...prevData,
-         lastName: emptyMessage,
-       }));
-     };
-     if(!formData.dni){
-       setErrors((prevData) => ({
-         ...prevData,
-         dni: emptyMessage,
-       }));
-     };
-     if(!formData.phone){
-       setErrors((prevData) => ({
-         ...prevData,
-         phone: emptyMessage,
-       }));
-     };
-     if(!formData.email){
-       setErrors((prevData) => ({
-         ...prevData,
-         email: emptyMessage,
-       }));
-     };
+    //  if(!formData.phone){
+    //    setErrors((prevData) => ({
+    //      ...prevData,
+    //      lastName: emptyMessage,
+    //    }));
+    //  };
+    //  if(!formData.cellPhone){
+    //    setErrors((prevData) => ({
+    //      ...prevData,
+    //      dni: emptyMessage,
+    //    }));
+    //  };
      if(!formData.password){
        setErrors((prevData) => ({
          ...prevData,
@@ -191,20 +151,22 @@ const UserRegisterComp = () => {
    const submitForm = async () => {
      try{
        const response = await axios.post(
-         'register',
+         'user/register',
           formData
        );
        console.log('response', response.status);
        // queryResponse = await response.status;
        setFormData({
-        firstName: '',
-        lastName: '',
-        dni: '',
-        phone: '',
+        name: '',
         email: '',
         password: '',
+        type: '',
+        id_Type: 0,
+        id_Number: '',
+        phone: '',
+        cell_Phone: '',
         // role:'',
-        // active: false,
+        // active: false, 
        })
  
        messageHandleClick()
@@ -225,139 +187,51 @@ const UserRegisterComp = () => {
             Registro de usuario
           </h1>
           <div className={styles.inputBlock}>
-              <label 
-                htmlFor='firstName'>
-                Nombre
-              </label>
-              <input
-                type='text'
-                id='firtsName'
-                name='firstName' 
-                value={formData.firstName}
-                onChange={handleInputChange} 
-                placeholder='Ingrese nombre...'
-              />
-              {
-                errors.firstName 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.firstName}
-                </p>
-              }
-            </div>
+            <label 
+              htmlFor='name'>
+              Nombre del negocio
+            </label>
+            <input
+              type='text'
+              id='name'
+              name='name' 
+              value={formData.name}
+              onChange={handleInputChange} 
+              placeholder='Ingrese nombre del negocio...'
+            />
+            {
+              errors.name 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.name}
+              </p>
+            }
+          </div>
           <div className={styles.inputBlock}>
-              <label 
-                htmlFor='lastName'>
-                Apellido
-              </label>
-              <input
-                type='text'
-                id='lastName'
-                name='lastName' 
-                value={formData.lastName}
-                onChange={handleInputChange} 
-                placeholder='Ingrese apellido...'
-              />
-              {
-                errors.lastName 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.lastName}
-                </p>
-              }
-            </div>
-          {/* <div className={styles.inputBlock}>
-              <label 
-                htmlFor='dni'>
-                {langState === 'es' ? 'DNI' : 'DNI'}
-              </label>
-              <input
-                type='text'
-                id='dni'
-                name='dni' 
-                value={formData.dni}
-                onChange={handleInputChange} 
-                placeholder={langState === 'es' ? 'Ingrese dni...' :  'Enter dni...'}
-                // className={inputColor}
-              />
-              {
-                errors.dni 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.dni}
-                </p>
-              }
-            </div> */}
-          {/* <div className={styles.inputBlock}>
-              <label 
-                htmlFor='birthDate'>
-                {langState === 'es' ? 'Fecha de nacimiento' : 'Birthdate'}
-              </label>
-              <input
-                type='text'
-                id='birthDate'
-                name='birthDate' 
-                value={formData.birthDate}
-                onChange={handleInputChange} 
-                placeholder={langState === 'es' ? 'Ingrese fecha de nacimiento...' :  'Enter birthdate...'}
-                // className={inputColor}
-              />
-              {
-                errors.birthDate 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.birthDate}
-                </p>
-              }
-            </div> */}
-          {/* <div className={styles.inputBlock}>
-              <label 
-                htmlFor='phone'>
-                {langState === 'es' ? 'Teléfono' : 'Phone'}
-              </label>
-              <input
-                type='text'
-                id='phone'
-                name='phone' 
-                value={formData.phone}
-                onChange={handleInputChange} 
-                placeholder={langState === 'es' ? 'Ingrese número de teléfono...' :  'Enter phone number...'}
-                // className={inputColor}
-              />
-              {
-                errors.phone 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.phone}
-                </p>
-              }
-            </div> */}
-          {/* <div className={styles.inputBlock}>
-              <label 
-                htmlFor='email'>
-                {langState === 'es' ? 'Correo electrónico' : 'Email'}
-              </label>
-              <input
-                type='text'
-                id='email'
-                name='email' 
-                value={formData.email}
-                onChange={handleInputChange} 
-                placeholder={langState === 'es' ? 'Ingrese correo electrónico...' :  'Enter email...'}
-                // className={inputColor}
-              />
-              {
-                errors.email 
-                && 
-                <p className={styles.errorMessage}>
-                  {errors.email}
-                </p>
-              }
-            </div> */}
-          {/* <div className={styles.inputBlock}>
+            <label 
+              htmlFor='email'>
+              Email
+            </label>
+            <input
+              type='text'
+              id='email'
+              name='email' 
+              value={formData.email}
+              onChange={handleInputChange} 
+              placeholder='Ingrese email...'
+            />
+            {
+              errors.email 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.email}
+              </p>
+            }
+          </div>
+          <div className={styles.inputBlock}>
             <label 
               htmlFor='password'>
-              {langState === 'es' ? 'Contraseña' : 'Password'}
+              Contraseña
             </label>
             <input
               type='text'
@@ -365,8 +239,7 @@ const UserRegisterComp = () => {
               name='password' 
               value={formData.password}
               onChange={handleInputChange} 
-              placeholder={langState === 'es' ? 'Ingrese contraseña...' :  'Enter password...'}
-              // className={inputColor}
+              placeholder='Ingrese contraseña...'
             />
             {
               errors.password 
@@ -375,7 +248,112 @@ const UserRegisterComp = () => {
                 {errors.password}
               </p>
             }
-          </div> */}
+          </div>
+          <div className={styles.inputBlock}>
+            <label 
+              htmlFor='type'>
+              Tipo de registro
+            </label>
+            <input
+              type='text'
+              id='type'
+              name='type' 
+              value={formData.type}
+              onChange={handleInputChange} 
+              placeholder='Ingrese tipo de registro...'
+            />
+            {
+              errors.type 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.type}
+              </p>
+            }
+          </div>
+          <div className={styles.inputBlock}>
+            <label 
+              htmlFor='id_Type'>
+              Tipo de documento
+            </label>
+            <input
+              type='number'
+              id='id_Type'
+              name='id_Type' 
+              value={formData.id_Type}
+              onChange={handleInputChange} 
+              placeholder='Ingrese tipo de documento...'
+            />
+            {
+              errors.id_Type 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.id_Type}
+              </p>
+            }
+          </div>
+          <div className={styles.inputBlock}>
+            <label 
+              htmlFor='id_Number'>
+              Número de documento
+            </label>
+            <input
+              type='text'
+              id='id_Number'
+              name='id_Number' 
+              value={formData.id_Number}
+              onChange={handleInputChange} 
+              placeholder='Ingrese número de documento...'
+            />
+            {
+              errors.id_Number 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.id_Number}
+              </p>
+            }
+          </div>
+          <div className={styles.inputBlock}>
+            <label 
+              htmlFor='phone'>
+              Teléfono fijo
+            </label>
+            <input
+              type='text'
+              id='phone'
+              name='phone' 
+              value={formData.phone}
+              onChange={handleInputChange} 
+              placeholder='Ingrese número de teléfono fijo...'
+            />
+            {
+              errors.phone 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.phone}
+              </p>
+            }
+          </div>
+          <div className={styles.inputBlock}>
+            <label 
+              htmlFor='cellPhone'>
+              Teléfono celular
+            </label>
+            <input
+              type='text'
+              id='cell_Phone'
+              name='cell_Phone' 
+              value={formData.cell_Phone}
+              onChange={handleInputChange} 
+              placeholder='Ingrese número de teléfono celular...'
+            />
+            {
+              errors.cell_Phone 
+              && 
+              <p className={styles.errorMessage}>
+                {errors.cell_Phone}
+              </p>
+            }
+          </div>
           <button
             className={styles.submit}
             type='submit'
