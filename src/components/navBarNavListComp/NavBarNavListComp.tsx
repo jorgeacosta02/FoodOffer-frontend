@@ -14,7 +14,7 @@ const NavBarNavListComp = () => {
   const userId = accessLogin?.id_User;
   console.log('userId en NavBarNavListComp: ', userId);
   const userAuth = useSelector(selectUserAuth); 
-  const userAuthId = userAuth?.data?.id;
+  // const userAuthId = userAuth?.data?.id;
   console.log(userAuth)
   
   // si utilizo useSelector con menuReducer no necesito importarlo
@@ -46,8 +46,8 @@ const NavBarNavListComp = () => {
             className={styles.navLink} 
            >Contacto</NavLink>
         </li>
-        {accessLogin?.user?.id || userAuthId?.data?.user?.id
-        ? <div className={styles.profileContainer}>
+        {accessLogin?.id_User ? 
+          <div className={styles.profileContainer}>
             <li>
               <NavLink
                 to='/user-profile'

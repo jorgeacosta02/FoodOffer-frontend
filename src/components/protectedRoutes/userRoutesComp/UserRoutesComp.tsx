@@ -9,9 +9,9 @@ const UserRoutesComp = () => {
 
   const accessLogin = getDataFromLocalStorage('accessLogin');
 
-  console.log(accessLogin)
+  console.log('accessLogin: ', accessLogin)
 
-  if ( accessLogin.Type === "C" ) {
+  if ( accessLogin.type === "C" ) {
     console.log('dentro del if')
     return <Outlet/>;
   }

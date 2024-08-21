@@ -18,6 +18,7 @@ export const localStorageSetUserData = (name: string, data: IUserDataFromDB) => 
 }
 
 export const getDataFromLocalStorage = (name:string) => {
+    console.log('name en localstorage: ', name)
     const jsonUserFromLocalStorage: any = localStorage.getItem(name);
     console.log('jsonUserFromLocalStorage: ', jsonUserFromLocalStorage);
     const userFLS = JSON.parse(jsonUserFromLocalStorage);

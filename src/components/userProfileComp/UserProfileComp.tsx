@@ -9,7 +9,7 @@ const UserProfileComp = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = getDataFromLocalStorage('accessLogin').user;
+    const user = getDataFromLocalStorage('accessLogin');
 
     const signOutHandler = () => {
         cleanDataInLocalStorage('accessLogin');
@@ -26,13 +26,13 @@ const UserProfileComp = () => {
             <div className={styles.dataContainer}>
                 <h1 className={styles.title}>Mi perfil</h1>
                 <div className={styles.data}>
-                    <p>{`Nombre del negocio: ${user.firstName.toUpperCase()}`}</p>
-                    <p>{`Logo: ${user.firstName.toUpperCase()}`}</p>
-                    <p>{`Descripción del negocio: ${user.lastName.toUpperCase()}`}</p>
-                    <p>{`Domicilio: ${user.dni ? user.dni : 'sin número'}`}</p>
-                    <p>{`Teléfono: ${user.phone}`}</p>
+                    <p>{`Nombre del negocio: ${user.name.toUpperCase()}`}</p>
+                    {/* <p>{`Logo: ${user.firstName.toUpperCase()}`}</p> */}
+                    {/* <p>{`Descripción del negocio: ${user.lastName.toUpperCase()}`}</p> */}
+                    {/* <p>{`Domicilio: ${user.dni ? user.dni : 'sin número'}`}</p>
+                    <p>{`Teléfono: ${user.phone}`}</p> */}
                     <p>{`Email: ${user.email}`}</p>
-                    <p>{`Nombre del titular: ${user.email}`}</p>
+                    {/* <p>{`Nombre del titular: ${user.email}`}</p> */}
                 </div>
                 <div className={styles.linksContainer}>
                     <Link to="#">
