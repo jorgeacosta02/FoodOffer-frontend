@@ -1,7 +1,8 @@
-Qué datos debe enviar el formulario de registro de usuario?
+
 A qué url se envían los formularios?
-    Registro de usuario:
+
     Alta de aviso:
     Modificación de aviso:
     Publicación de aviso:
 
+Cuando un usuario quiera ir a su perfil hacemos una consulta del usuario al back o trabajamos con los datos de localstorage?
