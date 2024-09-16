@@ -8,7 +8,7 @@ import { selectMessageState, toggleMessage } from '../../redux/slices/messageSli
 
 
 
-const UserRegisterComp = () => {
+const CommerceRegisterComp = () => {
 
    // Estados globales para opciones
   const messageState = useSelector(selectMessageState).message;
@@ -371,5 +371,5 @@ const UserRegisterComp = () => {
   )
 }
 
-export default UserRegisterComp
+export default CommerceRegisterComp
 
