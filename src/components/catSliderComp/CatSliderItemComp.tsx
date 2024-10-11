@@ -1,4 +1,4 @@
-import styles from './_CatSliderComp.module.scss'
+import styles from './_CatSliderItemComp.module.scss'
 
 console.log('CatSliderItemcomp')
 function CatSliderItemComp(props: any) {

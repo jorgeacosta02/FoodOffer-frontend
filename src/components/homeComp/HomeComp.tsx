@@ -51,13 +51,14 @@ const HomeComp = () => {
       {
         categoriesReducer?.data?
         <CatSliderComp 
-        categories={categoriesReducer}/>
-        :""
+          categories={categoriesReducer}
+        />:
+        "No hay categorías para mostrar"
       }
       {
         advertisingReducer?.data? 
         <OfferListComp data={advertisingReducer.data}/>
-        :""
+        :"No hay avisos para mostrar"
       }
     </div>
   );
