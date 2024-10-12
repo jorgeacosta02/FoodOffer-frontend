@@ -1,6 +1,5 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addCategoryCode } from '../../redux/slices/categoriesCodeSlice'; // Importa la acción
+import { addCategoryCode } from '../../redux/slices/categoryCodesSlice'; // Importa la acción
 import styles from './_CatSliderItemComp.module.scss';
 
 function CatSliderItemComp(props: any) {

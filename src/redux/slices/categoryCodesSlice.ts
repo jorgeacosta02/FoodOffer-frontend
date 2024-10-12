@@ -7,13 +7,13 @@ interface CategoryCodeState {
 }
 
 const initialState: CategoryCodeState = {
-    data: [],  // Array vacío inicialmente
+    data: [0],  // Array vacío inicialmente
     loading: false,
     error: null,
 };
 
 const categoryCodeSlice = createSlice({
-    name: 'categoryCode',
+    name: 'categoryCodes',
     initialState,
     reducers: {
       addCategoryCode: (state, action: PayloadAction<number>) => {
@@ -21,7 +21,7 @@ const categoryCodeSlice = createSlice({
         console.log('state en categoriesCodeSlice', state.data);
       },
       cleanCategoryCodes: (state) => {
-        state.data = [];  // Limpia el array
+        state.data = [0];  // Limpia el array
       }
     },
 });
@@ -31,4 +31,4 @@ export const { addCategoryCode, cleanCategoryCodes } = categoryCodeSlice.actions
 
 export default categoryCodeSlice.reducer;
 
-export const selectCategorieCodes = (state: any) => state.categoryCodes;
+export const selectCategoryCodes = (state: any) => state.categoryCode;

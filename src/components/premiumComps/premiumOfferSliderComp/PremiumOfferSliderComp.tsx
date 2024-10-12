@@ -71,7 +71,7 @@ const PremiumOfferSliderComp = (data: any) => {
 
       let datos = data.data.filter((adv:any) => adv.priorityLevel > 1);
 
-      console.log('datos en PremiumOfferSliderComp: ', datos);
+      // console.log('datos en PremiumOfferSliderComp: ', datos);
 
       return (
           <div className={styles.pa_container}>

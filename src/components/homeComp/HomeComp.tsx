@@ -9,6 +9,7 @@ import { selectAdvertisings, cleanAdvertisings } from '../../redux/slices/advert
 import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
+import { selectCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 
 
 const HomeComp = () => {
@@ -16,9 +17,11 @@ const HomeComp = () => {
   const dispatch = useDispatch();
   const advertisingReducer = useSelector(selectAdvertisings);
   const categoriesReducer = useSelector(selectCategories);
+  const categoryCodesReducer = useSelector(selectCategoryCodes);
 
   // console.log('advertisingReducer.data: ', advertisingReducer.data);
-  console.log('categoriesReducer: ', categoriesReducer);
+  // console.log('categoriesReducer: ', categoriesReducer);
+  console.log('categoryCodesReducer en home: ', categoryCodesReducer?.data);
 
   useEffect(() => {
     getCategoriesFunc();

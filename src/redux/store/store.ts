@@ -5,7 +5,7 @@ import messageReducer from '../slices/messageSlice'
 import userReducer from '../slices/userAuthSlice'
 import advertisingReducer from '../slices/advertisingSlice'
 import categoriesReducer from '../slices/categoriesSlice'
-import categoryCodeReducer from '../slices/categoriesCodeSlice'
+import categoryCodeReducer from '../slices/categoryCodesSlice'
 import detailReducer from '../slices/detailSlice'
 
 
