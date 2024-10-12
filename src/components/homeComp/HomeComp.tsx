@@ -1,6 +1,5 @@
 import PremiumOfferSliderComp from '../premiumComps/premiumOfferSliderComp/PremiumOfferSliderComp';
 import styles from './_HomeComp.module.scss';
-// import categories from '../../../src/categories.json'
 import OfferListComp from '../offerComps/offerListComp/OfferListComp';
 import CatSliderComp from '../catSliderComp/CatSliderComp';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,6 +9,7 @@ import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
 import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
+import BackButtonComp from "../backButtonComp/BackButtonComp";
 
 
 const HomeComp = () => {
@@ -57,7 +57,8 @@ const HomeComp = () => {
   }
 
   return (
-    <div className={styles.main_container}>    
+    <div className={styles.main_container}>
+      <BackButtonComp/>
       <div 
         className={styles.premium_container}
       >
