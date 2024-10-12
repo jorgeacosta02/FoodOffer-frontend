@@ -54,24 +54,6 @@
     transform: translateY(-50%);
   }
 
-  .item_box {
-    width: 55px;
-    height: 45px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px #565656;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin: 5px;
-    text-align: center;
-}
-
-.item_icon {
-    color: g.$main-color;
-    width: 70%;
-}
 
 a {
     text-decoration: none;
