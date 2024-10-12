@@ -10,16 +10,32 @@ current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 # Abrir el archivo para escribir las líneas generadas
 with open('output.sql', 'w') as file:
 
-    # Primera lista de líneas
+    # # Primera lista de líneas
+    # file.write('INSERT INTO `advertisings` (`adv_id`, `adv_com_id`, `adv_title`, `adv_desc`, `adv_price`, `adv_ads_cod`, `adv_cat_cod`, `adv_prl_cod`, `adv_create_date`, `adv_delete_date`, `adv_update_date`) VALUES\n')
+    # for i in range(1, total_registros + 1):
+    #     valor_aleatorio = random.randint(2000, 7000)
+    #     if i == total_registros:
+    #         line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, 1, 2, '{current_datetime}', NULL, '{current_datetime}');"
+    #     else:
+    #         line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, 1, 2, '{current_datetime}', NULL, '{current_datetime}'),"
+    #     file.write(line + '\n')
+
+    # file.write('\n')  # Añadir una línea en blanco entre las listas
+
+
     file.write('INSERT INTO `advertisings` (`adv_id`, `adv_com_id`, `adv_title`, `adv_desc`, `adv_price`, `adv_ads_cod`, `adv_cat_cod`, `adv_prl_cod`, `adv_create_date`, `adv_delete_date`, `adv_update_date`) VALUES\n')
+    
     for i in range(1, total_registros + 1):
         valor_aleatorio = random.randint(2000, 7000)
+        cat_cod_aleatorio = random.randint(1, 5)  # Valor aleatorio para adv_cat_cod
+        
         if i == total_registros:
-            line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, 1, 2, '{current_datetime}', NULL, '{current_datetime}');"
+            line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, {cat_cod_aleatorio}, 2, '{current_datetime}', NULL, '{current_datetime}');"
         else:
-            line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, 1, 2, '{current_datetime}', NULL, '{current_datetime}'),"
+            line = f"({i}, 1, 'Prueba titulo aviso {i}', 'Prueba descripcion {i}', {valor_aleatorio}, 1, {cat_cod_aleatorio}, 2, '{current_datetime}', NULL, '{current_datetime}'),"
+        
         file.write(line + '\n')
-
+    
     file.write('\n')  # Añadir una línea en blanco entre las listas
 
     # Segunda lista de líneas

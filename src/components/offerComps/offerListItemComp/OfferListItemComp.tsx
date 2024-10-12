@@ -26,6 +26,7 @@ const OfferListItemComp = (data: any) => {
           <div className={styles.card_logo}>L</div>
           <span>{data.data.commerce.name}</span>
         </div>
+        <p>CategoryCode: {data.data.categoryCode}</p>
         <div className={styles.card_attr_container}>
           {data.data.attributes.map((tag_data:any) => (
             <div key={tag_data.id}>

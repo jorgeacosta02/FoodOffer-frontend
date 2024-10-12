@@ -13,7 +13,7 @@ import CatSliderItemComp from "./CatSliderItemComp";
 
 function CatSliderComp(categories: any) {
   
-  console.log('categories: ', categories)
+  // console.log('categories: ', categories)
 
   const sliderRef = useRef<Slider>(null);
 

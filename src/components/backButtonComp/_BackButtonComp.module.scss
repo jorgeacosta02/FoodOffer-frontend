@@ -1,0 +1,21 @@
+@use '../../styles/globals' as g;
+
+.back{
+    position: fixed;
+    box-sizing: border-box;
+    height: 35px;
+    width: 60px;
+    right:0;
+    top: calc(g.$mobile-NavBar-height + 1vh);
+    text-decoration: none;
+    background-color: g.$main-color;
+    color: g.$white-color;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    box-shadow: 7px 7px 5px 1px rgba(57, 57, 57, .7);
+    @include g.create-flexbox(row, center);
+    z-index: 2;
+}
