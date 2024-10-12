@@ -39,6 +39,23 @@ const HomeComp = () => {
   const getCategoriesFunc = async () => {
     await dispatch(getCategories());
   }
+  
+  const advertisings = advertisingReducer.data;
+  console.log('advertisings en home: ', advertisings);
+  let CatCode = categoryCodesReducer.data[0];
+  console.log('CatCode: ', CatCode);
+  let filteredAdvertisings: any[];
+  if (advertisings && CatCode === 0){
+    filteredAdvertisings = advertisings;
+  }else if(advertisings) {
+    filteredAdvertisings = advertisings.filter(adv => adv.categoryCode == CatCode)
+  }
+  console.log('filteredAdvertisings: ', filteredAdvertisings);
+  
+  // if (filteredAdvertisings) {
+  //   console.log('filteredAdvertisings[0]: ', filteredAdvertisings[0].categoryCode)
+
+  // }else{console.log('no funciona')}
 
   return (
     <div className={styles.main_container}>    
@@ -60,7 +77,7 @@ const HomeComp = () => {
       }
       {
         advertisingReducer?.data? 
-        <OfferListComp data={advertisingReducer.data}/>
+        <OfferListComp data={filteredAdvertisings}/>
         :"No hay avisos para mostrar"
       }
     </div>
