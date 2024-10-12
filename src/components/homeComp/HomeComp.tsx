@@ -9,7 +9,7 @@ import { selectAdvertisings, cleanAdvertisings } from '../../redux/slices/advert
 import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
-import { selectCategoryCodes } from '../../redux/slices/categoryCodesSlice';
+import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 
 
 const HomeComp = () => {
@@ -52,15 +52,14 @@ const HomeComp = () => {
   }
   console.log('filteredAdvertisings: ', filteredAdvertisings);
   
-  // if (filteredAdvertisings) {
-  //   console.log('filteredAdvertisings[0]: ', filteredAdvertisings[0].categoryCode)
-
-  // }else{console.log('no funciona')}
+  const cleanCategoryCode = () => {
+    dispatch(cleanCategoryCodes())
+  }
 
   return (
     <div className={styles.main_container}>    
       <div 
-        className={styles.container}
+        className={styles.premium_container}
       >
         {
           advertisingReducer?.data? 
@@ -68,13 +67,30 @@ const HomeComp = () => {
           :""
         }
       </div>
-      {
-        categoriesReducer?.data?
-        <CatSliderComp 
+      <div
+        className={styles.category_container}
+      >
+        {
+          categoriesReducer?.data?
+          <CatSliderComp 
           categories={categoriesReducer}
-        />:
-        "No hay categorías para mostrar"
-      }
+          />:
+          "No hay categorías para mostrar"
+        }
+        <div
+          className={styles.button_container}
+        >
+
+          <button onClick={cleanCategoryCode}
+            className={styles.all_button}
+            >
+            <p>
+              Ver todos los anuncios
+            </p>
+          </button>
+        </div>
+
+      </div>
       {
         advertisingReducer?.data? 
         <OfferListComp data={filteredAdvertisings}/>
