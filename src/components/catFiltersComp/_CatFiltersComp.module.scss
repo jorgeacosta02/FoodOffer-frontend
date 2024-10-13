@@ -14,9 +14,9 @@
     box-sizing: border-box;
     list-style: none;
     @include g.create-flexbox(column, space-between);
-    width: 90%;
+    width: 90vw;
     top: calc(g.$mobile-NavBar-height - 16px + 3vh);
-    right: -5%;
+    right: -100%;
     transition: right .2s ease;
     z-index: 2000;
     border: 2px solid black;
@@ -43,9 +43,13 @@
         line-height: g.$desk-NavBar-height;
         background-color: transparent;
     }
+    .type{
+        background-color: blue;
+        width: 100%;
+    }
 }
 
-.show{// ul
+.show{
     right: 5%;
     transition: right .3s ease;
 }
