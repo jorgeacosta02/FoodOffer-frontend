@@ -30,10 +30,10 @@ const NavBarNavListComp = () => {
     dispatch( falseMenu() );
   };
 
-  const navListStyles = `${styles.navList} ${menuReducer.menu ? styles.show : ''}`;
+  const catFilterStyles = `${styles.navList} ${menuReducer.menu ? styles.show : ''}`;
 
   return (
-    <ul className={navListStyles} >
+    <ul className={catFilterStyles} >
         <li onClick={handleClick} >
           <NavLink
             to="/" 

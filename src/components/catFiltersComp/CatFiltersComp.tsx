@@ -1,31 +1,63 @@
 import styles from './_CatFiltersComp.module.scss';
-import { selectCatfiltersState } from '../../redux/slices/catFiltersStateSlice';
+import { selectCatfiltersState, falseCatFiltersState } from '../../redux/slices/catFiltersStateSlice';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import CatFiltersCardComp from './CatFiltersCardComp';
+import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
+
 
 
 
 const CatFiltersComp = () => {
     
-    
-    const catFiltersStateReducer: any = useSelector(selectCatfiltersState).catFiltersState;
+  const dispatch = useDispatch();
 
-    const mainStyles = `${styles.main_container} ${catFiltersStateReducer ? styles.show : ''}`;
+  const catFiltersStateReducer: any = useSelector(selectCatfiltersState).catFiltersState;
 
-    console.log('catFiltersStateReducer: ', catFiltersStateReducer);
+  const categories = useSelector(selectCategories).data;
+
+  console.log('categoriesReducer en Card:',categories);
+
+  const mainStyles = `${styles.main_container} ${catFiltersStateReducer ? styles.show : ''}`;
+  console.log('catFiltersStateReducer: ', catFiltersStateReducer);
+
+  const falseFiltersStylesFunc = () => {
+    dispatch(falseCatFiltersState());
+  }
 
   return (
     <div
         className={mainStyles}
     >
-      <p>
+      <h4>
         Filtros
-      </p>
+      </h4>
+      <div>
+        <div
+          className={styles.type}
+        >
+          <h5>
+            Tipo de comida
+          </h5>
+          <div>
+            {
+              categories.map((card) => 
+                <div>
+                  <p>
+                    {card.description}
+                  </p>
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
       <div
           className={styles.button_container}
         >
 
           <button 
-            // onClick={cleanCategoryCode}
+            onClick={falseFiltersStylesFunc}
             className={styles.all_button}
         >
             <p>
