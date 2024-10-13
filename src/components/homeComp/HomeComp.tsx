@@ -10,6 +10,7 @@ import { selectCategories, cleanCategories } from '../../redux/slices/categories
 import { getCategories } from '../../redux/actions/categoryActions';
 import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
+import CatFiltersComp from '../catFiltersComp/CatFiltersComp';
 
 
 const HomeComp = () => {
@@ -58,6 +59,7 @@ const HomeComp = () => {
 
   return (
     <div className={styles.main_container}>
+      <CatFiltersComp/>
       <BackButtonComp/>
       <div 
         className={styles.premium_container}
@@ -78,6 +80,18 @@ const HomeComp = () => {
           />:
           "No hay categorías para mostrar"
         }
+        <div
+          className={styles.button_container}
+        >
+
+          <button onClick={cleanCategoryCode}
+            className={styles.all_button}
+          >
+            <p>
+              Más filtros
+            </p>
+          </button>
+        </div>
         <div
           className={styles.button_container}
         >

@@ -19,3 +19,6 @@
     @include g.create-flexbox(row, center);
     z-index: 2;
 }
+.back:hover{
+    cursor: pointer;
+}
