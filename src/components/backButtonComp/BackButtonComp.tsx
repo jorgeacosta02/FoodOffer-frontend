@@ -28,7 +28,7 @@ const BackButtonComp = () => {
   // Manejar el scroll para mostrar u ocultar el botón
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {  // Mostrar botón cuando se baja 200px
+      if (window.scrollY > 600) {  // Mostrar botón cuando se baja 200px
         setShowButton(true);
       } else {
         setShowButton(false);
