@@ -2,8 +2,11 @@ import styles from './_CatFiltersComp.module.scss';
 import { selectCatfiltersState, falseCatFiltersState } from '../../redux/slices/catFiltersStateSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import CatFiltersCardComp from './CatFiltersCardComp';
-import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
+// import CatFiltersCardComp from './CatFiltersCardComp';
+import { 
+  selectCategories, 
+  // cleanCategories 
+} from '../../redux/slices/categoriesSlice';
 
 
 
@@ -16,10 +19,10 @@ const CatFiltersComp = () => {
 
   const categories = useSelector(selectCategories).data;
 
-  console.log('categoriesReducer en Card:',categories);
+  // console.log('categoriesReducer en Card:',categories);
 
   const mainStyles = `${styles.main_container} ${catFiltersStateReducer ? styles.show : ''}`;
-  console.log('catFiltersStateReducer: ', catFiltersStateReducer);
+  // console.log('catFiltersStateReducer: ', catFiltersStateReducer);
 
   const falseFiltersStylesFunc = () => {
     dispatch(falseCatFiltersState());

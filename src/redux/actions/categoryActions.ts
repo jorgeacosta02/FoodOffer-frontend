@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-console.log('por entrer en getCategories')
+// console.log('por entrer en getCategories')
 export const getCategories: any = createAsyncThunk(
   'GetCategories', 
   async (_, thunkAPI) => {

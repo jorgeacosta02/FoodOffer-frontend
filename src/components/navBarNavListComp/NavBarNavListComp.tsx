@@ -4,25 +4,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectMenuState } from '../../redux/slices/menuSlice';
 import { falseMenu } from '../../redux/slices/menuSlice';
 import { getDataFromLocalStorage } from "../localStorageComp/LocalStorageComp";
-import { selectUserAuth } from "../../redux/slices/userAuthSlice";
+// import { selectUserAuth } from "../../redux/slices/userAuthSlice";
 
 
 const NavBarNavListComp = () => {
 
   const accessLogin = getDataFromLocalStorage('accessLogin');
-  console.log('user in navBarNavList:', accessLogin);
-  const userId = accessLogin?.id_User;
-  console.log('userId en NavBarNavListComp: ', userId);
-  const userAuth = useSelector(selectUserAuth); 
+  // console.log('user in navBarNavList:', accessLogin);
+  // const userId = accessLogin?.id_User;
+  // console.log('userId en NavBarNavListComp: ', userId);
+  // const userAuth = useSelector(selectUserAuth); 
   // const userAuthId = userAuth?.data?.id;
-  console.log(userAuth)
+  // console.log(userAuth)
   
   // si utilizo useSelector con menuReducer no necesito importarlo
-  const menuCompleteReducer = useSelector((state: any) => state.menu.menu);
+  // const menuCompleteReducer = useSelector((state: any) => state.menu.menu);
   // si lo utilizo con la slice separada, sí necesito importarlo.
   const menuReducer:any = useSelector(selectMenuState)
 
-  console.log('menuCompleteReducer: ', menuCompleteReducer)
+  // console.log('menuCompleteReducer: ', menuCompleteReducer)
 
   const dispatch = useDispatch<any>();
 
