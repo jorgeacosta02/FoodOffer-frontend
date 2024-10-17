@@ -1,3 +1,4 @@
+// Guarda los valores para filtrar avisos, desde el componente morefilters
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FilterState {

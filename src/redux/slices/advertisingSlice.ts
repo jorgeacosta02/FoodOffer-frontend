@@ -31,9 +31,9 @@ const advertisingSlice = createSlice({
       })
       .addCase(getAllAdvertising.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        console.log('action.payload:', action.payload);
+        // console.log('action.payload:', action.payload);
         state.data = action.payload;
-        console.log('state.data en la slice: ', state.data)
+        // console.log('state.data en la slice: ', state.data)
       })
       .addCase(getAllAdvertising.rejected,
         (state, action: any) => {

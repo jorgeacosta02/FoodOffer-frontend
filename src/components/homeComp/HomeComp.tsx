@@ -23,7 +23,7 @@ const HomeComp = () => {
 
   // console.log('advertisingReducer.data: ', advertisingReducer.data);
   // console.log('categoriesReducer: ', categoriesReducer);
-  console.log('categoryCodesReducer en home: ', categoryCodesReducer?.data);
+  // console.log('categoryCodesReducer en home: ', categoryCodesReducer?.data);
 
   useEffect(() => {
     getCategoriesFunc();
@@ -43,16 +43,16 @@ const HomeComp = () => {
   }
   
   const advertisings = advertisingReducer.data;
-  console.log('advertisings en home: ', advertisings);
+  // console.log('advertisings en home: ', advertisings);
   let CatCode = categoryCodesReducer.data[0];
-  console.log('CatCode: ', CatCode);
+  // console.log('CatCode: ', CatCode);
   let filteredAdvertisings: any[];
   if (advertisings && CatCode === 0){
     filteredAdvertisings = advertisings;
   }else if(advertisings) {
     filteredAdvertisings = advertisings.filter(adv => adv.categoryCode == CatCode)
   }
-  console.log('filteredAdvertisings: ', filteredAdvertisings);
+  // console.log('filteredAdvertisings: ', filteredAdvertisings);
   
   const cleanCategoryCode = () => {
     dispatch(cleanCategoryCodes())

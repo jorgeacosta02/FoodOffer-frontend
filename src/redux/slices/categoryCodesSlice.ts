@@ -1,3 +1,4 @@
+// Guarda un solo código de filtrado por categoría, seleccionado con el catSlider.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CategoryCodeState {

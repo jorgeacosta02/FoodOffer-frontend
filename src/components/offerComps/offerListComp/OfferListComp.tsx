@@ -29,7 +29,7 @@ const OfferListComp = (props: any) => {
 
   const linkClass = viewList ? 'link-card' : 'link-list';
   
-  console.log('selectedOption: ', selectedOption);
+  // console.log('selectedOption: ', selectedOption);
   // Hacer una copia de los datos y ordenarlos por precio de menor a mayor
   let sortedData = selectedOption === '2' ? 
   [...props.data].sort((a: any, b: any) => b.price - a.price) :
