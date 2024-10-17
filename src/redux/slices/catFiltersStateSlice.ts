@@ -1,3 +1,4 @@
+// Slice para ostrar el componente de conjunto de filtros
 import { createSlice } from "@reduxjs/toolkit";
 
 

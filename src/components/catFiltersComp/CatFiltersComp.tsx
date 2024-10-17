@@ -25,6 +25,10 @@ const CatFiltersComp = () => {
     dispatch(falseCatFiltersState());
   }
 
+  const addNewCatToFilterFunc = () => {
+    
+  }
+
   return (
     <div
         className={mainStyles}
@@ -41,12 +45,16 @@ const CatFiltersComp = () => {
           </h5>
           <div>
             {
-              categories.map((card) => 
-                <div>
+              categories?.map((card) => {
+                <div
+                  onClick={addNewCatToFilterFunc}
+                  key={card.code}
+                >
                   <p>
                     {card.description}
                   </p>
                 </div>
+              }
               )
             }
           </div>
