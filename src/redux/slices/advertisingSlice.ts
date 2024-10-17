@@ -1,3 +1,4 @@
+// Recibe todos los avisos activos para ese día.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getAllAdvertising } from '../actions/advertisingActions';
 
