@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FilterState {
-    categories: string[];
+    categories: number[];
     priceRange: [number, number];
     ratings: number[];
     locations: string[];
@@ -19,7 +19,7 @@ interface FilterState {
     name: 'filters',
     initialState,
     reducers: {
-      toggleCategory: (state, action: PayloadAction<string>) => {
+      toggleCategory: (state, action: PayloadAction<number>) => {
         if (state.categories.includes(action.payload)) {
           state.categories = state.categories.filter(category => category !== action.payload);
         } else {

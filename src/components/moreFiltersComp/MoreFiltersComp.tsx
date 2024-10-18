@@ -1,5 +1,5 @@
-import styles from './_CatFiltersComp.module.scss';
-import { selectCatfiltersState, falseCatFiltersState } from '../../redux/slices/catFiltersStateSlice';
+import styles from './_MoreFiltersComp.module.scss';
+import { selectMoreFiltersState, falseMoreFiltersState } from '../../redux/slices/moreFiltersStateSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 // import CatFiltersCardComp from './CatFiltersCardComp';
@@ -11,21 +11,21 @@ import {
 
 
 
-const CatFiltersComp = () => {
+const MoreFiltersComp = () => {
     
   const dispatch = useDispatch();
 
-  const catFiltersStateReducer: any = useSelector(selectCatfiltersState).catFiltersState;
+  const moreFiltersStateReducer: any = useSelector(selectMoreFiltersState).moreFiltersState;
 
   const categories = useSelector(selectCategories).data;
 
   // console.log('categoriesReducer en Card:',categories);
 
-  const mainStyles = `${styles.main_container} ${catFiltersStateReducer ? styles.show : ''}`;
+  const mainStyles = `${styles.main_container} ${moreFiltersStateReducer ? styles.show : ''}`;
   // console.log('catFiltersStateReducer: ', catFiltersStateReducer);
 
   const falseFiltersStylesFunc = () => {
-    dispatch(falseCatFiltersState());
+    dispatch(falseMoreFiltersState());
   }
 
   const addNewCatToFilterFunc = () => {
@@ -80,4 +80,4 @@ const CatFiltersComp = () => {
   )
 }
 
-export default CatFiltersComp
+export default MoreFiltersComp
