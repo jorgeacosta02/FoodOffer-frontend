@@ -22,6 +22,24 @@ const MoreFiltersComp = () => {
     dispatch(falseStyle());
   }
 
+  const attributes = [
+    {
+      id: 1,
+      code: 1,
+      description: "Vegano"
+    },
+    {
+      id: 2,
+      code: 2,
+      description: "Vegetariano"
+    },
+    {
+      id: 3,
+      code: 3,
+      description: "Sin Gluten"
+    },
+  ]
+
 
   return (
     <div
@@ -41,7 +59,24 @@ const MoreFiltersComp = () => {
             {
               categories?.map((card:any) => {
                 return (
-
+                  <CatFiltersCarComp
+                    key={card.code}
+                    data={card}
+                  />
+              )})
+            }
+          </div>
+        </div>
+        <div
+          className={styles.block}
+        >
+          <h5>
+            Atributos
+          </h5>
+          <div>
+            {
+              attributes?.map((card:any) => {
+                return (
                   <CatFiltersCarComp
                     key={card.code}
                     data={card}
@@ -54,7 +89,6 @@ const MoreFiltersComp = () => {
       <div
           className={styles.button_container}
         >
-
           <button 
             onClick={falseFiltersStylesFunc}
             className={styles.all_button}
