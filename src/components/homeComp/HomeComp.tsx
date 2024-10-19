@@ -10,8 +10,9 @@ import { selectCategories, cleanCategories } from '../../redux/slices/categories
 import { getCategories } from '../../redux/actions/categoryActions';
 import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
-import CatFiltersComp from '../catFiltersComp/CatFiltersComp';
-import { toggleCatFiltersState } from '../../redux/slices/catFiltersStateSlice';
+import MoreFiltersComp from '../moreFiltersComp/MoreFiltersComp';
+// import { toggleMoreFiltersState } from '../../redux/slices/moreFiltersStateSlice';
+import { toggleStyle } from '../../redux/slices/moreFiltersSlice';
 
 
 const HomeComp = () => {
@@ -58,13 +59,15 @@ const HomeComp = () => {
     dispatch(cleanCategoryCodes())
   }
 
-  const toggleCatFiltersComp = () => {
-    dispatch(toggleCatFiltersState())
+  const toggleFiltersComp = () => {
+    dispatch(toggleStyle())
   }
+
+  // const 
 
   return (
     <div className={styles.main_container}>
-      <CatFiltersComp/>
+      <MoreFiltersComp/>
       <BackButtonComp/>
       <div 
         className={styles.premium_container}
@@ -89,7 +92,7 @@ const HomeComp = () => {
           className={styles.button_container}
         >
 
-          <button onClick={toggleCatFiltersComp}
+          <button onClick={toggleFiltersComp}
             className={styles.all_button}
           >
             <p>
