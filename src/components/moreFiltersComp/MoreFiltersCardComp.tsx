@@ -1,5 +1,5 @@
 import styles from './_MoreFiltersCardComp.module.scss'
-import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
+import { selectCategories } from '../../redux/slices/categoriesSlice';
 import { useSelector } from 'react-redux';
 
 

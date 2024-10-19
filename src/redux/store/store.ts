@@ -6,8 +6,7 @@ import userReducer from '../slices/userAuthSlice'
 import advertisingReducer from '../slices/advertisingSlice'
 import categoriesReducer from '../slices/categoriesSlice'
 import categoryCodeReducer from '../slices/categoryCodesSlice'
-// import moreFiltersStateReducer from '../slices/moreFiltersStateSlice'
-import filtersReducer from '../slices/moreFiltersSlice'
+import filtersReducer from '../slices/fltersSlice'
 import detailReducer from '../slices/detailSlice'
 
 
@@ -20,7 +19,6 @@ export const store = configureStore ({
     advertising: advertisingReducer,
     categories: categoriesReducer,
     categoryCode: categoryCodeReducer,
-    // moreFiltersState: moreFiltersStateReducer,
     filters: filtersReducer,
     detail: detailReducer,
   }

@@ -11,8 +11,7 @@ import { getCategories } from '../../redux/actions/categoryActions';
 import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
 import MoreFiltersComp from '../moreFiltersComp/MoreFiltersComp';
-// import { toggleMoreFiltersState } from '../../redux/slices/moreFiltersStateSlice';
-import { toggleStyle } from '../../redux/slices/moreFiltersSlice';
+import { toggleStyle } from '../../redux/slices/fltersSlice';
 
 
 const HomeComp = () => {
