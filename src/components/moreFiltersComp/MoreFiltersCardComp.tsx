@@ -9,14 +9,14 @@ import { useSelector } from 'react-redux';
 const CatFiltersCardComp = (props:any) => {
 
   const dispatch = useDispatch();
-  const filtersReducer = useSelector(selectFilters);
+  const filtersReducer = useSelector(selectFilters).categories;
 
   const addNewCatToFilterFunc = () => {
     dispatch(toggleCategory(props.data.code))
   }
 
-  const includedInCategories = filtersReducer.categories.includes(props.data.code);
-  console.log('includedInCategories: ', includedInCategories);
+  const includedInCategories = filtersReducer.includes(props.data.code);
+  console.log('includedInCategories: ', includedInCategories)
   const cardStyles = `${styles.main_container} ${includedInCategories ? styles.selected : ''}`;
 
   return (

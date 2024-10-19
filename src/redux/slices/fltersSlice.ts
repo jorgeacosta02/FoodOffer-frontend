@@ -4,16 +4,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface FilterState {
   style: boolean;
   categories: number[];
+  attributes: string[];
   priceRange: [number, number];
-  ratings: number[];
   locations: string[];
 }
   
 const initialState: FilterState = {
   style: false,
   categories: [],
+  attributes: [],
   priceRange: [0, 100],
-  ratings: [],
   locations: [],
 };
   
@@ -41,11 +41,11 @@ const filterSlice = createSlice({
         state.categories.push(action.payload);
       }
     },
-    toggleRating: (state, action: PayloadAction<number>) => {
-      if (state.ratings.includes(action.payload)) {
-        state.ratings = state.ratings.filter(rating => rating !== action.payload);
+    toggleAttributes: (state, action: PayloadAction<string>) => {
+      if (state.attributes.includes(action.payload)) {
+        state.attributes = state.attributes.filter(rating => rating !== action.payload);
       } else {
-        state.ratings.push(action.payload);
+        state.attributes.push(action.payload);
       }
     },
     toggleLocation: (state, action: PayloadAction<string>) => {
@@ -67,7 +67,7 @@ export const {
   toggleStyle,
   falseStyle,
   toggleCategory, 
-  toggleRating, 
+  toggleAttributes, 
   toggleLocation, 
   setPriceRange 
 } = filterSlice.actions;
