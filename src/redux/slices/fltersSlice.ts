@@ -29,7 +29,7 @@ const filterSlice = createSlice({
     },
     oneCategory: (state, action: PayloadAction<number>) => {
       state.categories = [action.payload];
-      console.log('state en filtersSlice', state.categories);
+      // console.log('state en filtersSlice', state.categories);
     },
     cleanCategoriesArray: (state) => {
       state.categories = [];  // Limpia el array
