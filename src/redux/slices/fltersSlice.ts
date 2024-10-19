@@ -27,6 +27,13 @@ const filterSlice = createSlice({
     falseStyle: (state) => {
         state.style = false
     },
+    oneCategory: (state, action: PayloadAction<number>) => {
+      state.categories = [action.payload];
+      console.log('state en filtersSlice', state.categories);
+    },
+    cleanCategoriesArray: (state) => {
+      state.categories = [];  // Limpia el array
+    },
     toggleCategory: (state, action: PayloadAction<number>) => {
       if (state.categories.includes(action.payload)) {
         state.categories = state.categories.filter(category => category !== action.payload);
@@ -55,6 +62,8 @@ const filterSlice = createSlice({
 });
 
 export const {
+  oneCategory,
+  cleanCategoriesArray,
   toggleStyle,
   falseStyle,
   toggleCategory, 

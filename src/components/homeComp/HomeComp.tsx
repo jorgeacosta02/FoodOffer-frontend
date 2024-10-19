@@ -8,10 +8,10 @@ import { selectAdvertisings, cleanAdvertisings } from '../../redux/slices/advert
 import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
-import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
+// import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
 import MoreFiltersComp from '../moreFiltersComp/MoreFiltersComp';
-import { toggleStyle } from '../../redux/slices/fltersSlice';
+import { selectFilters, toggleStyle, cleanCategoriesArray } from '../../redux/slices/fltersSlice';
 
 
 const HomeComp = () => {
@@ -19,7 +19,8 @@ const HomeComp = () => {
   const dispatch = useDispatch();
   const advertisingReducer = useSelector(selectAdvertisings);
   const categoriesReducer = useSelector(selectCategories);
-  const categoryCodesReducer = useSelector(selectCategoryCodes);
+  // const categoryCodesReducer = useSelector(selectCategoryCodes);
+  const filtersReducer = useSelector(selectFilters);
 
   // console.log('advertisingReducer.data: ', advertisingReducer.data);
   // console.log('categoriesReducer: ', categoriesReducer);
@@ -43,19 +44,26 @@ const HomeComp = () => {
   }
   
   const advertisings = advertisingReducer.data;
-  // console.log('advertisings en home: ', advertisings);
-  let CatCode = categoryCodesReducer.data[0];
+  console.log('advertisings en home: ', advertisings);
+  // let CatCode = categoryCodesReducer.data[0];
+  let Categories = filtersReducer.categories;
+  console.log('Categories: ', Categories)
   // console.log('CatCode: ', CatCode);
   let filteredAdvertisings: any[];
-  if (advertisings && CatCode === 0){
+  if (advertisings && Categories.length === 0){
+    console.log('advertisings.length',advertisings.length)
     filteredAdvertisings = advertisings;
   }else if(advertisings) {
-    filteredAdvertisings = advertisings.filter(adv => adv.categoryCode == CatCode)
+    filteredAdvertisings = advertisings.filter(adv => adv.categoryCode == Categories)
   }
-  // console.log('filteredAdvertisings: ', filteredAdvertisings);
+  console.log('filteredAdvertisings: ', filteredAdvertisings);
   
-  const cleanCategoryCode = () => {
-    dispatch(cleanCategoryCodes())
+  // const cleanCategoryCode = () => {
+  //   dispatch(cleanCategoryCodes())
+  // }
+
+  const cleanCategoriesFunc = () => {
+    dispatch(cleanCategoriesArray())
   }
 
   const toggleFiltersComp = () => {
@@ -103,7 +111,7 @@ const HomeComp = () => {
           className={styles.button_container}
         >
 
-          <button onClick={cleanCategoryCode}
+          <button onClick={cleanCategoriesFunc}
             className={styles.all_button}
             >
             <p>
