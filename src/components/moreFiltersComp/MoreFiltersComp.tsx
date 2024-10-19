@@ -2,12 +2,8 @@ import styles from './_MoreFiltersComp.module.scss';
 import { selectFilters, falseStyle } from '../../redux/slices/fltersSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { 
-  selectCategories, 
-  // cleanCategories 
-} from '../../redux/slices/categoriesSlice';
-
-
+import { selectCategories } from '../../redux/slices/categoriesSlice';
+import CatFiltersCarComp from './MoreFiltersCardComp';
 
 
 const MoreFiltersComp = () => {
@@ -17,44 +13,42 @@ const MoreFiltersComp = () => {
   const filtersReducer: any = useSelector (selectFilters).style;
 
   const categories = useSelector(selectCategories).data;
+  
 
-  const mainStyles2 = `${styles.main_container} ${filtersReducer ? styles.show : ''}`;
+  console.log('categories: ',categories);
 
-  const falseStylesFunc = () => {
+  const mainStyles = `${styles.main_container} ${filtersReducer ? styles.show : ''}`;
+
+  const falseFiltersStylesFunc = () => {
     dispatch(falseStyle());
   }
 
-  const addNewCatToFilterFunc = () => {
 
-  }
 
   return (
     <div
-        className={mainStyles2}
+        className={mainStyles}
     >
       <h4>
         Filtros
       </h4>
       <div>
         <div
-          className={styles.type}
+          className={styles.block}
         >
           <h5>
             Tipo de comida
           </h5>
           <div>
             {
-              categories?.map((card) => {
-                <div
-                  onClick={addNewCatToFilterFunc}
-                  key={card.code}
-                >
-                  <p>
-                    {card.description}
-                  </p>
-                </div>
-              }
-              )
+              categories?.map((card:any) => {
+                return (
+
+                  <CatFiltersCarComp
+                    key={card.code}
+                    data={card}
+                  />
+              )})
             }
           </div>
         </div>
@@ -64,7 +58,7 @@ const MoreFiltersComp = () => {
         >
 
           <button 
-            onClick={falseStylesFunc}
+            onClick={falseFiltersStylesFunc}
             className={styles.all_button}
         >
             <p>

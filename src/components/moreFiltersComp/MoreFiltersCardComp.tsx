@@ -1,19 +1,29 @@
+import { toggleCategory } from '../../redux/slices/fltersSlice';
 import styles from './_MoreFiltersCardComp.module.scss'
-import { selectCategories } from '../../redux/slices/categoriesSlice';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'
 
 
-const CatFiltersCardComp = () => {
 
-    const categoriesReducer = useSelector(selectCategories).data;
+const CatFiltersCardComp = (props:any) => {
 
-    console.log('categoriesReducer en MoreFiltersCardComp:',categoriesReducer);
+  const dispatch = useDispatch();
+
+  const addNewCatToFilterFunc = () => {
+    dispatch(toggleCategory(props.data.code))
+  }
+
+  // console.log(props.data)
 
   return (
     <div
-        className={styles.main_container}
+      onClick={addNewCatToFilterFunc}
+      className={styles.main_container}
     >
-      {}
+      {
+        <p>
+          {props.data.description}
+        </p>
+      }
     </div>
   )
 }

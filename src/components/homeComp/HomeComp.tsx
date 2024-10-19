@@ -44,23 +44,22 @@ const HomeComp = () => {
   }
   
   const advertisings = advertisingReducer.data;
-  console.log('advertisings en home: ', advertisings);
+  // console.log('advertisings en home: ', advertisings);
   // let CatCode = categoryCodesReducer.data[0];
   let Categories = filtersReducer.categories;
   console.log('Categories: ', Categories)
   // console.log('CatCode: ', CatCode);
   let filteredAdvertisings: any[];
   if (advertisings && Categories.length === 0){
-    console.log('advertisings.length',advertisings.length)
+    // console.log('advertisings.length',advertisings.length)
     filteredAdvertisings = advertisings;
   }else if(advertisings) {
-    filteredAdvertisings = advertisings.filter(adv => adv.categoryCode == Categories)
+    filteredAdvertisings = advertisings.filter((adv:any) => 
+    (
+      Categories.includes(adv.categoryCode)
+    ))
   }
   console.log('filteredAdvertisings: ', filteredAdvertisings);
-  
-  // const cleanCategoryCode = () => {
-  //   dispatch(cleanCategoryCodes())
-  // }
 
   const cleanCategoriesFunc = () => {
     dispatch(cleanCategoriesArray())
@@ -69,8 +68,6 @@ const HomeComp = () => {
   const toggleFiltersComp = () => {
     dispatch(toggleStyle())
   }
-
-  // const 
 
   return (
     <div className={styles.main_container}>
