@@ -1,4 +1,4 @@
-// Guarda las categorías recibidas del back.
+// Guarda los atributos recibidas del back.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getAttributes } from '../actions/attributesActions';
 
@@ -15,7 +15,7 @@ const initialState: AttributesState = {
     error: null,
 };
 
-const attrubuteSlice = createSlice({
+const attributeSlice = createSlice({
     name: 'attribute',
     initialState,
     reducers: {
@@ -39,13 +39,14 @@ const attrubuteSlice = createSlice({
         (state, action: any) => {
           state.loading = false;
           state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
+          // console.log('action.payload:', action.payload);
         }
       );
     },
 });
 
-export const { cleanAttributeses } = attrubuteSlice.actions;
+export const { cleanAttributeses } = attributeSlice.actions;
 
-export default attrubuteSlice.reducer;
+export default attributeSlice.reducer;
 
 export const selectAttributes = (state: any) => state.attributes;

@@ -15,7 +15,7 @@ const MoreFiltersComp = () => {
 
   const categories = useSelector(selectCategories).data;
   
-  console.log('categories: ', categories);
+  // console.log('categories: ', categories);
 
   const mainStyles = `${styles.main_container} ${filtersStylesReducer ? styles.show : ''}`;
 
