@@ -3,7 +3,7 @@ import TagComp from '../../tagComp/TagComp';
 
 const PremiumOfferCardComp = (data: any) => {
 
-    // console.log('data en card: ', data)
+    // console.log('data en card: ', data.data.images[0].path)
 
   // const img_style = {
   //   height: '40vh', // Altura fija deseada

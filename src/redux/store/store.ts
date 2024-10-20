@@ -5,6 +5,8 @@ import messageReducer from '../slices/messageSlice'
 import userReducer from '../slices/userAuthSlice'
 import advertisingReducer from '../slices/advertisingSlice'
 import categoriesReducer from '../slices/categoriesSlice'
+import attributesReducer from '../slices/attributesSlice'
+import filtersReducer from '../slices/fltersSlice'
 import detailReducer from '../slices/detailSlice'
 
 
@@ -16,6 +18,8 @@ export const store = configureStore ({
     message: messageReducer,
     advertising: advertisingReducer,
     categories: categoriesReducer,
+    attributes: attributesReducer,
+    filters: filtersReducer,
     detail: detailReducer,
   }
 })

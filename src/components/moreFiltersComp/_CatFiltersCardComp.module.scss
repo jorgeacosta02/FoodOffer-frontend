@@ -1,0 +1,16 @@
+@use '../../styles/globals' as g;
+
+.main_container{
+    // background-color: blue;
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.main_container:hover{
+    cursor: pointer;
+}
+.selected{
+    background-color: green;
+    color: white;
+}

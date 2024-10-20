@@ -1,41 +1,41 @@
-// Recibe todos los avisos activos para ese día.
+// Guarda las categorías recibidas del back.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getAllAdvertising } from '../actions/advertisingActions';
+import { getAttributes } from '../actions/attributesActions';
 
 
-interface AdvertisingState {
+interface AttributesState {
     data: any;
     loading: boolean;
     error: string | null;
 }
 
-const initialState: AdvertisingState = {
+const initialState: AttributesState = {
     data: null,
     loading: false,
     error: null,
 };
 
-const advertisingSlice = createSlice({
-    name: 'advertising',
+const attrubuteSlice = createSlice({
+    name: 'attribute',
     initialState,
     reducers: {
-      cleanAdvertisings : (state) => {
+      cleanAttributeses : (state) => {
         state.data = null
       }
     },
     extraReducers: (builder) => {
       builder
-      .addCase(getAllAdvertising.pending, (state) => {
+      .addCase(getAttributes.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getAllAdvertising.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(getAttributes.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
         // console.log('action.payload:', action.payload);
         state.data = action.payload;
         // console.log('state.data en la slice: ', state.data)
       })
-      .addCase(getAllAdvertising.rejected,
+      .addCase(getAttributes.rejected,
         (state, action: any) => {
           state.loading = false;
           state.error = action.payload || 'Error desconocido en la solicitud de inicio de sesión';
@@ -44,8 +44,8 @@ const advertisingSlice = createSlice({
     },
 });
 
-export const { cleanAdvertisings } = advertisingSlice.actions;
+export const { cleanAttributeses } = attrubuteSlice.actions;
 
-export default advertisingSlice.reducer;
+export default attrubuteSlice.reducer;
 
-export const selectAdvertisings = (state: any) => state.advertising;
+export const selectAttributes = (state: any) => state.attributes;

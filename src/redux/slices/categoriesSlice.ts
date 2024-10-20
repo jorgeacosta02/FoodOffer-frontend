@@ -1,3 +1,4 @@
+// Guarda las categorías recibidas del back.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getCategories } from '../actions/categoryActions';
 
@@ -30,9 +31,9 @@ const categorySlice = createSlice({
       })
       .addCase(getCategories.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        console.log('action.payload:', action.payload);
+        // console.log('action.payload:', action.payload);
         state.data = action.payload;
-        console.log('state.data en la slice: ', state.data)
+        // console.log('state.data en la slice: ', state.data)
       })
       .addCase(getCategories.rejected,
         (state, action: any) => {
