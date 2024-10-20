@@ -15,7 +15,7 @@ const CatFiltersCardComp = (props:any) => {
   }
 
   const includedInCategories = filtersReducer.includes(props.data.code);
-  console.log('includedInCategories: ', includedInCategories)
+  // console.log('includedInCategories: ', includedInCategories)
   const cardStyles = `${styles.main_container} ${includedInCategories ? styles.selected : ''}`;
 
   return (
