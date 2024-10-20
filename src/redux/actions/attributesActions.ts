@@ -6,7 +6,7 @@ export const getAttributes: any = createAsyncThunk(
   'GetAttributes', 
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get<any>(`/category/getAttributes?type=1`);
+      const response = await axios.get<any>(`/category/getAttibutes?type=1`);
       const data = response.data;
       return data;
     } catch (error: any) {

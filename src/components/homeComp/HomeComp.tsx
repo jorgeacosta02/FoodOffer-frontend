@@ -31,7 +31,7 @@ const HomeComp = () => {
 
   useEffect(() => {
     getCategoriesFunc();
-    getAttributes();
+    getAttributesesFunc();
     getAllAdvertisingFunc();
     return () => {
       dispatch(cleanCategories());
@@ -44,17 +44,28 @@ const HomeComp = () => {
     await dispatch(getAllAdvertising());
   }
 
+  const getAttributesesFunc = async () => {
+    await dispatch(getAttributes());
+  }
+
   const getCategoriesFunc = async () => {
     await dispatch(getCategories());
   }
   
-  console.log('attributesReducer: ',attributesReducer)
 
+  // useEffect(() => {
+  //   if (attributesReducer.data) {
+  //     console.log('attributesReducer useEffect: ', attributesReducer.data);
+  //   }
+  // }, [attributesReducer.data]); // Solo imprime cuando los datos cambian
+  
+  console.log('attributesReducer: ', attributesReducer.data);
+  
   const advertisings = advertisingReducer.data;
   // console.log('advertisings en home: ', advertisings);
   // let CatCode = categoryCodesReducer.data[0];
   let Categories = filtersReducer.categories;
-  console.log('Categories: ', Categories)
+  // console.log('Categories: ', Categories)
   // console.log('CatCode: ', CatCode);
   let filteredAdvertisings: any[];
   if (advertisings && Categories.length === 0){
@@ -66,7 +77,7 @@ const HomeComp = () => {
       Categories.includes(adv.categoryCode)
     ))
   }
-  console.log('filteredAdvertisings: ', filteredAdvertisings);
+  // console.log('filteredAdvertisings: ', filteredAdvertisings);
 
   const cleanCategoriesFunc = () => {
     dispatch(cleanCategoriesArray())

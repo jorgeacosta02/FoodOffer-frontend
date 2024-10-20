@@ -15,7 +15,7 @@ const AttFiltersCardComp = (props:any) => {
   }
 
   const includedInAttributes = filtersReducer.includes(props.data.code);
-  console.log('includedInAttributes: ', includedInAttributes)
+  // console.log('includedInAttributes: ', includedInAttributes)
   const cardStyles = `${styles.main_container} ${includedInAttributes ? styles.selected : ''}`;
 
   return (
