@@ -3,20 +3,21 @@ import { selectFilters, falseStyle } from '../../redux/slices/fltersSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { selectCategories } from '../../redux/slices/categoriesSlice';
-import CatFiltersCarComp from './MoreFiltersCardComp';
+import CatFiltersCardComp from './CatFiltersCardComp';
+import AttFiltersCardComp from './AttFiltersCardComp';
 
 
 const MoreFiltersComp = () => {
     
   const dispatch = useDispatch();
 
-  const filtersReducer: any = useSelector (selectFilters).style;
+  const filtersStylesReducer: any = useSelector (selectFilters).style;
 
   const categories = useSelector(selectCategories).data;
   
-  console.log('categories: ',categories);
+  console.log('categories: ', categories);
 
-  const mainStyles = `${styles.main_container} ${filtersReducer ? styles.show : ''}`;
+  const mainStyles = `${styles.main_container} ${filtersStylesReducer ? styles.show : ''}`;
 
   const falseFiltersStylesFunc = () => {
     dispatch(falseStyle());
@@ -59,7 +60,7 @@ const MoreFiltersComp = () => {
             {
               categories?.map((card:any) => {
                 return (
-                  <CatFiltersCarComp
+                  <CatFiltersCardComp
                     key={card.code}
                     data={card}
                   />
@@ -77,7 +78,7 @@ const MoreFiltersComp = () => {
             {
               attributes?.map((card:any) => {
                 return (
-                  <CatFiltersCarComp
+                  <AttFiltersCardComp
                     key={card.code}
                     data={card}
                   />

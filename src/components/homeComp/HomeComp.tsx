@@ -8,10 +8,12 @@ import { selectAdvertisings, cleanAdvertisings } from '../../redux/slices/advert
 import { getAllAdvertising } from '../../redux/actions/advertisingActions';
 import { selectCategories, cleanCategories } from '../../redux/slices/categoriesSlice';
 import { getCategories } from '../../redux/actions/categoryActions';
+import { selectAttributes, cleanAttributeses } from '../../redux/slices/attributesSlice';
 // import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
 import MoreFiltersComp from '../moreFiltersComp/MoreFiltersComp';
 import { selectFilters, toggleStyle, cleanCategoriesArray } from '../../redux/slices/fltersSlice';
+import { getAttributes } from '../../redux/actions/attributesActions';
 
 
 const HomeComp = () => {
@@ -21,6 +23,7 @@ const HomeComp = () => {
   const categoriesReducer = useSelector(selectCategories);
   // const categoryCodesReducer = useSelector(selectCategoryCodes);
   const filtersReducer = useSelector(selectFilters);
+  const attributesReducer = useSelector(selectAttributes);
 
   // console.log('advertisingReducer.data: ', advertisingReducer.data);
   // console.log('categoriesReducer: ', categoriesReducer);
@@ -28,10 +31,12 @@ const HomeComp = () => {
 
   useEffect(() => {
     getCategoriesFunc();
+    getAttributes();
     getAllAdvertisingFunc();
     return () => {
-      dispatch(cleanAdvertisings());
       dispatch(cleanCategories());
+      dispatch(cleanAttributeses());
+      dispatch(cleanAdvertisings());
     };
   }, [dispatch]);
 
@@ -43,6 +48,8 @@ const HomeComp = () => {
     await dispatch(getCategories());
   }
   
+  console.log('attributesReducer: ',attributesReducer)
+
   const advertisings = advertisingReducer.data;
   // console.log('advertisings en home: ', advertisings);
   // let CatCode = categoryCodesReducer.data[0];

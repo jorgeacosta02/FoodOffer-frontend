@@ -1,7 +1,6 @@
-import { toggleCategory } from '../../redux/slices/fltersSlice';
-import styles from './_MoreFiltersCardComp.module.scss'
+import styles from './_CatFiltersCardComp.module.scss'
 import { useDispatch } from 'react-redux'
-import { selectFilters } from '../../redux/slices/fltersSlice';
+import { selectFilters, toggleCategory } from '../../redux/slices/fltersSlice';
 import { useSelector } from 'react-redux';
 
 
