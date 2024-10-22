@@ -71,39 +71,79 @@ const HomeComp = () => {
 
 
 
-////////////////////////////////////////////////////////////////////
-// Filtro en cadena por categoría, agrega al filtrado los avisos que pertenecen a la categoría filtrada, y por atributo agrega los avisos que cotienen al menos un attributo seleccionado.
+  ////////////////////////////////////////////////////////////////////
+  // Filtro en cadena por categoría, agrega al filtrado los avisos que pertenecen a la categoría filtrada, y por atributo agrega los avisos que cotienen al menos un attributo seleccionado.
+
+    // Primero filtramos por categorías
+  // let catFilteredAdv: any[] = [];
+
+  // if (allAdvertisings && selectedCategories.length > 0) {
+  //   catFilteredAdv = allAdvertisings.filter((adv: any) => 
+  //     selectedCategories.includes(adv.categoryCode)
+  //   );
+  // } else {
+  //   // Si no hay categorías seleccionadas, usar todos los avisos
+  //   catFilteredAdv = allAdvertisings;
+  // }
+
+  // // Luego filtramos por atributos, si hay atributos seleccionados
+  // let attFilteredAdv: any[] = [];
+
+  // if (catFilteredAdv?.length > 0 && selectedAttributes.length > 0) {
+  //   attFilteredAdv = catFilteredAdv.filter((adv: any) => 
+  //     Array.isArray(adv.attributes) && adv.attributes.some((attr: any) => 
+  //       selectedAttributes.includes(attr.id) // Filtra por `id` de atributo
+  //     )
+  //   );
+  // } else {
+  //   // Si no hay atributos seleccionados, usar los avisos filtrados por categoría
+  //   attFilteredAdv = catFilteredAdv;
+  // }
+
+  // // `attFilteredAdv` ahora contiene los avisos filtrados por categoría y atributo
+  // let filteredAdvertisings = attFilteredAdv;
+
+  ///////////////////////////////////////////////////////
+
+
+
+
+
+  ///////////////////////////////////////////////////////
+  // Filtro en cadena por categoría, agrega al filtrado los avisos que pertenecen a la categoría filtrada, y por atributo agrega los avisos que cotienen todos los atributos seleccionados.
 
   // Primero filtramos por categorías
-let catFilteredAdv: any[] = [];
+  let catFilteredAdv: any[] = [];
 
-if (allAdvertisings && selectedCategories.length > 0) {
-  catFilteredAdv = allAdvertisings.filter((adv: any) => 
-    selectedCategories.includes(adv.categoryCode)
-  );
-} else {
-  // Si no hay categorías seleccionadas, usar todos los avisos
-  catFilteredAdv = allAdvertisings;
-}
+  if (allAdvertisings && selectedCategories.length > 0) {
+    catFilteredAdv = allAdvertisings.filter((adv: any) => 
+      selectedCategories.includes(adv.categoryCode)
+    );
+  } else {
+    // Si no hay categorías seleccionadas, usar todos los avisos
+    catFilteredAdv = allAdvertisings;
+  }
 
-// Luego filtramos por atributos, si hay atributos seleccionados
-let attFilteredAdv: any[] = [];
+  // Luego filtramos por atributos, pero esta vez verificamos que el aviso contenga todos los atributos seleccionados
+  let attFilteredAdv: any[] = [];
 
-if (catFilteredAdv?.length > 0 && selectedAttributes.length > 0) {
-  attFilteredAdv = catFilteredAdv.filter((adv: any) => 
-    Array.isArray(adv.attributes) && adv.attributes.some((attr: any) => 
-      selectedAttributes.includes(attr.id) // Filtra por `id` de atributo
-    )
-  );
-} else {
-  // Si no hay atributos seleccionados, usar los avisos filtrados por categoría
-  attFilteredAdv = catFilteredAdv;
-}
+  if (catFilteredAdv?.length > 0 && selectedAttributes.length > 0) {
+    attFilteredAdv = catFilteredAdv.filter((adv: any) => 
+      Array.isArray(adv.attributes) && 
+      // Verificamos que todos los atributos seleccionados estén presentes en los atributos del aviso
+      selectedAttributes.every((selectedAttr: number) => 
+        adv.attributes.some((attr: any) => attr.id === selectedAttr)
+      )
+    );
+  } else {
+    // Si no hay atributos seleccionados, usar los avisos filtrados por categoría
+    attFilteredAdv = catFilteredAdv;
+  }
 
-// `attFilteredAdv` ahora contiene los avisos filtrados por categoría y atributo
-let filteredAdvertisings = attFilteredAdv;
+  // `attFilteredAdv` ahora contiene los avisos filtrados por categoría y por todos los atributos seleccionados
+  let filteredAdvertisings = attFilteredAdv;
 
-///////////////////////////////////////////////////////
+
 
 
   // let catFilteredAdv: any[];
