@@ -3,6 +3,7 @@ import { selectFilters, falseStyle } from '../../redux/slices/fltersSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { selectCategories } from '../../redux/slices/categoriesSlice';
+import { selectAttributes } from '../../redux/slices/attributesSlice';
 import CatFiltersCardComp from './CatFiltersCardComp';
 import AttFiltersCardComp from './AttFiltersCardComp';
 
@@ -10,36 +11,15 @@ import AttFiltersCardComp from './AttFiltersCardComp';
 const MoreFiltersComp = () => {
     
   const dispatch = useDispatch();
-
   const filtersStylesReducer: any = useSelector (selectFilters).style;
-
   const categories = useSelector(selectCategories).data;
-  
-  // console.log('categories: ', categories);
+  const attributes = useSelector(selectAttributes).data;
 
   const mainStyles = `${styles.main_container} ${filtersStylesReducer ? styles.show : ''}`;
 
   const falseFiltersStylesFunc = () => {
     dispatch(falseStyle());
   }
-
-  const attributes = [
-    {
-      id: 1,
-      code: 1,
-      description: "Vegano"
-    },
-    {
-      id: 2,
-      code: 2,
-      description: "Vegetariano"
-    },
-    {
-      id: 3,
-      code: 3,
-      description: "Sin Gluten"
-    },
-  ]
 
 
   return (
@@ -79,7 +59,7 @@ const MoreFiltersComp = () => {
               attributes?.map((card:any) => {
                 return (
                   <AttFiltersCardComp
-                    key={card.code}
+                    key={card.id}
                     data={card}
                   />
               )})

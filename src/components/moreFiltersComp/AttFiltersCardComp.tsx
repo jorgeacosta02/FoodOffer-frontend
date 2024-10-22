@@ -11,10 +11,10 @@ const AttFiltersCardComp = (props:any) => {
   const filtersReducer = useSelector(selectFilters).attributes;
 
   const addNewAttToFilterFunc = () => {
-    dispatch(toggleAttributes(props.data.code))
+    dispatch(toggleAttributes(props.data.id))
   }
 
-  const includedInAttributes = filtersReducer.includes(props.data.code);
+  const includedInAttributes = filtersReducer.includes(props.data.id);
   // console.log('includedInAttributes: ', includedInAttributes)
   const cardStyles = `${styles.main_container} ${includedInAttributes ? styles.selected : ''}`;
 

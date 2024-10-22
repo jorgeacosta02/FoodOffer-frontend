@@ -7,7 +7,7 @@ import OfferCardComp from '../offerCardComp/OfferCardComp';
 import { Link } from 'react-router-dom';
 
 const OfferListComp = (props: any) => {
-  // console.log('props.data: ', props.data)
+  console.log('props.data: ', props.data)
   const [viewList, setViewList] = useState(false);
 
   // Función para cambiar el valor de viewList

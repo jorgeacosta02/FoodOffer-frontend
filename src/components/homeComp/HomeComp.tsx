@@ -61,22 +61,86 @@ const HomeComp = () => {
   
   console.log('attributesReducer: ', attributesReducer.data);
   
-  const advertisings = advertisingReducer.data;
+  const allAdvertisings = advertisingReducer.data;
   // console.log('advertisings en home: ', advertisings);
   // let CatCode = categoryCodesReducer.data[0];
-  let Categories = filtersReducer.categories;
+  let selectedCategories = filtersReducer.categories;
+  let selectedAttributes = filtersReducer.attributes;
   // console.log('Categories: ', Categories)
   // console.log('CatCode: ', CatCode);
-  let filteredAdvertisings: any[];
-  if (advertisings && Categories.length === 0){
-    // console.log('advertisings.length',advertisings.length)
-    filteredAdvertisings = advertisings;
-  }else if(advertisings) {
-    filteredAdvertisings = advertisings.filter((adv:any) => 
-    (
-      Categories.includes(adv.categoryCode)
-    ))
-  }
+
+
+
+////////////////////////////////////////////////////////////////////
+// Filtro en cadena por categoría, agrega al filtrado los avisos que pertenecen a la categoría filtrada, y por atributo agrega los avisos que cotienen al menos un attributo seleccionado.
+
+  // Primero filtramos por categorías
+let catFilteredAdv: any[] = [];
+
+if (allAdvertisings && selectedCategories.length > 0) {
+  catFilteredAdv = allAdvertisings.filter((adv: any) => 
+    selectedCategories.includes(adv.categoryCode)
+  );
+} else {
+  // Si no hay categorías seleccionadas, usar todos los avisos
+  catFilteredAdv = allAdvertisings;
+}
+
+// Luego filtramos por atributos, si hay atributos seleccionados
+let attFilteredAdv: any[] = [];
+
+if (catFilteredAdv?.length > 0 && selectedAttributes.length > 0) {
+  attFilteredAdv = catFilteredAdv.filter((adv: any) => 
+    Array.isArray(adv.attributes) && adv.attributes.some((attr: any) => 
+      selectedAttributes.includes(attr.id) // Filtra por `id` de atributo
+    )
+  );
+} else {
+  // Si no hay atributos seleccionados, usar los avisos filtrados por categoría
+  attFilteredAdv = catFilteredAdv;
+}
+
+// `attFilteredAdv` ahora contiene los avisos filtrados por categoría y atributo
+let filteredAdvertisings = attFilteredAdv;
+
+///////////////////////////////////////////////////////
+
+
+  // let catFilteredAdv: any[];
+  // let attFilteredAdv: any[];
+  // let filteredAdvertisings: any[];
+
+  // if (allAdvertisings && selectAttributes.length > 0) {
+  //   attFilteredAdv = catFilteredAdv.filter((adv: any) => 
+  //     Array.isArray(adv.attributes) && adv.attributes.some((attr: any) => 
+  //       selectAttributes.includes(attr.id) // Compara los `id` de los atributos con los seleccionados
+  //     )
+  //   );
+  // } else {
+  //   // Si no hay atributos seleccionados, mantener los avisos filtrados por categoría
+  //   attFilteredAdv = [...catFilteredAdv];
+  // }
+  
+
+  // if (allAdvertisings && selectedCategories.length === 0){
+  //   // console.log('advertisings.length',advertisings.length)
+  //   catFilteredAdv = allAdvertisings;
+  // }else if(allAdvertisings && selectedCategories.length > 0) {
+  //   catFilteredAdv = allAdvertisings.filter((adv:any) => 
+  //   (
+  //     selectedCategories.includes(adv.categoryCode)
+  //   ))
+  // }
+
+  // if (allAdvertisings && selectedAttributes.length === 0){
+  //   // console.log('advertisings.length',advertisings.length)
+  //   attFilteredAdv = catFilteredAdv;
+  // }else if(allAdvertisings && selectAttributes.length > 0) {
+  //   attFilteredAdv = catFilteredAdv.filter((adv:any) => 
+  //   (
+  //     selectAttributes?.includes(adv.attributes.includes())
+  //   ))
+  // }
   // console.log('filteredAdvertisings: ', filteredAdvertisings);
 
   const cleanCategoriesFunc = () => {
