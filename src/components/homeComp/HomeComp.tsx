@@ -12,7 +12,7 @@ import { selectAttributes, cleanAttributeses } from '../../redux/slices/attribut
 // import { selectCategoryCodes, cleanCategoryCodes } from '../../redux/slices/categoryCodesSlice';
 import BackButtonComp from "../backButtonComp/BackButtonComp";
 import MoreFiltersComp from '../moreFiltersComp/MoreFiltersComp';
-import { selectFilters, toggleStyle, cleanCategoriesArray } from '../../redux/slices/fltersSlice';
+import { selectFilters, toggleStyle, cleanAllFilters } from '../../redux/slices/fltersSlice';
 import { getAttributes } from '../../redux/actions/attributesActions';
 
 
@@ -21,13 +21,9 @@ const HomeComp = () => {
   const dispatch = useDispatch();
   const advertisingReducer = useSelector(selectAdvertisings);
   const categoriesReducer = useSelector(selectCategories);
-  // const categoryCodesReducer = useSelector(selectCategoryCodes);
   const filtersReducer = useSelector(selectFilters);
   const attributesReducer = useSelector(selectAttributes);
 
-  // console.log('advertisingReducer.data: ', advertisingReducer.data);
-  // console.log('categoriesReducer: ', categoriesReducer);
-  // console.log('categoryCodesReducer en home: ', categoryCodesReducer?.data);
 
   useEffect(() => {
     getCategoriesFunc();
@@ -62,10 +58,11 @@ const HomeComp = () => {
   console.log('attributesReducer: ', attributesReducer.data);
   
   const allAdvertisings = advertisingReducer.data;
-  // console.log('advertisings en home: ', advertisings);
-  // let CatCode = categoryCodesReducer.data[0];
   let selectedCategories = filtersReducer.categories;
   let selectedAttributes = filtersReducer.attributes;
+  let selectedMinPrice = filtersReducer.minPrice;
+  let selectedMaxPrice = filtersReducer.maxPrice;
+  
   // console.log('Categories: ', Categories)
   // console.log('CatCode: ', CatCode);
 
@@ -140,8 +137,29 @@ const HomeComp = () => {
     attFilteredAdv = catFilteredAdv;
   }
 
+  // Filtramos por menor precio.
+  let minPriceFilteredAdv: any[] = [];
+
+  if (attFilteredAdv) {
+    minPriceFilteredAdv = attFilteredAdv.filter((adv:any) => adv.price >= selectedMinPrice);
+  }
+
+  // Filtramos por mayor precio.
+  let maxPriceFilteredAdv: any[] = [];
+
+  if ( minPriceFilteredAdv && selectedMaxPrice === 0) {
+    maxPriceFilteredAdv = minPriceFilteredAdv
+  } else if ( minPriceFilteredAdv ) {
+    maxPriceFilteredAdv = minPriceFilteredAdv.filter((adv:any) => adv.price <= selectedMaxPrice);
+  }
+
+
+
+  console.log('min: ', selectedMinPrice)
+  console.log('max: ', selectedMaxPrice)
+  
   // `attFilteredAdv` ahora contiene los avisos filtrados por categoría y por todos los atributos seleccionados
-  let filteredAdvertisings = attFilteredAdv;
+  let filteredAdvertisings = maxPriceFilteredAdv;
 
 
 
@@ -183,8 +201,8 @@ const HomeComp = () => {
   // }
   // console.log('filteredAdvertisings: ', filteredAdvertisings);
 
-  const cleanCategoriesFunc = () => {
-    dispatch(cleanCategoriesArray())
+  const cleanAllFiltersFunc = () => {
+    dispatch(cleanAllFilters())
   }
 
   const toggleFiltersComp = () => {
@@ -230,7 +248,7 @@ const HomeComp = () => {
           className={styles.button_container}
         >
 
-          <button onClick={cleanCategoriesFunc}
+          <button onClick={cleanAllFiltersFunc}
             className={styles.all_button}
             >
             <p>

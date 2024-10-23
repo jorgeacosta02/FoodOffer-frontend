@@ -15,7 +15,7 @@ const initialState: FilterState = {
   categories: [],
   attributes: [],
   minPrice: 0,
-  // maxPrice: 0,
+  maxPrice: 0,
   locations: [],
 };
   
@@ -58,10 +58,24 @@ const filterSlice = createSlice({
     //   }
     // },
     setMinPrice: (state, action: PayloadAction<number|null>) => {
-      state.minPrice = action.payload;
+      if(typeof(action.payload) !== "number"){
+        state.minPrice = 0;
+      }else{
+        state.minPrice = action.payload;
+      }
     },
     setMaxPrice: (state, action: PayloadAction<number|null>) => {
-      state.maxPrice = action.payload;
+      if(typeof(action.payload) !== "number"){
+        state.maxPrice = 0;
+      }else{
+        state.maxPrice = action.payload;
+      }
+    },
+    cleanAllFilters: (state) => {
+      state.categories = [];  // Limpia el array
+      state.attributes = [];
+      state.minPrice = 0;
+      state.maxPrice = 0;
     },
   },
 });
@@ -76,6 +90,7 @@ export const {
   // toggleLocation, 
   setMinPrice,
   setMaxPrice,
+  cleanAllFilters,
 } = filterSlice.actions;
 
 export const selectFilters = ( state:any ) => state.filters
