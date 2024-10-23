@@ -5,7 +5,8 @@ interface FilterState {
   style: boolean;
   categories: number[];
   attributes: string[];
-  priceRange: [number, number];
+  minPrice: number|null;
+  maxPrice: number|null;
   locations: string[];
 }
   
@@ -13,7 +14,8 @@ const initialState: FilterState = {
   style: false,
   categories: [],
   attributes: [],
-  priceRange: [0, 100],
+  minPrice: 0,
+  // maxPrice: 0,
   locations: [],
 };
   
@@ -48,15 +50,18 @@ const filterSlice = createSlice({
         state.attributes.push(action.payload);
       }
     },
-    toggleLocation: (state, action: PayloadAction<string>) => {
-      if (state.locations.includes(action.payload)) {
-        state.locations = state.locations.filter(location => location !== action.payload);
-      } else {
-        state.locations.push(action.payload);
-      }
+    // toggleLocation: (state, action: PayloadAction<string>) => {
+    //   if (state.locations.includes(action.payload)) {
+    //     state.locations = state.locations.filter(location => location !== action.payload);
+    //   } else {
+    //     state.locations.push(action.payload);
+    //   }
+    // },
+    setMinPrice: (state, action: PayloadAction<number|null>) => {
+      state.minPrice = action.payload;
     },
-    setPriceRange: (state, action: PayloadAction<[number, number]>) => {
-      state.priceRange = action.payload;
+    setMaxPrice: (state, action: PayloadAction<number|null>) => {
+      state.maxPrice = action.payload;
     },
   },
 });
@@ -68,8 +73,9 @@ export const {
   falseStyle,
   toggleCategory, 
   toggleAttributes, 
-  toggleLocation, 
-  setPriceRange 
+  // toggleLocation, 
+  setMinPrice,
+  setMaxPrice,
 } = filterSlice.actions;
 
 export const selectFilters = ( state:any ) => state.filters

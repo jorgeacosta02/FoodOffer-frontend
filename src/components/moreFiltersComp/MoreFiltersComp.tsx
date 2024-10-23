@@ -6,6 +6,7 @@ import { selectCategories } from '../../redux/slices/categoriesSlice';
 import { selectAttributes } from '../../redux/slices/attributesSlice';
 import CatFiltersCardComp from './CatFiltersCardComp';
 import AttFiltersCardComp from './AttFiltersCardComp';
+import PriceFiltersComp from './PriceFiltersComp copy';
 
 
 const MoreFiltersComp = () => {
@@ -14,6 +15,11 @@ const MoreFiltersComp = () => {
   const filtersStylesReducer: any = useSelector (selectFilters).style;
   const categories = useSelector(selectCategories).data;
   const attributes = useSelector(selectAttributes).data;
+  const minPrice = useSelector(selectFilters).minPrice;
+  const maxPrice = useSelector(selectFilters).maxPrice;
+
+  console.log('minPrice: ', minPrice)
+  console.log('maxPrice: ', maxPrice)
 
   const mainStyles = `${styles.main_container} ${filtersStylesReducer ? styles.show : ''}`;
 
@@ -64,6 +70,16 @@ const MoreFiltersComp = () => {
                   />
               )})
             }
+          </div>
+        </div>
+        <div
+          className={styles.block}
+        >
+          <h5>
+            Rango de precios
+          </h5>
+          <div>
+            <PriceFiltersComp/>
           </div>
         </div>
       </div>
