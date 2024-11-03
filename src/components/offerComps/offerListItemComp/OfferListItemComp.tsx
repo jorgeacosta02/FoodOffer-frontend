@@ -2,12 +2,27 @@ import { faCrown } from '@fortawesome/free-solid-svg-icons';
 import styles from './_OfferListItemComp.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TagComp from '../../tagComp/TagComp';
+import { toggleFavorites } from '../../../redux/slices/favoritesSlice';
+import { useDispatch } from 'react-redux';
+
 
 const OfferListItemComp = (data: any) => {
+  // console.log('datasss:', data.data.id)
+
+  const dispatch = useDispatch();
+
+  const toggleFavoritesHandler = () => {
+    dispatch(toggleFavorites(data.data.id))
+  }
 
   return (
     <div className={styles.list_item_box}>
       <div className={styles.list_item_left}>
+        <button
+          onClick={toggleFavoritesHandler}
+        >
+          Favorito
+        </button>
         <img 
           src={data.data.images[0].path}
           alt="Imagen de la oferta"

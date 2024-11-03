@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FavoritesState {
   style: boolean;
-  favorites: number[];
+  favorites: string[];
 }
   
 const initialState: FavoritesState = {
@@ -21,16 +21,16 @@ const favoritesSlice = createSlice({
     falseStyle: (state) => {
         state.style = false
     },
-
     cleanFavoritesArray: (state) => {
       state.favorites = [];  // Limpia el array de favoritos
     },
-    toggleFavorites: (state, action: PayloadAction<number>) => {
+    toggleFavorites: (state, action: PayloadAction<string>) => {
       if (state.favorites.includes(action.payload)) {
-        state.favorites = state.favorites.filter((category:any) => category !== action.payload);
+        state.favorites = state.favorites.filter((favorite:any) => favorite !== action.payload);
       } else {
         state.favorites.push(action.payload);
       }
+      console.log('favorites: ', state.favorites)
     },
   },
 });
