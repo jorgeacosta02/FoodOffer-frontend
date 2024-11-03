@@ -137,14 +137,14 @@ const HomeComp = () => {
     attFilteredAdv = catFilteredAdv;
   }
 
-  // Filtramos por menor precio.
+  // Filtramos por precio mínimo.
   let minPriceFilteredAdv: any[] = [];
 
   if (attFilteredAdv) {
     minPriceFilteredAdv = attFilteredAdv.filter((adv:any) => adv.price >= selectedMinPrice);
   }
 
-  // Filtramos por mayor precio.
+  // Filtramos por precio máximo.
   let maxPriceFilteredAdv: any[] = [];
 
   if ( minPriceFilteredAdv && selectedMaxPrice === 0) {
@@ -161,45 +161,6 @@ const HomeComp = () => {
   // `attFilteredAdv` ahora contiene los avisos filtrados por categoría y por todos los atributos seleccionados
   let filteredAdvertisings = maxPriceFilteredAdv;
 
-
-
-
-  // let catFilteredAdv: any[];
-  // let attFilteredAdv: any[];
-  // let filteredAdvertisings: any[];
-
-  // if (allAdvertisings && selectAttributes.length > 0) {
-  //   attFilteredAdv = catFilteredAdv.filter((adv: any) => 
-  //     Array.isArray(adv.attributes) && adv.attributes.some((attr: any) => 
-  //       selectAttributes.includes(attr.id) // Compara los `id` de los atributos con los seleccionados
-  //     )
-  //   );
-  // } else {
-  //   // Si no hay atributos seleccionados, mantener los avisos filtrados por categoría
-  //   attFilteredAdv = [...catFilteredAdv];
-  // }
-  
-
-  // if (allAdvertisings && selectedCategories.length === 0){
-  //   // console.log('advertisings.length',advertisings.length)
-  //   catFilteredAdv = allAdvertisings;
-  // }else if(allAdvertisings && selectedCategories.length > 0) {
-  //   catFilteredAdv = allAdvertisings.filter((adv:any) => 
-  //   (
-  //     selectedCategories.includes(adv.categoryCode)
-  //   ))
-  // }
-
-  // if (allAdvertisings && selectedAttributes.length === 0){
-  //   // console.log('advertisings.length',advertisings.length)
-  //   attFilteredAdv = catFilteredAdv;
-  // }else if(allAdvertisings && selectAttributes.length > 0) {
-  //   attFilteredAdv = catFilteredAdv.filter((adv:any) => 
-  //   (
-  //     selectAttributes?.includes(adv.attributes.includes())
-  //   ))
-  // }
-  // console.log('filteredAdvertisings: ', filteredAdvertisings);
 
   const cleanAllFiltersFunc = () => {
     dispatch(cleanAllFilters())
@@ -241,6 +202,13 @@ const HomeComp = () => {
           >
             <p>
               Más filtros
+            </p>
+          </button>
+          <button 
+            className={styles.all_button}
+          >
+            <p>
+             Ver mis Favoritos
             </p>
           </button>
         </div>

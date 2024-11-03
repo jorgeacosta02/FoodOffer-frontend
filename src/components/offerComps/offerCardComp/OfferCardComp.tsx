@@ -21,25 +21,29 @@ const OfferCardComp = (data: any) => {
         <span><FontAwesomeIcon icon={faCrown} className="crown-icon" /> Destacado</span>
         </div> */}
         <div style={img_style} className={styles.card_item_image}/>
-        <h6 className={styles.card_item_title}>{data.data.title}</h6>
+        <h6 
+          className={styles.card_item_title}
+        >
+          {data.data.title}
+        </h6>
         <div className={styles.card_item_bottom}>
           <div className={styles.card_logo}>
             L
           </div>
-        <div className={styles.card_item_title_container}>
-          <span className={styles.res_name}>
-            {data.data.commerce.name}
-          </span>
-        </div>
+          <div className={styles.card_item_title_container}>
+            <span className={styles.res_name}>
+              {data.data.commerce.name}
+            </span>
+          </div>
         </div>
         <div className={styles.card_item_desc}>
-        <div className={styles.card_attr_container}>
-          {data.data.attributes.map((tag_data:any) => (
-            <div key={tag_data.id}>
-              <TagComp data={tag_data}></TagComp>
-            </div>
-          ))}
-        </div>
+          <div className={styles.card_attr_container}>
+            {data.data.attributes.map((tag_data:any) => (
+              <div key={tag_data.id}>
+                <TagComp data={tag_data}></TagComp>
+              </div>
+            ))}
+          </div>
           <h6 className={styles.card_item_price}>${data.data.price}</h6>
         </div>
       </div>

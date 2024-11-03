@@ -7,7 +7,9 @@ import advertisingReducer from '../slices/advertisingSlice'
 import categoriesReducer from '../slices/categoriesSlice'
 import attributesReducer from '../slices/attributesSlice'
 import filtersReducer from '../slices/fltersSlice'
+import farovitesReducer from '../slices/favoritesSlice'
 import detailReducer from '../slices/detailSlice'
+
 
 
 export const store = configureStore ({
@@ -20,6 +22,7 @@ export const store = configureStore ({
     categories: categoriesReducer,
     attributes: attributesReducer,
     filters: filtersReducer,
+    favorites: farovitesReducer,
     detail: detailReducer,
   }
 })
