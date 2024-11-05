@@ -5,7 +5,7 @@ import TagComp from '../../tagComp/TagComp';
 
 const OfferCardComp = (data: any) => {
 
-  console.log('data.data.images: ', data.data.images)
+  // console.log('data.data.images: ', data.data.images)
 
   const img_style = {
     height: '300px', // Altura fija deseada

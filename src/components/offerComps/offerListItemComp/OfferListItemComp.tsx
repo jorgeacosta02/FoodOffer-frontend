@@ -11,18 +11,19 @@ const OfferListItemComp = (data: any) => {
 
   const dispatch = useDispatch();
 
-  const toggleFavoritesHandler = () => {
-    dispatch(toggleFavorites(data.data.id))
+  const toggleFavoritesHandler = (id:string) => {
+    console.log('id:', id)
+    dispatch(toggleFavorites(id))
   }
 
   return (
     <div className={styles.list_item_box}>
       <div className={styles.list_item_left}>
-        <button
-          onClick={toggleFavoritesHandler}
+        {/* <button
+          onClick={() => toggleFavoritesHandler(data.data.id)}
         >
           Favorito
-        </button>
+        </button> */}
         <img 
           src={data.data.images[0].path}
           alt="Imagen de la oferta"
